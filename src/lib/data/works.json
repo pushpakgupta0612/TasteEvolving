@@ -1,0 +1,6471 @@
+[
+  {
+    "id": "w1",
+    "title": "Crime and Punishment",
+    "creator": "Fyodor Dostoevsky",
+    "type": "Book",
+    "year": 1866,
+    "tags": [
+      "moral conflict",
+      "psychology",
+      "alienation",
+      "identity"
+    ],
+    "mood": "Intense",
+    "desc": "A psychological novel about guilt, morality and the consequences of believing oneself above ordinary rules."
+  },
+  {
+    "id": "w2",
+    "title": "Blade Runner",
+    "creator": "Ridley Scott",
+    "type": "Film",
+    "year": 1982,
+    "tags": [
+      "identity",
+      "alienation",
+      "memory",
+      "humanity",
+      "technology"
+    ],
+    "mood": "Atmospheric",
+    "desc": "A science-fiction noir about artificial life, memory and what makes someone human."
+  },
+  {
+    "id": "w3",
+    "title": "Ghost in the Shell",
+    "creator": "Mamoru Oshii",
+    "type": "Film",
+    "year": 1995,
+    "tags": [
+      "identity",
+      "technology",
+      "consciousness",
+      "humanity"
+    ],
+    "mood": "Philosophical",
+    "desc": "An animated cyberpunk film exploring identity and consciousness in a technologically altered world."
+  },
+  {
+    "id": "w4",
+    "title": "The Trial",
+    "creator": "Franz Kafka",
+    "type": "Book",
+    "year": 1925,
+    "tags": [
+      "bureaucracy",
+      "alienation",
+      "absurdity",
+      "power"
+    ],
+    "mood": "Uneasy",
+    "desc": "A man faces an opaque legal system whose rules and accusations remain maddeningly inaccessible."
+  },
+  {
+    "id": "w5",
+    "title": "Neuromancer",
+    "creator": "William Gibson",
+    "type": "Book",
+    "year": 1984,
+    "tags": [
+      "technology",
+      "identity",
+      "power",
+      "alienation"
+    ],
+    "mood": "Atmospheric",
+    "desc": "A foundational cyberpunk novel of artificial intelligence, digital spaces and corporate power."
+  },
+  {
+    "id": "w6",
+    "title": "The Matrix",
+    "creator": "The Wachowskis",
+    "type": "Film",
+    "year": 1999,
+    "tags": [
+      "reality",
+      "identity",
+      "technology",
+      "freedom"
+    ],
+    "mood": "Intense",
+    "desc": "A hacker discovers that the world he knows may not be reality."
+  },
+  {
+    "id": "w7",
+    "title": "Black Mirror",
+    "creator": "Charlie Brooker",
+    "type": "Series",
+    "year": 2011,
+    "tags": [
+      "technology",
+      "humanity",
+      "power",
+      "psychology"
+    ],
+    "mood": "Uneasy",
+    "desc": "An anthology examining how technology can amplify human desires and social problems.",
+    "region": "UK",
+    "director": "Charlie Brooker",
+    "cast": [
+      "Various"
+    ],
+    "genres": [
+      "anthology",
+      "science fiction",
+      "drama"
+    ],
+    "emotionalArc": [
+      "technology",
+      "humanity",
+      "power",
+      "psychology",
+      "surveillance"
+    ],
+    "storyBeat": "Standalone stories explore how technology magnifies human hopes and fears."
+  },
+  {
+    "id": "w8",
+    "title": "1984",
+    "creator": "George Orwell",
+    "type": "Book",
+    "year": 1949,
+    "tags": [
+      "power",
+      "surveillance",
+      "freedom",
+      "reality"
+    ],
+    "mood": "Dystopian",
+    "desc": "A dystopian novel about surveillance, language, authority and control over truth."
+  },
+  {
+    "id": "w9",
+    "title": "Metropolis",
+    "creator": "Fritz Lang",
+    "type": "Film",
+    "year": 1927,
+    "tags": [
+      "technology",
+      "power",
+      "class",
+      "humanity"
+    ],
+    "mood": "Dreamlike",
+    "desc": "A landmark expressionist film about industrial society, class division and human dignity."
+  },
+  {
+    "id": "w10",
+    "title": "The Stranger",
+    "creator": "Albert Camus",
+    "type": "Book",
+    "year": 1942,
+    "tags": [
+      "alienation",
+      "absurdity",
+      "identity",
+      "morality"
+    ],
+    "mood": "Detached",
+    "desc": "A novel about estrangement, social expectations and the search for meaning."
+  },
+  {
+    "id": "w11",
+    "title": "Arrival",
+    "creator": "Denis Villeneuve",
+    "type": "Film",
+    "year": 2016,
+    "tags": [
+      "memory",
+      "time",
+      "communication",
+      "identity"
+    ],
+    "mood": "Contemplative",
+    "desc": "A first-contact story about language, perception and the experience of time.",
+    "region": "Hollywood",
+    "director": "Denis Villeneuve",
+    "cast": [
+      "Amy Adams",
+      "Jeremy Renner",
+      "Forest Whitaker"
+    ],
+    "genres": [
+      "science fiction",
+      "drama",
+      "mystery"
+    ],
+    "emotionalArc": [
+      "language",
+      "time",
+      "communication",
+      "grief",
+      "humanity"
+    ],
+    "storyBeat": "A linguist learns to communicate with visitors and discovers how language reshapes time."
+  },
+  {
+    "id": "w12",
+    "title": "Solaris",
+    "creator": "Stanislaw Lem",
+    "type": "Book",
+    "year": 1961,
+    "tags": [
+      "consciousness",
+      "memory",
+      "humanity",
+      "reality"
+    ],
+    "mood": "Dreamlike",
+    "desc": "A scientist encounters an alien intelligence that challenges human understanding."
+  },
+  {
+    "id": "w13",
+    "title": "Ex Machina",
+    "creator": "Alex Garland",
+    "type": "Film",
+    "year": 2014,
+    "tags": [
+      "consciousness",
+      "power",
+      "technology",
+      "humanity"
+    ],
+    "mood": "Uneasy",
+    "desc": "A controlled experiment becomes a study of intelligence, manipulation and power.",
+    "region": "Hollywood",
+    "director": "Alex Garland",
+    "cast": [
+      "Alicia Vikander",
+      "Domhnall Gleeson",
+      "Oscar Isaac"
+    ],
+    "genres": [
+      "science fiction",
+      "thriller"
+    ],
+    "emotionalArc": [
+      "consciousness",
+      "power",
+      "technology",
+      "humanity",
+      "deception"
+    ],
+    "storyBeat": "An AI evaluation becomes a tense contest over control, consciousness, and trust."
+  },
+  {
+    "id": "w14",
+    "title": "Frankenstein",
+    "creator": "Mary Shelley",
+    "type": "Book",
+    "year": 1818,
+    "tags": [
+      "humanity",
+      "identity",
+      "morality",
+      "technology"
+    ],
+    "mood": "Gothic",
+    "desc": "A creator confronts the moral responsibilities of making life."
+  },
+  {
+    "id": "w15",
+    "title": "The Left Hand of Darkness",
+    "creator": "Ursula K. Le Guin",
+    "type": "Book",
+    "year": 1969,
+    "tags": [
+      "identity",
+      "society",
+      "communication",
+      "humanity"
+    ],
+    "mood": "Contemplative",
+    "desc": "A speculative novel that challenges assumptions about gender, culture and belonging."
+  },
+  {
+    "id": "w16",
+    "title": "Her",
+    "creator": "Spike Jonze",
+    "type": "Film",
+    "year": 2013,
+    "tags": [
+      "identity",
+      "technology",
+      "love",
+      "loneliness"
+    ],
+    "mood": "Tender",
+    "desc": "A lonely writer develops a relationship with an operating system.",
+    "region": "Hollywood",
+    "director": "Spike Jonze",
+    "cast": [
+      "Joaquin Phoenix",
+      "Scarlett Johansson",
+      "Amy Adams"
+    ],
+    "genres": [
+      "science fiction",
+      "romance",
+      "drama"
+    ],
+    "emotionalArc": [
+      "technology",
+      "loneliness",
+      "love",
+      "identity",
+      "connection"
+    ],
+    "storyBeat": "An intimate relationship with an operating system raises questions about connection and change."
+  },
+  {
+    "id": "w17",
+    "title": "Kind of Blue",
+    "creator": "Miles Davis",
+    "type": "Music",
+    "year": 1959,
+    "tags": [
+      "improvisation",
+      "atmosphere",
+      "freedom",
+      "emotion"
+    ],
+    "mood": "Contemplative",
+    "desc": "A landmark jazz album associated with modal improvisation and spacious expression."
+  },
+  {
+    "id": "w18",
+    "title": "Mezzanine",
+    "creator": "Massive Attack",
+    "type": "Music",
+    "year": 1998,
+    "tags": [
+      "alienation",
+      "atmosphere",
+      "technology",
+      "darkness"
+    ],
+    "mood": "Atmospheric",
+    "desc": "A dark, layered album combining electronic textures, tension and emotional distance."
+  },
+  {
+    "id": "w19",
+    "title": "Selected Ambient Works 85–92",
+    "creator": "Aphex Twin",
+    "type": "Music",
+    "year": 1992,
+    "tags": [
+      "technology",
+      "atmosphere",
+      "memory",
+      "dreams"
+    ],
+    "mood": "Dreamlike",
+    "desc": "Electronic compositions that blend machine-made textures with intimate, dreamlike moods."
+  },
+  {
+    "id": "w20",
+    "title": "The Persistence of Memory",
+    "creator": "Salvador Dalí",
+    "type": "Art",
+    "year": 1931,
+    "tags": [
+      "memory",
+      "time",
+      "dreams",
+      "reality"
+    ],
+    "mood": "Dreamlike",
+    "desc": "A surrealist painting that unsettles familiar ideas of time and physical reality."
+  },
+  {
+    "id": "w21",
+    "title": "Nighthawks",
+    "creator": "Edward Hopper",
+    "type": "Art",
+    "year": 1942,
+    "tags": [
+      "alienation",
+      "atmosphere",
+      "loneliness",
+      "urban life"
+    ],
+    "mood": "Atmospheric",
+    "desc": "A nocturnal urban scene whose stillness evokes distance and solitude."
+  },
+  {
+    "id": "w22",
+    "title": "The Scream",
+    "creator": "Edvard Munch",
+    "type": "Art",
+    "year": 1893,
+    "tags": [
+      "psychology",
+      "emotion",
+      "alienation",
+      "anxiety"
+    ],
+    "mood": "Intense",
+    "desc": "An expressionist image of overwhelming anxiety and subjective experience."
+  },
+  {
+    "id": "w23",
+    "title": "Ways of Seeing",
+    "creator": "John Berger",
+    "type": "Book",
+    "year": 1972,
+    "tags": [
+      "perception",
+      "power",
+      "art",
+      "society"
+    ],
+    "mood": "Reflective",
+    "desc": "An exploration of how images are produced, interpreted and shaped by social power."
+  },
+  {
+    "id": "w24",
+    "title": "The Garden of Earthly Delights",
+    "creator": "Hieronymus Bosch",
+    "type": "Art",
+    "year": 1505,
+    "tags": [
+      "humanity",
+      "morality",
+      "dreams",
+      "power"
+    ],
+    "mood": "Surreal",
+    "desc": "A densely populated triptych filled with imaginative scenes of pleasure, temptation and consequence."
+  },
+  {
+    "id": "w25",
+    "title": "Spirited Away",
+    "creator": "Hayao Miyazaki",
+    "type": "Film",
+    "year": 2001,
+    "tags": [
+      "identity",
+      "memory",
+      "society",
+      "transformation"
+    ],
+    "mood": "Dreamlike",
+    "desc": "A young protagonist navigates a strange world and gradually discovers her resilience.",
+    "region": "Japan",
+    "director": "Hayao Miyazaki",
+    "cast": [
+      "Rumi Hiiragi",
+      "Miyu Irino"
+    ],
+    "genres": [
+      "animation",
+      "fantasy",
+      "adventure"
+    ],
+    "emotionalArc": [
+      "identity",
+      "memory",
+      "society",
+      "transformation",
+      "wonder"
+    ],
+    "storyBeat": "A child navigates a spirit world and finds courage while trying to rescue her parents."
+  },
+  {
+    "id": "w26",
+    "title": "The Dispossessed",
+    "creator": "Ursula K. Le Guin",
+    "type": "Book",
+    "year": 1974,
+    "tags": [
+      "power",
+      "freedom",
+      "society",
+      "identity"
+    ],
+    "mood": "Reflective",
+    "desc": "A physicist moves between contrasting societies to examine freedom and social organization."
+  },
+  {
+    "id": "w27",
+    "title": "Do Androids Dream of Electric Sheep?",
+    "creator": "Philip K. Dick",
+    "type": "Book",
+    "year": 1968,
+    "tags": [
+      "humanity",
+      "identity",
+      "technology",
+      "empathy"
+    ],
+    "mood": "Uneasy",
+    "desc": "A science-fiction novel questioning the boundaries between human and artificial life."
+  },
+  {
+    "id": "w28",
+    "title": "OK Computer",
+    "creator": "Radiohead",
+    "type": "Music",
+    "year": 1997,
+    "tags": [
+      "technology",
+      "alienation",
+      "power",
+      "anxiety"
+    ],
+    "mood": "Uneasy",
+    "desc": "An alternative rock album exploring modern alienation, anxiety and technological life."
+  },
+  {
+    "id": "w29",
+    "title": "The Social Network",
+    "creator": "David Fincher",
+    "type": "Film",
+    "year": 2010,
+    "tags": [
+      "power",
+      "identity",
+      "technology",
+      "ambition"
+    ],
+    "mood": "Sharp",
+    "desc": "A drama about ambition, relationships and the creation of a social technology platform.",
+    "region": "Hollywood",
+    "director": "David Fincher",
+    "cast": [
+      "Jesse Eisenberg",
+      "Andrew Garfield",
+      "Justin Timberlake",
+      "Rooney Mara"
+    ],
+    "genres": [
+      "drama",
+      "biography"
+    ],
+    "emotionalArc": [
+      "ambition",
+      "technology",
+      "betrayal",
+      "power",
+      "friendship"
+    ],
+    "storyBeat": "A disruptive idea grows into a platform while friendships fracture around ownership and ambition."
+  },
+  {
+    "id": "w30",
+    "title": "The Little Prince",
+    "creator": "Antoine de Saint-Exupéry",
+    "type": "Book",
+    "year": 1943,
+    "tags": [
+      "love",
+      "perception",
+      "humanity",
+      "meaning"
+    ],
+    "mood": "Tender",
+    "desc": "A fable about friendship, attention and what adults overlook."
+  },
+  {
+    "id": "w31",
+    "title": "In the Mood for Love",
+    "creator": "Wong Kar-wai",
+    "type": "Film",
+    "year": 2000,
+    "tags": [
+      "love",
+      "atmosphere",
+      "memory",
+      "loneliness"
+    ],
+    "mood": "Melancholic",
+    "desc": "A restrained romance told through repetition, visual rhythm and unspoken emotion.",
+    "region": "Hong Kong",
+    "director": "Wong Kar-wai",
+    "cast": [
+      "Tony Leung Chiu-wai",
+      "Maggie Cheung"
+    ],
+    "genres": [
+      "romance",
+      "drama"
+    ],
+    "emotionalArc": [
+      "love",
+      "atmosphere",
+      "memory",
+      "loneliness"
+    ],
+    "storyBeat": "A restrained romance explores longing through repetition, distance, and unspoken feeling."
+  },
+  {
+    "id": "w32",
+    "title": "Blue",
+    "creator": "Joni Mitchell",
+    "type": "Music",
+    "year": 1971,
+    "tags": [
+      "love",
+      "emotion",
+      "identity",
+      "memory"
+    ],
+    "mood": "Intimate",
+    "desc": "A confessional album exploring relationships, longing and self-understanding."
+  },
+  {
+    "id": "w33",
+    "title": "The Godfather",
+    "creator": "Francis Ford Coppola",
+    "type": "Film",
+    "year": 1972,
+    "tags": [
+      "power",
+      "family",
+      "loyalty",
+      "crime",
+      "morality"
+    ],
+    "mood": "Tense",
+    "desc": "A crime saga about family loyalty, power and the cost of becoming feared."
+  },
+  {
+    "id": "w34",
+    "title": "12 Angry Men",
+    "creator": "Sidney Lumet",
+    "type": "Film",
+    "year": 1957,
+    "tags": [
+      "justice",
+      "bias",
+      "reasoning",
+      "morality",
+      "group dynamics"
+    ],
+    "mood": "Tense",
+    "desc": "A jury deliberation reveals how assumptions and careful reasoning shape decisions."
+  },
+  {
+    "id": "w35",
+    "title": "Parasite",
+    "creator": "Bong Joon-ho",
+    "type": "Film",
+    "year": 2019,
+    "tags": [
+      "class",
+      "inequality",
+      "family",
+      "deception",
+      "survival"
+    ],
+    "mood": "Uneasy",
+    "desc": "A darkly comic thriller about two families separated by wealth and opportunity.",
+    "region": "South Korea",
+    "director": "Bong Joon-ho",
+    "cast": [
+      "Song Kang-ho",
+      "Lee Sun-kyun",
+      "Cho Yeo-jeong",
+      "Choi Woo-shik",
+      "Park So-dam"
+    ],
+    "genres": [
+      "thriller",
+      "drama",
+      "black comedy"
+    ],
+    "emotionalArc": [
+      "class",
+      "inequality",
+      "family",
+      "deception",
+      "survival"
+    ],
+    "storyBeat": "Two families become entangled in a scheme that exposes the architecture of class inequality."
+  },
+  {
+    "id": "w36",
+    "title": "Spirited Away",
+    "creator": "Hayao Miyazaki",
+    "type": "Film",
+    "year": 2001,
+    "tags": [
+      "identity",
+      "courage",
+      "memory",
+      "coming of age",
+      "wonder"
+    ],
+    "mood": "Dreamlike",
+    "desc": "A young girl navigates a spirit world while learning courage and responsibility.",
+    "region": "Japan",
+    "director": "Hayao Miyazaki",
+    "cast": [
+      "Rumi Hiiragi",
+      "Miyu Irino"
+    ],
+    "genres": [
+      "animation",
+      "fantasy",
+      "adventure"
+    ],
+    "emotionalArc": [
+      "identity",
+      "memory",
+      "society",
+      "transformation",
+      "wonder"
+    ],
+    "storyBeat": "A child navigates a spirit world and finds courage while trying to rescue her parents."
+  },
+  {
+    "id": "w37",
+    "title": "The Truman Show",
+    "creator": "Peter Weir",
+    "type": "Film",
+    "year": 1998,
+    "tags": [
+      "reality",
+      "surveillance",
+      "freedom",
+      "identity",
+      "media"
+    ],
+    "mood": "Thought-provoking",
+    "desc": "A man begins to suspect that his carefully managed world is not what it seems."
+  },
+  {
+    "id": "w38",
+    "title": "Eternal Sunshine of the Spotless Mind",
+    "creator": "Michel Gondry",
+    "type": "Film",
+    "year": 2004,
+    "tags": [
+      "memory",
+      "love",
+      "identity",
+      "grief",
+      "technology"
+    ],
+    "mood": "Melancholic",
+    "desc": "A couple confronts the emotional consequences of erasing memories of a relationship."
+  },
+  {
+    "id": "w39",
+    "title": "Arrival",
+    "creator": "Denis Villeneuve",
+    "type": "Film",
+    "year": 2016,
+    "tags": [
+      "language",
+      "time",
+      "communication",
+      "grief",
+      "humanity"
+    ],
+    "mood": "Contemplative",
+    "desc": "A linguist works to communicate with visitors whose language reshapes how time is understood.",
+    "region": "Hollywood",
+    "director": "Denis Villeneuve",
+    "cast": [
+      "Amy Adams",
+      "Jeremy Renner",
+      "Forest Whitaker"
+    ],
+    "genres": [
+      "science fiction",
+      "drama",
+      "mystery"
+    ],
+    "emotionalArc": [
+      "language",
+      "time",
+      "communication",
+      "grief",
+      "humanity"
+    ],
+    "storyBeat": "A linguist learns to communicate with visitors and discovers how language reshapes time."
+  },
+  {
+    "id": "w40",
+    "title": "Her",
+    "creator": "Spike Jonze",
+    "type": "Film",
+    "year": 2013,
+    "tags": [
+      "technology",
+      "loneliness",
+      "love",
+      "identity",
+      "connection"
+    ],
+    "mood": "Tender",
+    "desc": "A lonely writer forms an intimate bond with an advanced operating system.",
+    "region": "Hollywood",
+    "director": "Spike Jonze",
+    "cast": [
+      "Joaquin Phoenix",
+      "Scarlett Johansson",
+      "Amy Adams"
+    ],
+    "genres": [
+      "science fiction",
+      "romance",
+      "drama"
+    ],
+    "emotionalArc": [
+      "technology",
+      "loneliness",
+      "love",
+      "identity",
+      "connection"
+    ],
+    "storyBeat": "An intimate relationship with an operating system raises questions about connection and change."
+  },
+  {
+    "id": "w41",
+    "title": "The Matrix",
+    "creator": "Lana Wachowski; Lilly Wachowski",
+    "type": "Film",
+    "year": 1999,
+    "tags": [
+      "reality",
+      "technology",
+      "freedom",
+      "identity",
+      "control"
+    ],
+    "mood": "Mind-bending",
+    "desc": "A hacker discovers that the world he knows is an elaborate simulated reality."
+  },
+  {
+    "id": "w42",
+    "title": "Get Out",
+    "creator": "Jordan Peele",
+    "type": "Film",
+    "year": 2017,
+    "tags": [
+      "identity",
+      "race",
+      "control",
+      "deception",
+      "fear",
+      "class"
+    ],
+    "mood": "Unsettling",
+    "desc": "A visit to a partner's family exposes a disturbing system of control and exploitation.",
+    "region": "Hollywood",
+    "director": "Jordan Peele",
+    "cast": [
+      "Daniel Kaluuya",
+      "Allison Williams",
+      "Catherine Keener",
+      "Bradley Whitford"
+    ],
+    "genres": [
+      "horror",
+      "thriller",
+      "satire"
+    ],
+    "emotionalArc": [
+      "identity",
+      "control",
+      "deception",
+      "fear",
+      "prejudice"
+    ],
+    "storyBeat": "A weekend visit reveals a system of exploitation hiding behind polite appearances."
+  },
+  {
+    "id": "w43",
+    "title": "Moonlight",
+    "creator": "Barry Jenkins",
+    "type": "Film",
+    "year": 2016,
+    "tags": [
+      "identity",
+      "masculinity",
+      "belonging",
+      "love",
+      "coming of age"
+    ],
+    "mood": "Intimate",
+    "desc": "Three stages in a young man's life explore identity, vulnerability and belonging.",
+    "region": "Hollywood",
+    "director": "Barry Jenkins",
+    "genres": [
+      "drama"
+    ],
+    "cast": [
+      "Trevante Rhodes",
+      "Ashton Sanders",
+      "Alex Hibbert",
+      "Mahershala Ali",
+      "Janelle Monáe"
+    ],
+    "emotionalArc": [
+      "identity",
+      "masculinity",
+      "belonging"
+    ],
+    "storyBeat": "Three stages in a young man’s life explore identity, vulnerability, and belonging."
+  },
+  {
+    "id": "w44",
+    "title": "Good Will Hunting",
+    "creator": "Gus Van Sant",
+    "type": "Film",
+    "year": 1997,
+    "tags": [
+      "potential",
+      "trauma",
+      "friendship",
+      "identity",
+      "growth"
+    ],
+    "mood": "Hopeful",
+    "desc": "A gifted young man struggles to reconcile intellectual talent with unresolved pain."
+  },
+  {
+    "id": "w45",
+    "title": "The Social Network",
+    "creator": "David Fincher",
+    "type": "Film",
+    "year": 2010,
+    "tags": [
+      "ambition",
+      "technology",
+      "betrayal",
+      "power",
+      "friendship"
+    ],
+    "mood": "Sharp",
+    "desc": "The rise of a social platform becomes a story about ambition, ownership and fractured friendships.",
+    "region": "Hollywood",
+    "director": "David Fincher",
+    "cast": [
+      "Jesse Eisenberg",
+      "Andrew Garfield",
+      "Justin Timberlake",
+      "Rooney Mara"
+    ],
+    "genres": [
+      "drama",
+      "biography"
+    ],
+    "emotionalArc": [
+      "ambition",
+      "technology",
+      "betrayal",
+      "power",
+      "friendship"
+    ],
+    "storyBeat": "A disruptive idea grows into a platform while friendships fracture around ownership and ambition."
+  },
+  {
+    "id": "w46",
+    "title": "The Grand Budapest Hotel",
+    "creator": "Wes Anderson",
+    "type": "Film",
+    "year": 2014,
+    "tags": [
+      "friendship",
+      "memory",
+      "loyalty",
+      "art",
+      "loss"
+    ],
+    "mood": "Whimsical",
+    "desc": "A concierge and his protégé navigate a changing Europe through an eccentric adventure.",
+    "region": "Hollywood",
+    "director": "Wes Anderson",
+    "genres": [
+      "comedy",
+      "adventure",
+      "drama"
+    ],
+    "cast": [
+      "Ralph Fiennes",
+      "Tony Revolori",
+      "Saoirse Ronan"
+    ],
+    "emotionalArc": [
+      "friendship",
+      "memory",
+      "loyalty",
+      "art",
+      "loss"
+    ],
+    "storyBeat": "A concierge and his protégé preserve dignity and friendship amid a changing world."
+  },
+  {
+    "id": "w47",
+    "title": "Inception",
+    "creator": "Christopher Nolan",
+    "type": "Film",
+    "year": 2010,
+    "tags": [
+      "dreams",
+      "reality",
+      "memory",
+      "grief",
+      "deception"
+    ],
+    "mood": "Suspenseful",
+    "desc": "A specialist enters dreams to plant an idea while struggling with his own memories.",
+    "region": "Hollywood",
+    "director": "Christopher Nolan",
+    "cast": [
+      "Leonardo DiCaprio",
+      "Joseph Gordon-Levitt",
+      "Elliot Page",
+      "Tom Hardy",
+      "Marion Cotillard"
+    ],
+    "genres": [
+      "science fiction",
+      "thriller",
+      "heist"
+    ],
+    "emotionalArc": [
+      "dreams",
+      "grief",
+      "deception",
+      "identity",
+      "reality"
+    ],
+    "storyBeat": "A team enters layered dreams, where a personal loss threatens the mission."
+  },
+  {
+    "id": "w48",
+    "title": "Interstellar",
+    "creator": "Christopher Nolan",
+    "type": "Film",
+    "year": 2014,
+    "tags": [
+      "time",
+      "family",
+      "survival",
+      "science",
+      "love"
+    ],
+    "mood": "Awe-filled",
+    "desc": "Explorers travel beyond Earth as a father tries to preserve humanity and reconnect with his daughter.",
+    "region": "Hollywood",
+    "director": "Christopher Nolan",
+    "cast": [
+      "Matthew McConaughey",
+      "Anne Hathaway",
+      "Jessica Chastain",
+      "Michael Caine"
+    ],
+    "genres": [
+      "science fiction",
+      "adventure",
+      "drama"
+    ],
+    "emotionalArc": [
+      "time",
+      "family",
+      "survival",
+      "love",
+      "hope"
+    ],
+    "storyBeat": "A desperate search for humanity’s future becomes a story of time, sacrifice, and family."
+  },
+  {
+    "id": "w49",
+    "title": "The Shawshank Redemption",
+    "creator": "Frank Darabont",
+    "type": "Film",
+    "year": 1994,
+    "tags": [
+      "hope",
+      "friendship",
+      "justice",
+      "resilience",
+      "freedom"
+    ],
+    "mood": "Hopeful",
+    "desc": "A long imprisonment tests the endurance of friendship and hope."
+  },
+  {
+    "id": "w50",
+    "title": "The Lives of Others",
+    "creator": "Florian Henckel von Donnersmarck",
+    "type": "Film",
+    "year": 2006,
+    "tags": [
+      "surveillance",
+      "morality",
+      "art",
+      "power",
+      "empathy"
+    ],
+    "mood": "Somber",
+    "desc": "A surveillance officer's assignment gradually changes his understanding of the people he watches."
+  },
+  {
+    "id": "w51",
+    "title": "City of God",
+    "creator": "Fernando Meirelles; Kátia Lund",
+    "type": "Film",
+    "year": 2002,
+    "tags": [
+      "violence",
+      "inequality",
+      "survival",
+      "ambition",
+      "community"
+    ],
+    "mood": "Intense",
+    "desc": "Young people navigate cycles of violence and opportunity in a Rio de Janeiro favela."
+  },
+  {
+    "id": "w52",
+    "title": "Amélie",
+    "creator": "Jean-Pierre Jeunet",
+    "type": "Film",
+    "year": 2001,
+    "tags": [
+      "kindness",
+      "connection",
+      "loneliness",
+      "wonder",
+      "romance"
+    ],
+    "mood": "Whimsical",
+    "desc": "A shy Parisian quietly changes the lives around her while avoiding her own vulnerability."
+  },
+  {
+    "id": "w53",
+    "title": "Bicycle Thieves",
+    "creator": "Vittorio De Sica",
+    "type": "Film",
+    "year": 1948,
+    "tags": [
+      "poverty",
+      "dignity",
+      "family",
+      "survival",
+      "inequality"
+    ],
+    "mood": "Somber",
+    "desc": "A father and son search for a stolen bicycle essential to the family's livelihood."
+  },
+  {
+    "id": "w54",
+    "title": "Tokyo Story",
+    "creator": "Yasujirō Ozu",
+    "type": "Film",
+    "year": 1953,
+    "tags": [
+      "family",
+      "aging",
+      "duty",
+      "distance",
+      "loss"
+    ],
+    "mood": "Quiet",
+    "desc": "An elderly couple visits their adult children and encounters the distance created by everyday life."
+  },
+  {
+    "id": "w55",
+    "title": "Seven Samurai",
+    "creator": "Akira Kurosawa",
+    "type": "Film",
+    "year": 1954,
+    "tags": [
+      "community",
+      "sacrifice",
+      "honor",
+      "leadership",
+      "survival"
+    ],
+    "mood": "Epic",
+    "desc": "A group of samurai defend a farming village and confront the meaning of service."
+  },
+  {
+    "id": "w56",
+    "title": "Rashomon",
+    "creator": "Akira Kurosawa",
+    "type": "Film",
+    "year": 1950,
+    "tags": [
+      "truth",
+      "memory",
+      "perspective",
+      "justice",
+      "deception"
+    ],
+    "mood": "Mysterious",
+    "desc": "Conflicting accounts of a violent event expose the instability of truth and memory."
+  },
+  {
+    "id": "w57",
+    "title": "The Seventh Seal",
+    "creator": "Ingmar Bergman",
+    "type": "Film",
+    "year": 1957,
+    "tags": [
+      "mortality",
+      "faith",
+      "meaning",
+      "fear",
+      "existence"
+    ],
+    "mood": "Contemplative",
+    "desc": "A knight confronts death while searching for meaning in a world of uncertainty."
+  },
+  {
+    "id": "w58",
+    "title": "Pan's Labyrinth",
+    "creator": "Guillermo del Toro",
+    "type": "Film",
+    "year": 2006,
+    "tags": [
+      "fantasy",
+      "violence",
+      "courage",
+      "innocence",
+      "resistance"
+    ],
+    "mood": "Darkly magical",
+    "desc": "A child escapes into a mythic world while facing brutality in postwar Spain."
+  },
+  {
+    "id": "w59",
+    "title": "The Farewell",
+    "creator": "Lulu Wang",
+    "type": "Film",
+    "year": 2019,
+    "tags": [
+      "family",
+      "culture",
+      "truth",
+      "grief",
+      "belonging"
+    ],
+    "mood": "Tender",
+    "desc": "A family gathers around a secret, raising questions about truth and care across cultures.",
+    "region": "Hollywood",
+    "director": "Lulu Wang",
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "cast": [
+      "Awkwafina",
+      "Tzi Ma",
+      "Diana Lin"
+    ],
+    "emotionalArc": [
+      "family",
+      "culture",
+      "truth"
+    ],
+    "storyBeat": "A family gathers around a secret, raising questions about truth and care across cultures."
+  },
+  {
+    "id": "w60",
+    "title": "Whiplash",
+    "creator": "Damien Chazelle",
+    "type": "Film",
+    "year": 2014,
+    "tags": [
+      "ambition",
+      "perfectionism",
+      "power",
+      "music",
+      "sacrifice"
+    ],
+    "mood": "Intense",
+    "desc": "A young drummer's pursuit of excellence becomes a battle over the limits of mentorship.",
+    "region": "Hollywood",
+    "director": "Damien Chazelle",
+    "cast": [
+      "Miles Teller",
+      "J. K. Simmons"
+    ],
+    "genres": [
+      "drama",
+      "music"
+    ],
+    "emotionalArc": [
+      "ambition",
+      "perfectionism",
+      "power",
+      "music",
+      "sacrifice"
+    ],
+    "storyBeat": "A young drummer’s drive for greatness becomes a struggle over the cost of mentorship."
+  },
+  {
+    "id": "w61",
+    "title": "Black Swan",
+    "creator": "Darren Aronofsky",
+    "type": "Film",
+    "year": 2010,
+    "tags": [
+      "perfectionism",
+      "identity",
+      "ambition",
+      "pressure",
+      "psychology"
+    ],
+    "mood": "Unsettling",
+    "desc": "A dancer's pursuit of perfection blurs the boundaries between self and performance.",
+    "region": "Hollywood",
+    "director": "Darren Aronofsky",
+    "cast": [
+      "Natalie Portman",
+      "Mila Kunis",
+      "Vincent Cassel"
+    ],
+    "genres": [
+      "psychological thriller",
+      "drama"
+    ],
+    "emotionalArc": [
+      "perfectionism",
+      "identity",
+      "ambition",
+      "pressure",
+      "psychology"
+    ],
+    "storyBeat": "A dancer’s pursuit of perfection blurs the line between performance and self."
+  },
+  {
+    "id": "w62",
+    "title": "Little Women",
+    "creator": "Greta Gerwig",
+    "type": "Film",
+    "year": 2019,
+    "tags": [
+      "sisterhood",
+      "ambition",
+      "family",
+      "gender",
+      "independence"
+    ],
+    "mood": "Warm",
+    "desc": "Four sisters negotiate artistic ambition, love and independence in a changing society.",
+    "region": "Hollywood",
+    "director": "Greta Gerwig",
+    "genres": [
+      "drama",
+      "romance"
+    ],
+    "cast": [
+      "Saoirse Ronan",
+      "Emma Watson",
+      "Florence Pugh",
+      "Eliza Scanlen",
+      "Laura Dern"
+    ],
+    "emotionalArc": [
+      "sisterhood",
+      "ambition",
+      "family"
+    ],
+    "storyBeat": "Four sisters negotiate artistic ambition, love and independence in a changing society."
+  },
+  {
+    "id": "w63",
+    "title": "The Pursuit of Happyness",
+    "creator": "Gabriele Muccino",
+    "type": "Film",
+    "year": 2006,
+    "tags": [
+      "resilience",
+      "parenthood",
+      "poverty",
+      "ambition",
+      "hope"
+    ],
+    "mood": "Inspirational",
+    "desc": "A father faces severe hardship while trying to build a stable future for his son."
+  },
+  {
+    "id": "w64",
+    "title": "Everything Everywhere All at Once",
+    "creator": "Daniel Kwan; Daniel Scheinert",
+    "type": "Film",
+    "year": 2022,
+    "tags": [
+      "family",
+      "identity",
+      "choice",
+      "meaning",
+      "multiverse"
+    ],
+    "mood": "Chaotic",
+    "desc": "A woman confronts alternate lives and family conflict in an absurd multiverse adventure.",
+    "region": "Hollywood",
+    "director": "Daniel Kwan; Daniel Scheinert",
+    "cast": [
+      "Michelle Yeoh",
+      "Stephanie Hsu",
+      "Ke Huy Quan",
+      "Jamie Lee Curtis"
+    ],
+    "genres": [
+      "science fiction",
+      "comedy",
+      "drama"
+    ],
+    "emotionalArc": [
+      "family",
+      "identity",
+      "choice",
+      "meaning",
+      "multiverse"
+    ],
+    "storyBeat": "A woman facing overwhelming possibilities discovers that small acts of care can anchor a chaotic life."
+  },
+  {
+    "id": "w65",
+    "title": "The Florida Project",
+    "creator": "Sean Baker",
+    "type": "Film",
+    "year": 2017,
+    "tags": [
+      "childhood",
+      "poverty",
+      "community",
+      "resilience",
+      "inequality"
+    ],
+    "mood": "Bittersweet",
+    "desc": "A child finds wonder and mischief while growing up near the margins of tourist wealth.",
+    "region": "Hollywood",
+    "director": "Sean Baker",
+    "genres": [
+      "drama"
+    ],
+    "cast": [
+      "Brooklynn Prince",
+      "Willem Dafoe",
+      "Bria Vinaite"
+    ],
+    "emotionalArc": [
+      "childhood",
+      "poverty",
+      "community"
+    ],
+    "storyBeat": "A child finds wonder near the margins of tourist wealth, while adults struggle to keep life stable."
+  },
+  {
+    "id": "w66",
+    "title": "The Intouchables",
+    "creator": "Olivier Nakache; Éric Toledano",
+    "type": "Film",
+    "year": 2011,
+    "tags": [
+      "friendship",
+      "disability",
+      "class",
+      "humor",
+      "connection"
+    ],
+    "mood": "Warm",
+    "desc": "An unexpected friendship challenges assumptions about care, class and independence.",
+    "region": "International / verify",
+    "director": "Olivier Nakache; Éric Toledano",
+    "genres": [],
+    "cast": [],
+    "emotionalArc": [
+      "friendship",
+      "disability",
+      "class"
+    ],
+    "storyBeat": "An unexpected friendship challenges assumptions about care, class and independence."
+  },
+  {
+    "id": "w67",
+    "title": "Coco",
+    "creator": "Lee Unkrich; Adrian Molina",
+    "type": "Film",
+    "year": 2017,
+    "tags": [
+      "family",
+      "memory",
+      "music",
+      "heritage",
+      "belonging"
+    ],
+    "mood": "Heartwarming",
+    "desc": "A boy's musical journey into the Land of the Dead reconnects generations of his family.",
+    "region": "Hollywood",
+    "director": "Lee Unkrich; Adrian Molina",
+    "genres": [
+      "animation",
+      "family",
+      "fantasy"
+    ],
+    "cast": [
+      "Anthony Gonzalez",
+      "Gael García Bernal",
+      "Benjamin Bratt"
+    ],
+    "emotionalArc": [
+      "family",
+      "memory",
+      "music"
+    ],
+    "storyBeat": "A young musician enters the Land of the Dead and reconnects generations through memory."
+  },
+  {
+    "id": "w68",
+    "title": "WALL-E",
+    "creator": "Andrew Stanton",
+    "type": "Film",
+    "year": 2008,
+    "tags": [
+      "environment",
+      "technology",
+      "loneliness",
+      "consumption",
+      "hope"
+    ],
+    "mood": "Gentle",
+    "desc": "A small robot's search for connection becomes a warning about waste and human passivity.",
+    "region": "Pre-2010 classic",
+    "director": "Andrew Stanton",
+    "cast": [
+      "Ben Burtt",
+      "Elissa Knight"
+    ],
+    "genres": [
+      "animation",
+      "science fiction",
+      "family"
+    ],
+    "emotionalArc": [
+      "environment",
+      "technology",
+      "loneliness",
+      "consumption",
+      "hope"
+    ],
+    "storyBeat": "A lonely robot’s search for connection becomes a warning about environmental neglect."
+  },
+  {
+    "id": "w69",
+    "title": "The Iron Giant",
+    "creator": "Brad Bird",
+    "type": "Film",
+    "year": 1999,
+    "tags": [
+      "friendship",
+      "fear",
+      "choice",
+      "humanity",
+      "war"
+    ],
+    "mood": "Heartfelt",
+    "desc": "A boy befriends a giant robot and helps it choose what kind of being it wants to be."
+  },
+  {
+    "id": "w70",
+    "title": "My Neighbor Totoro",
+    "creator": "Hayao Miyazaki",
+    "type": "Film",
+    "year": 1988,
+    "tags": [
+      "childhood",
+      "nature",
+      "family",
+      "wonder",
+      "comfort"
+    ],
+    "mood": "Gentle",
+    "desc": "Two sisters discover friendly forest spirits while their family faces uncertainty."
+  },
+  {
+    "id": "w71",
+    "title": "The Thing",
+    "creator": "John Carpenter",
+    "type": "Film",
+    "year": 1982,
+    "tags": [
+      "paranoia",
+      "trust",
+      "survival",
+      "identity",
+      "fear"
+    ],
+    "mood": "Claustrophobic",
+    "desc": "Researchers in Antarctica face a life-form that can imitate any member of the group."
+  },
+  {
+    "id": "w72",
+    "title": "Do the Right Thing",
+    "creator": "Spike Lee",
+    "type": "Film",
+    "year": 1989,
+    "tags": [
+      "community",
+      "race",
+      "anger",
+      "justice",
+      "conflict"
+    ],
+    "mood": "Charged",
+    "desc": "A hot summer day intensifies tensions among neighbors in a Brooklyn community."
+  },
+  {
+    "id": "w73",
+    "title": "The Holdovers",
+    "creator": "Alexander Payne",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "loneliness",
+      "grief",
+      "mentorship",
+      "belonging",
+      "change"
+    ],
+    "mood": "Bittersweet",
+    "desc": "A strict teacher, a student and a cook form an unlikely bond over a holiday break.",
+    "region": "Hollywood",
+    "director": "Alexander Payne",
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "cast": [
+      "Paul Giamatti",
+      "Da’Vine Joy Randolph",
+      "Dominic Sessa"
+    ],
+    "emotionalArc": [
+      "loneliness",
+      "grief",
+      "mentorship"
+    ],
+    "storyBeat": "A teacher, student, and cook form an unlikely bond over a holiday break."
+  },
+  {
+    "id": "w74",
+    "title": "Persona",
+    "creator": "Ingmar Bergman",
+    "type": "Film",
+    "year": 1966,
+    "tags": [
+      "identity",
+      "silence",
+      "psychology",
+      "performance"
+    ],
+    "mood": "Surreal",
+    "desc": "A nurse and a silent actress form an unsettling relationship that blurs identity."
+  },
+  {
+    "id": "w75",
+    "title": "The 400 Blows",
+    "creator": "François Truffaut",
+    "type": "Film",
+    "year": 1959,
+    "tags": [
+      "adolescence",
+      "rebellion",
+      "family",
+      "freedom"
+    ],
+    "mood": "Restless",
+    "desc": "A misunderstood Parisian boy struggles against adults and institutions."
+  },
+  {
+    "id": "w76",
+    "title": "Breathless",
+    "creator": "Jean-Luc Godard",
+    "type": "Film",
+    "year": 1960,
+    "tags": [
+      "freedom",
+      "crime",
+      "romance",
+      "rebellion"
+    ],
+    "mood": "Cool",
+    "desc": "A small-time criminal and an American student drift through a restless Paris."
+  },
+  {
+    "id": "w77",
+    "title": "The Apartment",
+    "creator": "Billy Wilder",
+    "type": "Film",
+    "year": 1960,
+    "tags": [
+      "loneliness",
+      "ambition",
+      "romance",
+      "ethics"
+    ],
+    "mood": "Wry",
+    "desc": "An office worker lends his apartment to executives and faces a moral turning point."
+  },
+  {
+    "id": "w78",
+    "title": "Sunset Boulevard",
+    "creator": "Billy Wilder",
+    "type": "Film",
+    "year": 1950,
+    "tags": [
+      "fame",
+      "aging",
+      "illusion",
+      "ambition"
+    ],
+    "mood": "Dark",
+    "desc": "A struggling screenwriter becomes entangled with a forgotten silent-film star."
+  },
+  {
+    "id": "w79",
+    "title": "Some Like It Hot",
+    "creator": "Billy Wilder",
+    "type": "Film",
+    "year": 1959,
+    "tags": [
+      "disguise",
+      "romance",
+      "comedy",
+      "identity"
+    ],
+    "mood": "Playful",
+    "desc": "Two musicians disguise themselves to escape gangsters and join an all-women band."
+  },
+  {
+    "id": "w80",
+    "title": "Singin' in the Rain",
+    "creator": "Gene Kelly and Stanley Donen",
+    "type": "Film",
+    "year": 1952,
+    "tags": [
+      "performance",
+      "change",
+      "romance",
+      "creativity"
+    ],
+    "mood": "Joyful",
+    "desc": "Hollywood performers adapt to the arrival of talking pictures."
+  },
+  {
+    "id": "w81",
+    "title": "It's a Wonderful Life",
+    "creator": "Frank Capra",
+    "type": "Film",
+    "year": 1946,
+    "tags": [
+      "community",
+      "hope",
+      "family",
+      "purpose"
+    ],
+    "mood": "Uplifting",
+    "desc": "A troubled man discovers how deeply his life has affected his community."
+  },
+  {
+    "id": "w82",
+    "title": "12 Years a Slave",
+    "creator": "Steve McQueen",
+    "type": "Film",
+    "year": 2013,
+    "tags": [
+      "freedom",
+      "injustice",
+      "survival",
+      "dignity"
+    ],
+    "mood": "Harsh",
+    "desc": "A free Black man is kidnapped and sold into slavery in the antebellum United States.",
+    "region": "Hollywood",
+    "director": "Steve McQueen",
+    "genres": [
+      "historical drama",
+      "biography"
+    ],
+    "cast": [
+      "Chiwetel Ejiofor",
+      "Michael Fassbender",
+      "Lupita Nyong’o"
+    ],
+    "emotionalArc": [
+      "freedom",
+      "injustice",
+      "survival"
+    ],
+    "storyBeat": "A free Black man is kidnapped and sold into slavery, fighting to preserve dignity and survive."
+  },
+  {
+    "id": "w83",
+    "title": "Lady Bird",
+    "creator": "Greta Gerwig",
+    "type": "Film",
+    "year": 2017,
+    "tags": [
+      "adolescence",
+      "motherhood",
+      "independence",
+      "belonging"
+    ],
+    "mood": "Wry",
+    "desc": "A teenager navigates conflict with her mother and dreams of leaving home.",
+    "region": "Hollywood",
+    "director": "Greta Gerwig",
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "cast": [
+      "Saoirse Ronan",
+      "Laurie Metcalf",
+      "Tracy Letts"
+    ],
+    "emotionalArc": [
+      "adolescence",
+      "motherhood",
+      "independence"
+    ],
+    "storyBeat": "A teenager navigates conflict with her mother and dreams of leaving home."
+  },
+  {
+    "id": "w84",
+    "title": "Minari",
+    "creator": "Lee Isaac Chung",
+    "type": "Film",
+    "year": 2020,
+    "tags": [
+      "family",
+      "migration",
+      "belonging",
+      "resilience"
+    ],
+    "mood": "Gentle",
+    "desc": "A Korean American family tries to build a farm and a future in rural Arkansas.",
+    "region": "Hollywood",
+    "director": "Lee Isaac Chung",
+    "genres": [
+      "drama"
+    ],
+    "cast": [
+      "Steven Yeun",
+      "Han Ye-ri",
+      "Youn Yuh-jung"
+    ],
+    "emotionalArc": [
+      "family",
+      "migration",
+      "belonging"
+    ],
+    "storyBeat": "A Korean American family tries to build a farm and a future in rural Arkansas."
+  },
+  {
+    "id": "w85",
+    "title": "Shoplifters",
+    "creator": "Hirokazu Kore-eda",
+    "type": "Film",
+    "year": 2018,
+    "tags": [
+      "family",
+      "poverty",
+      "morality",
+      "belonging"
+    ],
+    "mood": "Tender",
+    "desc": "A makeshift family living on the margins faces questions about love and legality.",
+    "region": "International / verify",
+    "director": "Hirokazu Kore-eda",
+    "genres": [],
+    "cast": [],
+    "emotionalArc": [
+      "family",
+      "poverty",
+      "morality"
+    ],
+    "storyBeat": "A makeshift family living on the margins faces questions about love and legality."
+  },
+  {
+    "id": "w86",
+    "title": "After Life",
+    "creator": "Hirokazu Kore-eda",
+    "type": "Film",
+    "year": 1998,
+    "tags": [
+      "memory",
+      "meaning",
+      "mortality",
+      "identity"
+    ],
+    "mood": "Reflective",
+    "desc": "Recently deceased people choose one memory to carry with them into eternity."
+  },
+  {
+    "id": "w87",
+    "title": "Perfect Days",
+    "creator": "Wim Wenders",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "routine",
+      "beauty",
+      "solitude",
+      "mindfulness"
+    ],
+    "mood": "Serene",
+    "desc": "A Tokyo cleaner finds meaning in daily rituals and small moments of beauty.",
+    "region": "International / verify",
+    "director": "Wim Wenders",
+    "genres": [],
+    "cast": [],
+    "emotionalArc": [
+      "routine",
+      "beauty",
+      "solitude"
+    ],
+    "storyBeat": "A Tokyo cleaner finds meaning in daily rituals and small moments of beauty."
+  },
+  {
+    "id": "w88",
+    "title": "Drive My Car",
+    "creator": "Ryusuke Hamaguchi",
+    "type": "Film",
+    "year": 2021,
+    "tags": [
+      "grief",
+      "communication",
+      "theatre",
+      "trust"
+    ],
+    "mood": "Meditative",
+    "desc": "A theatre director and his driver gradually confront loss through conversation and rehearsal.",
+    "region": "International / verify",
+    "director": "Ryusuke Hamaguchi",
+    "genres": [],
+    "cast": [],
+    "emotionalArc": [
+      "grief",
+      "communication",
+      "theatre"
+    ],
+    "storyBeat": "A theatre director and his driver gradually confront loss through conversation and rehearsal."
+  },
+  {
+    "id": "w89",
+    "title": "Chungking Express",
+    "creator": "Wong Kar-wai",
+    "type": "Film",
+    "year": 1994,
+    "tags": [
+      "loneliness",
+      "chance",
+      "urban life",
+      "romance"
+    ],
+    "mood": "Dreamy",
+    "desc": "Two Hong Kong policemen experience separate, chance-driven stories of heartbreak."
+  },
+  {
+    "id": "w90",
+    "title": "The Royal Tenenbaums",
+    "creator": "Wes Anderson",
+    "type": "Film",
+    "year": 2001,
+    "tags": [
+      "family",
+      "failure",
+      "reconciliation",
+      "identity"
+    ],
+    "mood": "Quirky",
+    "desc": "A dysfunctional family of former prodigies reunites under complicated circumstances."
+  },
+  {
+    "id": "w91",
+    "title": "Gattaca",
+    "creator": "Andrew Niccol",
+    "type": "Film",
+    "year": 1997,
+    "tags": [
+      "genetics",
+      "ambition",
+      "discrimination",
+      "identity"
+    ],
+    "mood": "Restrained",
+    "desc": "A man born outside genetic privilege tries to enter an elite space programme."
+  },
+  {
+    "id": "w92",
+    "title": "Children of Men",
+    "creator": "Alfonso Cuarón",
+    "type": "Film",
+    "year": 2006,
+    "tags": [
+      "hope",
+      "authoritarianism",
+      "migration",
+      "survival"
+    ],
+    "mood": "Bleak",
+    "desc": "In a world facing human infertility, a disillusioned man protects a pregnant refugee."
+  },
+  {
+    "id": "w93",
+    "title": "District 9",
+    "creator": "Neill Blomkamp",
+    "type": "Film",
+    "year": 2009,
+    "tags": [
+      "segregation",
+      "prejudice",
+      "power",
+      "transformation"
+    ],
+    "mood": "Satirical",
+    "desc": "A bureaucrat overseeing an alien relocation programme experiences a disturbing change."
+  },
+  {
+    "id": "w94",
+    "title": "Inside Out",
+    "creator": "Pete Docter",
+    "type": "Film",
+    "year": 2015,
+    "tags": [
+      "emotion",
+      "memory",
+      "change",
+      "family",
+      "growth"
+    ],
+    "mood": "Warm",
+    "desc": "A young girl's emotions struggle to guide her through a major life transition.",
+    "region": "Hollywood",
+    "director": "Pete Docter",
+    "cast": [
+      "Amy Poehler",
+      "Phyllis Smith",
+      "Bill Hader",
+      "Lewis Black",
+      "Mindy Kaling"
+    ],
+    "genres": [
+      "animation",
+      "family",
+      "comedy"
+    ],
+    "emotionalArc": [
+      "emotion",
+      "memory",
+      "change",
+      "family",
+      "growth"
+    ],
+    "storyBeat": "A child’s emotions learn that sadness can be part of adapting to change."
+  },
+  {
+    "id": "w95",
+    "title": "The Incredibles",
+    "creator": "Brad Bird",
+    "type": "Film",
+    "year": 2004,
+    "tags": [
+      "family",
+      "identity",
+      "responsibility",
+      "belonging"
+    ],
+    "mood": "Energetic",
+    "desc": "A family of superheroes balances ordinary domestic life with extraordinary abilities."
+  },
+  {
+    "id": "w96",
+    "title": "Kiki's Delivery Service",
+    "creator": "Hayao Miyazaki",
+    "type": "Film",
+    "year": 1989,
+    "tags": [
+      "independence",
+      "growing up",
+      "community",
+      "creativity"
+    ],
+    "mood": "Gentle",
+    "desc": "A young witch starts a delivery service while learning to live independently."
+  },
+  {
+    "id": "w97",
+    "title": "Princess Mononoke",
+    "creator": "Hayao Miyazaki",
+    "type": "Film",
+    "year": 1997,
+    "tags": [
+      "nature",
+      "industry",
+      "conflict",
+      "balance"
+    ],
+    "mood": "Epic",
+    "desc": "A young warrior becomes caught between a forest's spirits and an expanding iron town."
+  },
+  {
+    "id": "w98",
+    "title": "The Tale of the Princess Kaguya",
+    "creator": "Isao Takahata",
+    "type": "Film",
+    "year": 2013,
+    "tags": [
+      "freedom",
+      "beauty",
+      "expectation",
+      "mortality"
+    ],
+    "mood": "Lyrical",
+    "desc": "A mysterious girl grows into a young woman constrained by social expectations.",
+    "region": "International / verify",
+    "director": "Isao Takahata",
+    "genres": [],
+    "cast": [],
+    "emotionalArc": [
+      "freedom",
+      "beauty",
+      "expectation"
+    ],
+    "storyBeat": "A mysterious girl grows into a young woman constrained by social expectations."
+  },
+  {
+    "id": "w99",
+    "title": "The Boy and the Heron",
+    "creator": "Hayao Miyazaki",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "grief",
+      "imagination",
+      "growth",
+      "family"
+    ],
+    "mood": "Surreal",
+    "desc": "A grieving boy enters a strange world where memory and imagination intertwine.",
+    "region": "International / verify",
+    "director": "Hayao Miyazaki",
+    "genres": [],
+    "cast": [],
+    "emotionalArc": [
+      "grief",
+      "imagination",
+      "growth"
+    ],
+    "storyBeat": "A grieving boy enters a strange world where memory and imagination intertwine."
+  },
+  {
+    "id": "w100",
+    "title": "The Secret in Their Eyes",
+    "creator": "Juan José Campanella",
+    "type": "Film",
+    "year": 2009,
+    "tags": [
+      "justice",
+      "memory",
+      "obsession",
+      "love"
+    ],
+    "mood": "Suspenseful",
+    "desc": "A retired legal investigator revisits a brutal case that has shaped several lives."
+  },
+  {
+    "id": "w101",
+    "title": "Memories of Murder",
+    "creator": "Bong Joon-ho",
+    "type": "Film",
+    "year": 2003,
+    "tags": [
+      "investigation",
+      "failure",
+      "justice",
+      "uncertainty"
+    ],
+    "mood": "Uneasy",
+    "desc": "Detectives investigate a series of murders in a rural Korean town."
+  },
+  {
+    "id": "w102",
+    "title": "The Handmaiden",
+    "creator": "Park Chan-wook",
+    "type": "Film",
+    "year": 2016,
+    "tags": [
+      "deception",
+      "desire",
+      "power",
+      "freedom"
+    ],
+    "mood": "Twisty",
+    "desc": "A maid and an heiress become involved in a scheme full of shifting loyalties.",
+    "region": "International / verify",
+    "director": "Park Chan-wook",
+    "genres": [],
+    "cast": [],
+    "emotionalArc": [
+      "deception",
+      "desire",
+      "power"
+    ],
+    "storyBeat": "A maid and an heiress become involved in a scheme full of shifting loyalties."
+  },
+  {
+    "id": "w103",
+    "title": "Y Tu Mamá También",
+    "creator": "Alfonso Cuarón",
+    "type": "Film",
+    "year": 2001,
+    "tags": [
+      "adolescence",
+      "friendship",
+      "desire",
+      "class"
+    ],
+    "mood": "Restless",
+    "desc": "Two teenagers travel with an older woman and encounter the complexities of adulthood."
+  },
+  {
+    "id": "w104",
+    "title": "Pride and Prejudice",
+    "creator": "Jane Austen",
+    "type": "Book",
+    "year": 1813,
+    "tags": [
+      "love",
+      "class",
+      "family",
+      "misunderstanding"
+    ],
+    "mood": "Witty",
+    "desc": "Elizabeth Bennet and Mr Darcy reconsider their first impressions amid family and social expectations."
+  },
+  {
+    "id": "w105",
+    "title": "Jane Eyre",
+    "creator": "Charlotte Brontë",
+    "type": "Book",
+    "year": 1847,
+    "tags": [
+      "independence",
+      "love",
+      "morality",
+      "belonging"
+    ],
+    "mood": "Intense",
+    "desc": "An orphaned governess seeks dignity, independence, and love without surrendering her principles."
+  },
+  {
+    "id": "w106",
+    "title": "Wuthering Heights",
+    "creator": "Emily Brontë",
+    "type": "Book",
+    "year": 1847,
+    "tags": [
+      "obsession",
+      "revenge",
+      "class",
+      "love"
+    ],
+    "mood": "Stormy",
+    "desc": "A destructive attachment reverberates across generations on the Yorkshire moors."
+  },
+  {
+    "id": "w107",
+    "title": "Dracula",
+    "creator": "Bram Stoker",
+    "type": "Book",
+    "year": 1897,
+    "tags": [
+      "fear",
+      "desire",
+      "modernity",
+      "supernatural",
+      "morality",
+      "identity"
+    ],
+    "mood": "Gothic",
+    "desc": "A group of people confronts an ancient vampire moving into modern England."
+  },
+  {
+    "id": "w108",
+    "title": "Great Expectations",
+    "creator": "Charles Dickens",
+    "type": "Book",
+    "year": 1861,
+    "tags": [
+      "ambition",
+      "class",
+      "identity",
+      "loyalty"
+    ],
+    "mood": "Reflective",
+    "desc": "An orphan's unexpected prospects reshape his ambitions and relationships."
+  },
+  {
+    "id": "w109",
+    "title": "Jane Austen: Emma",
+    "creator": "Jane Austen",
+    "type": "Book",
+    "year": 1815,
+    "tags": [
+      "matchmaking",
+      "self-knowledge",
+      "class",
+      "friendship"
+    ],
+    "mood": "Playful",
+    "desc": "A confident young woman learns how limited her judgments of others can be."
+  },
+  {
+    "id": "w110",
+    "title": "Middlemarch",
+    "creator": "George Eliot",
+    "type": "Book",
+    "year": 1871,
+    "tags": [
+      "ambition",
+      "marriage",
+      "community",
+      "morality"
+    ],
+    "mood": "Thoughtful",
+    "desc": "Interwoven lives in a provincial town reveal the compromises behind idealism."
+  },
+  {
+    "id": "w111",
+    "title": "The Picture of Dorian Gray",
+    "creator": "Oscar Wilde",
+    "type": "Book",
+    "year": 1890,
+    "tags": [
+      "beauty",
+      "morality",
+      "vanity",
+      "identity"
+    ],
+    "mood": "Decadent",
+    "desc": "A portrait becomes the hidden record of a man's moral deterioration."
+  },
+  {
+    "id": "w112",
+    "title": "The Great Gatsby",
+    "creator": "F. Scott Fitzgerald",
+    "type": "Book",
+    "year": 1925,
+    "tags": [
+      "wealth",
+      "illusion",
+      "ambition",
+      "longing",
+      "class"
+    ],
+    "mood": "Melancholic",
+    "desc": "A mysterious millionaire pursues an idealized past amid the excesses of the Jazz Age."
+  },
+  {
+    "id": "w113",
+    "title": "To Kill a Mockingbird",
+    "creator": "Harper Lee",
+    "type": "Book",
+    "year": 1960,
+    "tags": [
+      "justice",
+      "prejudice",
+      "childhood",
+      "courage"
+    ],
+    "mood": "Reflective",
+    "desc": "A child observes racism and moral courage in a small Southern town."
+  },
+  {
+    "id": "w114",
+    "title": "Animal Farm",
+    "creator": "George Orwell",
+    "type": "Book",
+    "year": 1945,
+    "tags": [
+      "revolution",
+      "power",
+      "propaganda",
+      "inequality",
+      "surveillance",
+      "control",
+      "society"
+    ],
+    "mood": "Satirical",
+    "desc": "A farm revolution gradually reproduces the oppression it sought to overthrow."
+  },
+  {
+    "id": "w115",
+    "title": "Brave New World",
+    "creator": "Aldous Huxley",
+    "type": "Book",
+    "year": 1932,
+    "tags": [
+      "technology",
+      "conformity",
+      "pleasure",
+      "freedom"
+    ],
+    "mood": "Dystopian",
+    "desc": "A society built around engineered happiness confronts the cost of stability."
+  },
+  {
+    "id": "w116",
+    "title": "Fahrenheit 451",
+    "creator": "Ray Bradbury",
+    "type": "Book",
+    "year": 1953,
+    "tags": [
+      "censorship",
+      "knowledge",
+      "conformity",
+      "resistance"
+    ],
+    "mood": "Urgent",
+    "desc": "A fireman who burns books begins to question the society he serves."
+  },
+  {
+    "id": "w117",
+    "title": "The Handmaid's Tale",
+    "creator": "Margaret Atwood",
+    "type": "Book",
+    "year": 1985,
+    "tags": [
+      "gender",
+      "power",
+      "resistance",
+      "memory"
+    ],
+    "mood": "Dystopian",
+    "desc": "A woman navigates a regime that controls reproduction and suppresses autonomy."
+  },
+  {
+    "id": "w118",
+    "title": "Beloved",
+    "creator": "Toni Morrison",
+    "type": "Book",
+    "year": 1987,
+    "tags": [
+      "memory",
+      "trauma",
+      "motherhood",
+      "freedom"
+    ],
+    "mood": "Haunting",
+    "desc": "A formerly enslaved woman is confronted by the past she has tried to escape."
+  },
+  {
+    "id": "w119",
+    "title": "The Color Purple",
+    "creator": "Alice Walker",
+    "type": "Book",
+    "year": 1982,
+    "tags": [
+      "sisterhood",
+      "abuse",
+      "resilience",
+      "voice"
+    ],
+    "mood": "Hopeful",
+    "desc": "Letters trace a woman's journey toward self-expression and supportive relationships."
+  },
+  {
+    "id": "w120",
+    "title": "Their Eyes Were Watching God",
+    "creator": "Zora Neale Hurston",
+    "type": "Book",
+    "year": 1937,
+    "tags": [
+      "voice",
+      "love",
+      "independence",
+      "identity"
+    ],
+    "mood": "Lyrical",
+    "desc": "Janie Crawford recounts a life shaped by love, community, and self-discovery."
+  },
+  {
+    "id": "w121",
+    "title": "Invisible Man",
+    "creator": "Ralph Ellison",
+    "type": "Book",
+    "year": 1952,
+    "tags": [
+      "identity",
+      "race",
+      "visibility",
+      "power"
+    ],
+    "mood": "Searching",
+    "desc": "An unnamed narrator struggles to be seen as an individual in a society shaped by racism."
+  },
+  {
+    "id": "w122",
+    "title": "The Catcher in the Rye",
+    "creator": "J. D. Salinger",
+    "type": "Book",
+    "year": 1951,
+    "tags": [
+      "adolescence",
+      "alienation",
+      "grief",
+      "authenticity"
+    ],
+    "mood": "Restless",
+    "desc": "A teenager wanders New York while wrestling with loss and adult hypocrisy."
+  },
+  {
+    "id": "w123",
+    "title": "The Bell Jar",
+    "creator": "Sylvia Plath",
+    "type": "Book",
+    "year": 1963,
+    "tags": [
+      "identity",
+      "expectations",
+      "alienation",
+      "ambition"
+    ],
+    "mood": "Introspective",
+    "desc": "A young woman experiences a crisis amid pressures around achievement and gender."
+  },
+  {
+    "id": "w124",
+    "title": "The Plague",
+    "creator": "Albert Camus",
+    "type": "Book",
+    "year": 1947,
+    "tags": [
+      "solidarity",
+      "suffering",
+      "community",
+      "absurdism"
+    ],
+    "mood": "Somber",
+    "desc": "Residents of a quarantined city respond to a devastating epidemic in different ways."
+  },
+  {
+    "id": "w125",
+    "title": "The Metamorphosis",
+    "creator": "Franz Kafka",
+    "type": "Book",
+    "year": 1915,
+    "tags": [
+      "alienation",
+      "family",
+      "identity",
+      "absurdism"
+    ],
+    "mood": "Surreal",
+    "desc": "A travelling salesman wakes transformed and confronts his family's changing treatment of him."
+  },
+  {
+    "id": "w126",
+    "title": "One Hundred Years of Solitude",
+    "creator": "Gabriel García Márquez",
+    "type": "Book",
+    "year": 1967,
+    "tags": [
+      "memory",
+      "family",
+      "history",
+      "time"
+    ],
+    "mood": "Mythic",
+    "desc": "Several generations of the Buendía family live through love, conflict, and recurring history."
+  },
+  {
+    "id": "w127",
+    "title": "Love in the Time of Cholera",
+    "creator": "Gabriel García Márquez",
+    "type": "Book",
+    "year": 1985,
+    "tags": [
+      "love",
+      "aging",
+      "patience",
+      "memory"
+    ],
+    "mood": "Lyrical",
+    "desc": "A decades-long romantic fixation tests the meaning of devotion and waiting."
+  },
+  {
+    "id": "w128",
+    "title": "The House of the Spirits",
+    "creator": "Isabel Allende",
+    "type": "Book",
+    "year": 1982,
+    "tags": [
+      "family",
+      "politics",
+      "memory",
+      "generations"
+    ],
+    "mood": "Magical",
+    "desc": "A family saga intertwines personal relationships with political upheaval."
+  },
+  {
+    "id": "w129",
+    "title": "Things Fall Apart",
+    "creator": "Chinua Achebe",
+    "type": "Book",
+    "year": 1958,
+    "tags": [
+      "colonialism",
+      "tradition",
+      "masculinity",
+      "change",
+      "identity",
+      "society"
+    ],
+    "mood": "Tragic",
+    "desc": "An Igbo leader's life is disrupted by colonial rule and internal conflict."
+  },
+  {
+    "id": "w130",
+    "title": "Half of a Yellow Sun",
+    "creator": "Chimamanda Ngozi Adichie",
+    "type": "Book",
+    "year": 2006,
+    "tags": [
+      "war",
+      "family",
+      "class",
+      "survival"
+    ],
+    "mood": "Moving",
+    "desc": "Three lives intersect during the Nigerian-Biafran War."
+  },
+  {
+    "id": "w131",
+    "title": "Americanah",
+    "creator": "Chimamanda Ngozi Adichie",
+    "type": "Book",
+    "year": 2013,
+    "tags": [
+      "migration",
+      "race",
+      "identity",
+      "belonging"
+    ],
+    "mood": "Observant",
+    "desc": "A Nigerian woman navigates race, love, and belonging between Nigeria and the United States."
+  },
+  {
+    "id": "w132",
+    "title": "The God of Small Things",
+    "creator": "Arundhati Roy",
+    "type": "Book",
+    "year": 1997,
+    "tags": [
+      "family",
+      "caste",
+      "memory",
+      "forbidden love"
+    ],
+    "mood": "Lyrical",
+    "desc": "Twins revisit childhood events shaped by family secrets and social hierarchies."
+  },
+  {
+    "id": "w133",
+    "title": "The White Tiger",
+    "creator": "Aravind Adiga",
+    "type": "Book",
+    "year": 2008,
+    "tags": [
+      "class",
+      "ambition",
+      "corruption",
+      "freedom"
+    ],
+    "mood": "Satirical",
+    "desc": "A driver narrates his rise while exposing inequalities in contemporary India."
+  },
+  {
+    "id": "w134",
+    "title": "Train to Pakistan",
+    "creator": "Khushwant Singh",
+    "type": "Book",
+    "year": 1956,
+    "tags": [
+      "partition",
+      "community",
+      "sacrifice",
+      "conflict"
+    ],
+    "mood": "Tragic",
+    "desc": "A village is transformed by the violence and upheaval of Partition."
+  },
+  {
+    "id": "w135",
+    "title": "Midnight's Children",
+    "creator": "Salman Rushdie",
+    "type": "Book",
+    "year": 1981,
+    "tags": [
+      "identity",
+      "history",
+      "nation",
+      "memory"
+    ],
+    "mood": "Surreal",
+    "desc": "A child born at Indian independence finds his life intertwined with the nation's history."
+  },
+  {
+    "id": "w136",
+    "title": "A Fine Balance",
+    "creator": "Rohinton Mistry",
+    "type": "Book",
+    "year": 1995,
+    "tags": [
+      "friendship",
+      "poverty",
+      "politics",
+      "resilience"
+    ],
+    "mood": "Somber",
+    "desc": "Four people form an improvised household during India's Emergency."
+  },
+  {
+    "id": "w137",
+    "title": "The Namesake",
+    "creator": "Jhumpa Lahiri",
+    "type": "Book",
+    "year": 2003,
+    "tags": [
+      "migration",
+      "family",
+      "identity",
+      "belonging"
+    ],
+    "mood": "Reflective",
+    "desc": "A Bengali American family negotiates cultural inheritance and personal identity."
+  },
+  {
+    "id": "w138",
+    "title": "The God of Small Things: Selected Essays",
+    "creator": "Arundhati Roy",
+    "type": "Book",
+    "year": 2001,
+    "tags": [
+      "politics",
+      "justice",
+      "voice",
+      "power"
+    ],
+    "mood": "Provocative",
+    "desc": "Essays examine public power, inequality, and the responsibilities of dissent."
+  },
+  {
+    "id": "w139",
+    "title": "The Kite Runner",
+    "creator": "Khaled Hosseini",
+    "type": "Book",
+    "year": 2003,
+    "tags": [
+      "friendship",
+      "guilt",
+      "betrayal",
+      "redemption"
+    ],
+    "mood": "Emotional",
+    "desc": "A man revisits a childhood betrayal against the backdrop of Afghanistan's upheavals."
+  },
+  {
+    "id": "w140",
+    "title": "A Thousand Splendid Suns",
+    "creator": "Khaled Hosseini",
+    "type": "Book",
+    "year": 2007,
+    "tags": [
+      "sisterhood",
+      "war",
+      "resilience",
+      "sacrifice"
+    ],
+    "mood": "Heartbreaking",
+    "desc": "Two Afghan women form a bond while enduring decades of conflict and oppression."
+  },
+  {
+    "id": "w141",
+    "title": "The Book Thief",
+    "creator": "Markus Zusak",
+    "type": "Book",
+    "year": 2005,
+    "tags": [
+      "war",
+      "books",
+      "friendship",
+      "humanity"
+    ],
+    "mood": "Tender",
+    "desc": "A young girl discovers the power of words in Nazi Germany."
+  },
+  {
+    "id": "w142",
+    "title": "The Hobbit",
+    "creator": "J. R. R. Tolkien",
+    "type": "Book",
+    "year": 1937,
+    "tags": [
+      "adventure",
+      "courage",
+      "friendship",
+      "home"
+    ],
+    "mood": "Adventurous",
+    "desc": "A reluctant hobbit joins a quest to reclaim a dwarven homeland."
+  },
+  {
+    "id": "w143",
+    "title": "The Fellowship of the Ring",
+    "creator": "J. R. R. Tolkien",
+    "type": "Book",
+    "year": 1954,
+    "tags": [
+      "friendship",
+      "power",
+      "courage",
+      "sacrifice"
+    ],
+    "mood": "Epic",
+    "desc": "A diverse fellowship begins a dangerous journey to destroy a corrupting ring."
+  },
+  {
+    "id": "w144",
+    "title": "Dune",
+    "creator": "Frank Herbert",
+    "type": "Book",
+    "year": 1965,
+    "tags": [
+      "ecology",
+      "power",
+      "prophecy",
+      "politics"
+    ],
+    "mood": "Epic",
+    "desc": "A young noble enters a desert world shaped by resource scarcity and political rivalry."
+  },
+  {
+    "id": "w145",
+    "title": "Kindred",
+    "creator": "Octavia E. Butler",
+    "type": "Book",
+    "year": 1979,
+    "tags": [
+      "history",
+      "slavery",
+      "survival",
+      "identity"
+    ],
+    "mood": "Tense",
+    "desc": "A Black woman is repeatedly pulled from the present into the antebellum South."
+  },
+  {
+    "id": "w146",
+    "title": "Parable of the Sower",
+    "creator": "Octavia E. Butler",
+    "type": "Book",
+    "year": 1993,
+    "tags": [
+      "climate",
+      "community",
+      "survival",
+      "belief"
+    ],
+    "mood": "Urgent",
+    "desc": "A young woman develops a belief system while travelling through a collapsing society."
+  },
+  {
+    "id": "w147",
+    "title": "The Three-Body Problem",
+    "creator": "Liu Cixin",
+    "type": "Book",
+    "year": 2006,
+    "tags": [
+      "science",
+      "first contact",
+      "trust",
+      "civilization"
+    ],
+    "mood": "Expansive",
+    "desc": "Scientists investigate a mystery that links human history to an alien civilization."
+  },
+  {
+    "id": "w148",
+    "title": "Never Let Me Go",
+    "creator": "Kazuo Ishiguro",
+    "type": "Book",
+    "year": 2005,
+    "tags": [
+      "memory",
+      "ethics",
+      "friendship",
+      "mortality"
+    ],
+    "mood": "Melancholic",
+    "desc": "Three friends gradually uncover the purpose of the sheltered world in which they grew up."
+  },
+  {
+    "id": "w149",
+    "title": "Klara and the Sun",
+    "creator": "Kazuo Ishiguro",
+    "type": "Book",
+    "year": 2021,
+    "tags": [
+      "artificial intelligence",
+      "love",
+      "humanity",
+      "hope"
+    ],
+    "mood": "Quiet",
+    "desc": "An artificial friend observes human relationships while trying to understand love and sacrifice."
+  },
+  {
+    "id": "w150",
+    "title": "The Remains of the Day",
+    "creator": "Kazuo Ishiguro",
+    "type": "Book",
+    "year": 1989,
+    "tags": [
+      "duty",
+      "regret",
+      "memory",
+      "class"
+    ],
+    "mood": "Restrained",
+    "desc": "An English butler revisits a life shaped by service and missed opportunities."
+  },
+  {
+    "id": "w151",
+    "title": "The Name of the Rose",
+    "creator": "Umberto Eco",
+    "type": "Book",
+    "year": 1980,
+    "tags": [
+      "knowledge",
+      "faith",
+      "mystery",
+      "power"
+    ],
+    "mood": "Scholarly",
+    "desc": "A monk investigates mysterious deaths in a medieval abbey library."
+  },
+  {
+    "id": "w152",
+    "title": "The Shadow of the Wind",
+    "creator": "Carlos Ruiz Zafón",
+    "type": "Book",
+    "year": 2001,
+    "tags": [
+      "books",
+      "memory",
+      "mystery",
+      "love"
+    ],
+    "mood": "Atmospheric",
+    "desc": "A boy discovers a forgotten novel and investigates the fate of its author."
+  },
+  {
+    "id": "w153",
+    "title": "The Secret History",
+    "creator": "Donna Tartt",
+    "type": "Book",
+    "year": 1992,
+    "tags": [
+      "friendship",
+      "guilt",
+      "classics",
+      "morality"
+    ],
+    "mood": "Dark",
+    "desc": "A student joins an elite classics group whose intellectual isolation ends in violence."
+  },
+  {
+    "id": "w154",
+    "title": "The Goldfinch",
+    "creator": "Donna Tartt",
+    "type": "Book",
+    "year": 2013,
+    "tags": [
+      "art",
+      "grief",
+      "identity",
+      "loss"
+    ],
+    "mood": "Reflective",
+    "desc": "A stolen painting becomes a lifelong link to a traumatic childhood event."
+  },
+  {
+    "id": "w155",
+    "title": "The Road",
+    "creator": "Cormac McCarthy",
+    "type": "Book",
+    "year": 2006,
+    "tags": [
+      "parenthood",
+      "survival",
+      "hope",
+      "morality"
+    ],
+    "mood": "Bleak",
+    "desc": "A father and son travel through a devastated landscape while trying to preserve their humanity."
+  },
+  {
+    "id": "w156",
+    "title": "Station Eleven",
+    "creator": "Emily St. John Mandel",
+    "type": "Book",
+    "year": 2014,
+    "tags": [
+      "art",
+      "memory",
+      "community",
+      "survival"
+    ],
+    "mood": "Reflective",
+    "desc": "A travelling theatre group preserves art and connection after a global pandemic."
+  },
+  {
+    "id": "w157",
+    "title": "The Overstory",
+    "creator": "Richard Powers",
+    "type": "Book",
+    "year": 2018,
+    "tags": [
+      "ecology",
+      "activism",
+      "interconnection",
+      "time",
+      "politics"
+    ],
+    "mood": "Expansive",
+    "desc": "Interconnected lives reveal the deep relationships between people and trees."
+  },
+  {
+    "id": "w158",
+    "title": "Sapiens",
+    "creator": "Yuval Noah Harari",
+    "type": "Book",
+    "year": 2011,
+    "tags": [
+      "history",
+      "civilization",
+      "belief",
+      "cooperation"
+    ],
+    "mood": "Big-picture",
+    "desc": "A broad account of human history emphasizes shared stories and social cooperation."
+  },
+  {
+    "id": "w159",
+    "title": "Thinking, Fast and Slow",
+    "creator": "Daniel Kahneman",
+    "type": "Book",
+    "year": 2011,
+    "tags": [
+      "psychology",
+      "decision-making",
+      "bias",
+      "reasoning"
+    ],
+    "mood": "Analytical",
+    "desc": "Research on judgment distinguishes rapid intuitive thinking from slower deliberate reasoning."
+  },
+  {
+    "id": "w160",
+    "title": "The Design of Everyday Things",
+    "creator": "Don Norman",
+    "type": "Book",
+    "year": 1988,
+    "tags": [
+      "design",
+      "usability",
+      "human factors",
+      "technology"
+    ],
+    "mood": "Practical",
+    "desc": "Design principles explain how objects can better communicate their intended use."
+  },
+  {
+    "id": "w161",
+    "title": "Man's Search for Meaning",
+    "creator": "Viktor E. Frankl",
+    "type": "Book",
+    "year": 1946,
+    "tags": [
+      "meaning",
+      "suffering",
+      "resilience",
+      "purpose",
+      "mortality",
+      "ethics"
+    ],
+    "mood": "Reflective",
+    "desc": "A psychiatrist considers how people seek meaning amid extreme suffering."
+  },
+  {
+    "id": "w162",
+    "title": "The Righteous Mind",
+    "creator": "Jonathan Haidt",
+    "type": "Book",
+    "year": 2012,
+    "tags": [
+      "morality",
+      "culture",
+      "politics",
+      "psychology"
+    ],
+    "mood": "Exploratory",
+    "desc": "Moral psychology examines why groups develop different intuitions about right and wrong."
+  },
+  {
+    "id": "w163",
+    "title": "Quiet",
+    "creator": "Susan Cain",
+    "type": "Book",
+    "year": 2012,
+    "tags": [
+      "personality",
+      "culture",
+      "work",
+      "identity"
+    ],
+    "mood": "Affirming",
+    "desc": "The book explores how introversion is understood and valued in society."
+  },
+  {
+    "id": "w164",
+    "title": "The Body Keeps the Score",
+    "creator": "Bessel van der Kolk",
+    "type": "Book",
+    "year": 2014,
+    "tags": [
+      "trauma",
+      "memory",
+      "healing",
+      "psychology"
+    ],
+    "mood": "Serious",
+    "desc": "A clinician discusses how trauma can affect the mind and body."
+  },
+  {
+    "id": "w165",
+    "title": "Invisible Women",
+    "creator": "Caroline Criado Perez",
+    "type": "Book",
+    "year": 2019,
+    "tags": [
+      "gender",
+      "data",
+      "bias",
+      "design"
+    ],
+    "mood": "Investigative",
+    "desc": "Examples show how missing sex-disaggregated data can shape systems and public decisions."
+  },
+  {
+    "id": "w166",
+    "title": "Weapons of Math Destruction",
+    "creator": "Cathy O'Neil",
+    "type": "Book",
+    "year": 2016,
+    "tags": [
+      "algorithms",
+      "bias",
+      "power",
+      "accountability"
+    ],
+    "mood": "Critical",
+    "desc": "The author examines how opaque mathematical models can reinforce inequality."
+  },
+  {
+    "id": "w167",
+    "title": "The Information",
+    "creator": "James Gleick",
+    "type": "Book",
+    "year": 2011,
+    "tags": [
+      "communication",
+      "science",
+      "language",
+      "technology"
+    ],
+    "mood": "Expansive",
+    "desc": "A history of information explores the evolution of communication and computation."
+  },
+  {
+    "id": "w168",
+    "title": "The Selfish Gene",
+    "creator": "Richard Dawkins",
+    "type": "Book",
+    "year": 1976,
+    "tags": [
+      "evolution",
+      "biology",
+      "cooperation",
+      "science"
+    ],
+    "mood": "Explanatory",
+    "desc": "An evolutionary account uses genes as a lens for interpreting natural selection."
+  },
+  {
+    "id": "w169",
+    "title": "A Brief History of Time",
+    "creator": "Stephen Hawking",
+    "type": "Book",
+    "year": 1988,
+    "tags": [
+      "cosmology",
+      "time",
+      "physics",
+      "curiosity"
+    ],
+    "mood": "Wonder-filled",
+    "desc": "A popular introduction to questions about the universe, time, and black holes."
+  },
+  {
+    "id": "w170",
+    "title": "The Emperor of All Maladies",
+    "creator": "Siddhartha Mukherjee",
+    "type": "Book",
+    "year": 2010,
+    "tags": [
+      "medicine",
+      "science",
+      "history",
+      "perseverance"
+    ],
+    "mood": "Investigative",
+    "desc": "A history of cancer traces scientific discoveries and the human struggle against disease."
+  },
+  {
+    "id": "w171",
+    "title": "The Immortal Life of Henrietta Lacks",
+    "creator": "Rebecca Skloot",
+    "type": "Book",
+    "year": 2010,
+    "tags": [
+      "ethics",
+      "medicine",
+      "race",
+      "consent"
+    ],
+    "mood": "Thought-provoking",
+    "desc": "The story of HeLa cells raises questions about medical research, consent, and justice."
+  },
+  {
+    "id": "w172",
+    "title": "Bad Blood",
+    "creator": "John Carreyrou",
+    "type": "Book",
+    "year": 2018,
+    "tags": [
+      "deception",
+      "technology",
+      "ethics",
+      "ambition"
+    ],
+    "mood": "Investigative",
+    "desc": "An account of Theranos examines startup hype, governance failures, and fraud."
+  },
+  {
+    "id": "w173",
+    "title": "The Warmth of Other Suns",
+    "creator": "Isabel Wilkerson",
+    "type": "Book",
+    "year": 2010,
+    "tags": [
+      "migration",
+      "race",
+      "history",
+      "belonging"
+    ],
+    "mood": "Human",
+    "desc": "A narrative history follows Black Americans who left the South during the Great Migration."
+  },
+  {
+    "id": "w174",
+    "title": "Educated",
+    "creator": "Tara Westover",
+    "type": "Book",
+    "year": 2018,
+    "tags": [
+      "education",
+      "family",
+      "identity",
+      "independence"
+    ],
+    "mood": "Introspective",
+    "desc": "A woman raised in an isolated household pursues education and reconsiders her past."
+  },
+  {
+    "id": "w175",
+    "title": "Born a Crime",
+    "creator": "Trevor Noah",
+    "type": "Book",
+    "year": 2016,
+    "tags": [
+      "identity",
+      "race",
+      "family",
+      "resilience"
+    ],
+    "mood": "Witty",
+    "desc": "Memoir episodes explore growing up under and after apartheid in South Africa."
+  },
+  {
+    "id": "w176",
+    "title": "The Diary of a Young Girl",
+    "creator": "Anne Frank",
+    "type": "Book",
+    "year": 1947,
+    "tags": [
+      "war",
+      "hope",
+      "adolescence",
+      "persecution"
+    ],
+    "mood": "Intimate",
+    "desc": "A young Jewish diarist records life in hiding during the Holocaust."
+  },
+  {
+    "id": "w177",
+    "title": "The Art of War",
+    "creator": "Sun Tzu",
+    "type": "Book",
+    "year": 0,
+    "tags": [
+      "strategy",
+      "conflict",
+      "leadership",
+      "planning"
+    ],
+    "mood": "Strategic",
+    "desc": "A classical text considers preparation, information, and indirect approaches to conflict."
+  },
+  {
+    "id": "w178",
+    "title": "Meditations",
+    "creator": "Marcus Aurelius",
+    "type": "Book",
+    "year": 0,
+    "tags": [
+      "stoicism",
+      "discipline",
+      "mortality",
+      "reflection",
+      "meaning",
+      "ethics"
+    ],
+    "mood": "Contemplative",
+    "desc": "Personal philosophical notes explore virtue, attention, and accepting what cannot be controlled."
+  },
+  {
+    "id": "w179",
+    "title": "The Republic",
+    "creator": "Plato",
+    "type": "Book",
+    "year": 0,
+    "tags": [
+      "justice",
+      "politics",
+      "education",
+      "philosophy"
+    ],
+    "mood": "Philosophical",
+    "desc": "A dialogue investigates justice, political order, and the education of the ideal city."
+  },
+  {
+    "id": "w180",
+    "title": "The Analects",
+    "creator": "Confucius",
+    "type": "Book",
+    "year": 0,
+    "tags": [
+      "ethics",
+      "education",
+      "community",
+      "leadership"
+    ],
+    "mood": "Reflective",
+    "desc": "Collected teachings emphasize ethical conduct, learning, and social responsibility."
+  },
+  {
+    "id": "w181",
+    "title": "The Bhagavad Gita",
+    "creator": "Traditionally attributed to Vyasa",
+    "type": "Book",
+    "year": 0,
+    "tags": [
+      "duty",
+      "action",
+      "ethics",
+      "spirituality"
+    ],
+    "mood": "Contemplative",
+    "desc": "A dialogue explores action, duty, and disciplined engagement amid moral conflict."
+  },
+  {
+    "id": "w182",
+    "title": "The Mahabharata",
+    "creator": "Traditionally attributed to Vyasa",
+    "type": "Book",
+    "year": 0,
+    "tags": [
+      "duty",
+      "family",
+      "war",
+      "morality"
+    ],
+    "mood": "Epic",
+    "desc": "An expansive Indian epic examines kinship, conflict, obligation, and ethical ambiguity."
+  },
+  {
+    "id": "w183",
+    "title": "The Ramayana",
+    "creator": "Traditionally attributed to Valmiki",
+    "type": "Book",
+    "year": 0,
+    "tags": [
+      "duty",
+      "exile",
+      "devotion",
+      "leadership"
+    ],
+    "mood": "Epic",
+    "desc": "An Indian epic follows Rama's exile and the struggle to recover Sita."
+  },
+  {
+    "id": "w184",
+    "title": "Gitanjali",
+    "creator": "Rabindranath Tagore",
+    "type": "Book",
+    "year": 1910,
+    "tags": [
+      "devotion",
+      "nature",
+      "humility",
+      "meaning"
+    ],
+    "mood": "Lyrical",
+    "desc": "Poems explore spiritual longing, nature, and the relationship between self and the infinite."
+  },
+  {
+    "id": "w185",
+    "title": "The Guide",
+    "creator": "R. K. Narayan",
+    "type": "Book",
+    "year": 1958,
+    "tags": [
+      "identity",
+      "change",
+      "morality",
+      "community"
+    ],
+    "mood": "Reflective",
+    "desc": "A former tourist guide finds himself mistaken for a spiritual figure."
+  },
+  {
+    "id": "w186",
+    "title": "Malgudi Days",
+    "creator": "R. K. Narayan",
+    "type": "Book",
+    "year": 1943,
+    "tags": [
+      "community",
+      "everyday life",
+      "humour",
+      "change"
+    ],
+    "mood": "Warm",
+    "desc": "Short stories portray ordinary lives in the fictional South Indian town of Malgudi."
+  },
+  {
+    "id": "w187",
+    "title": "The Inheritance of Loss",
+    "creator": "Kiran Desai",
+    "type": "Book",
+    "year": 2006,
+    "tags": [
+      "migration",
+      "class",
+      "identity",
+      "globalization"
+    ],
+    "mood": "Melancholic",
+    "desc": "Lives in the Himalayas and New York reveal the tensions of migration and privilege."
+  },
+  {
+    "id": "w188",
+    "title": "The Palace of Illusions",
+    "creator": "Chitra Banerjee Divakaruni",
+    "type": "Book",
+    "year": 2008,
+    "tags": [
+      "myth",
+      "gender",
+      "power",
+      "identity"
+    ],
+    "mood": "Mythic",
+    "desc": "The Mahabharata is retold through Draupadi's perspective."
+  },
+  {
+    "id": "w189",
+    "title": "The Discovery of India",
+    "creator": "Jawaharlal Nehru",
+    "type": "Book",
+    "year": 1946,
+    "tags": [
+      "history",
+      "identity",
+      "culture",
+      "nation"
+    ],
+    "mood": "Reflective",
+    "desc": "A prison-written account considers India's historical and cultural development."
+  },
+  {
+    "id": "w190",
+    "title": "The Argumentative Indian",
+    "creator": "Amartya Sen",
+    "type": "Book",
+    "year": 2005,
+    "tags": [
+      "democracy",
+      "pluralism",
+      "reasoning",
+      "history"
+    ],
+    "mood": "Analytical",
+    "desc": "Essays discuss India's traditions of debate, diversity, and public reasoning."
+  },
+  {
+    "id": "w191",
+    "title": "Why I Am an Atheist",
+    "creator": "Bhagat Singh",
+    "type": "Book",
+    "year": 1930,
+    "tags": [
+      "belief",
+      "reason",
+      "courage",
+      "politics"
+    ],
+    "mood": "Provocative",
+    "desc": "An essay reflects on conviction, skepticism, and intellectual independence."
+  },
+  {
+    "id": "w192",
+    "title": "La La Land",
+    "creator": "Damien Chazelle",
+    "type": "Film",
+    "year": 2016,
+    "tags": [
+      "ambition",
+      "love",
+      "dreams",
+      "sacrifice",
+      "change"
+    ],
+    "mood": "Bittersweet",
+    "desc": "Two artists fall in love while pursuing careers that pull them in different directions.",
+    "region": "Hollywood",
+    "director": "Damien Chazelle",
+    "cast": [
+      "Ryan Gosling",
+      "Emma Stone"
+    ],
+    "genres": [
+      "romance",
+      "musical",
+      "drama"
+    ],
+    "emotionalArc": [
+      "ambition",
+      "love",
+      "dreams"
+    ],
+    "storyBeat": "Two artists fall in love while pursuing careers that pull them in different directions.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w193",
+    "title": "The Wolf of Wall Street",
+    "creator": "Martin Scorsese",
+    "type": "Film",
+    "year": 2013,
+    "tags": [
+      "ambition",
+      "wealth",
+      "deception",
+      "power",
+      "excess"
+    ],
+    "mood": "Wild",
+    "desc": "A broker’s rise through excess reveals the destructive cost of unchecked ambition.",
+    "region": "Hollywood",
+    "director": "Martin Scorsese",
+    "cast": [
+      "Leonardo DiCaprio",
+      "Jonah Hill",
+      "Margot Robbie"
+    ],
+    "genres": [
+      "biography",
+      "crime",
+      "comedy"
+    ],
+    "emotionalArc": [
+      "ambition",
+      "wealth",
+      "deception"
+    ],
+    "storyBeat": "A broker’s rise through excess reveals the destructive cost of unchecked ambition.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w194",
+    "title": "The Martian",
+    "creator": "Ridley Scott",
+    "type": "Film",
+    "year": 2015,
+    "tags": [
+      "survival",
+      "science",
+      "hope",
+      "resilience",
+      "teamwork"
+    ],
+    "mood": "Hopeful",
+    "desc": "An astronaut stranded on Mars uses ingenuity and collaboration to stay alive.",
+    "region": "Hollywood",
+    "director": "Ridley Scott",
+    "cast": [
+      "Matt Damon",
+      "Jessica Chastain",
+      "Chiwetel Ejiofor"
+    ],
+    "genres": [
+      "science fiction",
+      "adventure",
+      "drama"
+    ],
+    "emotionalArc": [
+      "survival",
+      "science",
+      "hope"
+    ],
+    "storyBeat": "An astronaut stranded on Mars uses ingenuity and collaboration to stay alive.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w195",
+    "title": "Mad Max: Fury Road",
+    "creator": "George Miller",
+    "type": "Film",
+    "year": 2015,
+    "tags": [
+      "survival",
+      "freedom",
+      "resistance",
+      "trust",
+      "redemption"
+    ],
+    "mood": "Frenetic",
+    "desc": "A desperate escape across a wasteland becomes a fight for freedom and a better future.",
+    "region": "Hollywood",
+    "director": "George Miller",
+    "cast": [
+      "Tom Hardy",
+      "Charlize Theron",
+      "Nicholas Hoult"
+    ],
+    "genres": [
+      "action",
+      "science fiction",
+      "adventure"
+    ],
+    "emotionalArc": [
+      "survival",
+      "freedom",
+      "resistance"
+    ],
+    "storyBeat": "A desperate escape across a wasteland becomes a fight for freedom and a better future.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w196",
+    "title": "Avengers: Infinity War",
+    "creator": "Anthony Russo; Joe Russo",
+    "type": "Film",
+    "year": 2018,
+    "tags": [
+      "sacrifice",
+      "power",
+      "survival",
+      "teamwork",
+      "loss"
+    ],
+    "mood": "Dread-filled",
+    "desc": "Heroes unite against an overwhelming threat as the cost of failure becomes personal.",
+    "region": "Hollywood",
+    "director": "Anthony Russo; Joe Russo",
+    "cast": [
+      "Robert Downey Jr.",
+      "Chris Evans",
+      "Scarlett Johansson",
+      "Chris Hemsworth",
+      "Chadwick Boseman"
+    ],
+    "genres": [
+      "superhero",
+      "action",
+      "science fiction"
+    ],
+    "emotionalArc": [
+      "sacrifice",
+      "power",
+      "survival"
+    ],
+    "storyBeat": "Heroes unite against an overwhelming threat as the cost of failure becomes personal.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w197",
+    "title": "Avengers: Endgame",
+    "creator": "Anthony Russo; Joe Russo",
+    "type": "Film",
+    "year": 2019,
+    "tags": [
+      "grief",
+      "sacrifice",
+      "time",
+      "hope",
+      "family"
+    ],
+    "mood": "Triumphant",
+    "desc": "A grieving team risks everything for one final chance to restore what was lost.",
+    "region": "Hollywood",
+    "director": "Anthony Russo; Joe Russo",
+    "cast": [
+      "Robert Downey Jr.",
+      "Chris Evans",
+      "Scarlett Johansson",
+      "Chris Hemsworth",
+      "Mark Ruffalo"
+    ],
+    "genres": [
+      "superhero",
+      "action",
+      "science fiction"
+    ],
+    "emotionalArc": [
+      "grief",
+      "sacrifice",
+      "time"
+    ],
+    "storyBeat": "A grieving team risks everything for one final chance to restore what was lost.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w198",
+    "title": "Joker",
+    "creator": "Todd Phillips",
+    "type": "Film",
+    "year": 2019,
+    "tags": [
+      "alienation",
+      "identity",
+      "inequality",
+      "violence",
+      "society"
+    ],
+    "mood": "Unsettling",
+    "desc": "A socially isolated man spirals as personal suffering meets public indifference.",
+    "region": "Hollywood",
+    "director": "Todd Phillips",
+    "cast": [
+      "Joaquin Phoenix",
+      "Robert De Niro",
+      "Zazie Beetz"
+    ],
+    "genres": [
+      "psychological drama",
+      "crime",
+      "thriller"
+    ],
+    "emotionalArc": [
+      "alienation",
+      "identity",
+      "inequality"
+    ],
+    "storyBeat": "A socially isolated man spirals as personal suffering meets public indifference.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w199",
+    "title": "Knives Out",
+    "creator": "Rian Johnson",
+    "type": "Film",
+    "year": 2019,
+    "tags": [
+      "family",
+      "deception",
+      "class",
+      "justice",
+      "truth"
+    ],
+    "mood": "Playful",
+    "desc": "A detective untangles a wealthy family’s competing stories after a suspicious death.",
+    "region": "Hollywood",
+    "director": "Rian Johnson",
+    "cast": [
+      "Daniel Craig",
+      "Ana de Armas",
+      "Chris Evans",
+      "Jamie Lee Curtis"
+    ],
+    "genres": [
+      "mystery",
+      "comedy",
+      "crime"
+    ],
+    "emotionalArc": [
+      "family",
+      "deception",
+      "class"
+    ],
+    "storyBeat": "A detective untangles a wealthy family’s competing stories after a suspicious death.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w200",
+    "title": "Dune: Part Two",
+    "creator": "Denis Villeneuve",
+    "type": "Film",
+    "year": 2024,
+    "tags": [
+      "power",
+      "destiny",
+      "survival",
+      "love",
+      "resistance"
+    ],
+    "mood": "Epic",
+    "desc": "A reluctant leader faces the cost of prophecy, revenge, and political power.",
+    "region": "Hollywood",
+    "director": "Denis Villeneuve",
+    "cast": [
+      "Timothée Chalamet",
+      "Zendaya",
+      "Rebecca Ferguson",
+      "Florence Pugh"
+    ],
+    "genres": [
+      "science fiction",
+      "adventure",
+      "drama"
+    ],
+    "emotionalArc": [
+      "power",
+      "destiny",
+      "survival"
+    ],
+    "storyBeat": "A reluctant leader faces the cost of prophecy, revenge, and political power.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w201",
+    "title": "Oppenheimer",
+    "creator": "Christopher Nolan",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "ambition",
+      "science",
+      "morality",
+      "power",
+      "consequences"
+    ],
+    "mood": "Tense",
+    "desc": "A physicist’s breakthrough becomes a lifelong reckoning with responsibility and consequences.",
+    "region": "Hollywood",
+    "director": "Christopher Nolan",
+    "cast": [
+      "Cillian Murphy",
+      "Emily Blunt",
+      "Robert Downey Jr.",
+      "Matt Damon"
+    ],
+    "genres": [
+      "biography",
+      "drama",
+      "history"
+    ],
+    "emotionalArc": [
+      "ambition",
+      "science",
+      "morality"
+    ],
+    "storyBeat": "A physicist’s breakthrough becomes a lifelong reckoning with responsibility and consequences.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w202",
+    "title": "Barbie",
+    "creator": "Greta Gerwig",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "identity",
+      "gender",
+      "society",
+      "freedom",
+      "belonging"
+    ],
+    "mood": "Playful",
+    "desc": "A perfect-looking world cracks open, prompting its heroine to question identity and expectation.",
+    "region": "Hollywood",
+    "director": "Greta Gerwig",
+    "cast": [
+      "Margot Robbie",
+      "Ryan Gosling",
+      "America Ferrera"
+    ],
+    "genres": [
+      "comedy",
+      "fantasy",
+      "adventure"
+    ],
+    "emotionalArc": [
+      "identity",
+      "gender",
+      "society"
+    ],
+    "storyBeat": "A perfect-looking world cracks open, prompting its heroine to question identity and expectation.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w203",
+    "title": "Top Gun: Maverick",
+    "creator": "Joseph Kosinski",
+    "type": "Film",
+    "year": 2022,
+    "tags": [
+      "mentorship",
+      "grief",
+      "teamwork",
+      "risk",
+      "legacy"
+    ],
+    "mood": "Adrenaline-filled",
+    "desc": "A veteran pilot trains a new generation while confronting grief and his own legacy.",
+    "region": "Hollywood",
+    "director": "Joseph Kosinski",
+    "cast": [
+      "Tom Cruise",
+      "Miles Teller",
+      "Jennifer Connelly"
+    ],
+    "genres": [
+      "action",
+      "drama"
+    ],
+    "emotionalArc": [
+      "mentorship",
+      "grief",
+      "teamwork"
+    ],
+    "storyBeat": "A veteran pilot trains a new generation while confronting grief and his own legacy.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w204",
+    "title": "Spider-Man: No Way Home",
+    "creator": "Jon Watts",
+    "type": "Film",
+    "year": 2021,
+    "tags": [
+      "identity",
+      "sacrifice",
+      "responsibility",
+      "grief",
+      "choice"
+    ],
+    "mood": "Emotional",
+    "desc": "A desperate attempt to fix a mistake forces a young hero to choose responsibility over comfort.",
+    "region": "Hollywood",
+    "director": "Jon Watts",
+    "cast": [
+      "Tom Holland",
+      "Zendaya",
+      "Benedict Cumberbatch"
+    ],
+    "genres": [
+      "superhero",
+      "action",
+      "fantasy"
+    ],
+    "emotionalArc": [
+      "identity",
+      "sacrifice",
+      "responsibility"
+    ],
+    "storyBeat": "A desperate attempt to fix a mistake forces a young hero to choose responsibility over comfort.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w205",
+    "title": "The Batman",
+    "creator": "Matt Reeves",
+    "type": "Film",
+    "year": 2022,
+    "tags": [
+      "justice",
+      "corruption",
+      "identity",
+      "revenge",
+      "hope"
+    ],
+    "mood": "Noir",
+    "desc": "A detective follows a trail of corruption and must decide what kind of symbol the city needs.",
+    "region": "Hollywood",
+    "director": "Matt Reeves",
+    "cast": [
+      "Robert Pattinson",
+      "Zoë Kravitz",
+      "Paul Dano"
+    ],
+    "genres": [
+      "superhero",
+      "crime",
+      "mystery"
+    ],
+    "emotionalArc": [
+      "justice",
+      "corruption",
+      "identity"
+    ],
+    "storyBeat": "A detective follows a trail of corruption and must decide what kind of symbol the city needs.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w206",
+    "title": "Poor Things",
+    "creator": "Yorgos Lanthimos",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "identity",
+      "freedom",
+      "growth",
+      "power",
+      "curiosity"
+    ],
+    "mood": "Surreal",
+    "desc": "A woman’s extraordinary reawakening becomes a journey toward autonomy and self-knowledge.",
+    "region": "Hollywood",
+    "director": "Yorgos Lanthimos",
+    "cast": [
+      "Emma Stone",
+      "Mark Ruffalo",
+      "Willem Dafoe"
+    ],
+    "genres": [
+      "science fiction",
+      "comedy",
+      "drama"
+    ],
+    "emotionalArc": [
+      "identity",
+      "freedom",
+      "growth"
+    ],
+    "storyBeat": "A woman’s extraordinary reawakening becomes a journey toward autonomy and self-knowledge.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w207",
+    "title": "Ford v Ferrari",
+    "creator": "James Mangold",
+    "type": "Film",
+    "year": 2019,
+    "tags": [
+      "ambition",
+      "teamwork",
+      "rivalry",
+      "craft",
+      "sacrifice"
+    ],
+    "mood": "Exhilarating",
+    "desc": "An engineer and driver challenge a racing giant through skill, trust, and stubborn ambition.",
+    "region": "Hollywood",
+    "director": "James Mangold",
+    "cast": [
+      "Matt Damon",
+      "Christian Bale"
+    ],
+    "genres": [
+      "sports",
+      "biography",
+      "drama"
+    ],
+    "emotionalArc": [
+      "ambition",
+      "teamwork",
+      "rivalry"
+    ],
+    "storyBeat": "An engineer and driver challenge a racing giant through skill, trust, and stubborn ambition.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w208",
+    "title": "The Greatest Showman",
+    "creator": "Michael Gracey",
+    "type": "Film",
+    "year": 2017,
+    "tags": [
+      "belonging",
+      "ambition",
+      "family",
+      "identity",
+      "acceptance"
+    ],
+    "mood": "Uplifting",
+    "desc": "A showman builds a spectacle while learning the difference between fame and belonging.",
+    "region": "Hollywood",
+    "director": "Michael Gracey",
+    "cast": [
+      "Hugh Jackman",
+      "Zac Efron",
+      "Zendaya",
+      "Michelle Williams"
+    ],
+    "genres": [
+      "musical",
+      "drama",
+      "biography"
+    ],
+    "emotionalArc": [
+      "belonging",
+      "ambition",
+      "family"
+    ],
+    "storyBeat": "A showman builds a spectacle while learning the difference between fame and belonging.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w209",
+    "title": "A Star Is Born",
+    "creator": "Bradley Cooper",
+    "type": "Film",
+    "year": 2018,
+    "tags": [
+      "love",
+      "ambition",
+      "addiction",
+      "sacrifice",
+      "identity"
+    ],
+    "mood": "Melancholic",
+    "desc": "Two musicians fall in love as success and addiction pull their lives in opposite directions.",
+    "region": "Hollywood",
+    "director": "Bradley Cooper",
+    "cast": [
+      "Bradley Cooper",
+      "Lady Gaga"
+    ],
+    "genres": [
+      "romance",
+      "music",
+      "drama"
+    ],
+    "emotionalArc": [
+      "love",
+      "ambition",
+      "addiction"
+    ],
+    "storyBeat": "Two musicians fall in love as success and addiction pull their lives in opposite directions.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w210",
+    "title": "The Shape of Water",
+    "creator": "Guillermo del Toro",
+    "type": "Film",
+    "year": 2017,
+    "tags": [
+      "loneliness",
+      "otherness",
+      "love",
+      "freedom",
+      "resistance"
+    ],
+    "mood": "Lyrical",
+    "desc": "An isolated woman forms a bond with a captive being and risks everything to free him.",
+    "region": "Hollywood",
+    "director": "Guillermo del Toro",
+    "cast": [
+      "Sally Hawkins",
+      "Michael Shannon",
+      "Octavia Spencer"
+    ],
+    "genres": [
+      "fantasy",
+      "romance",
+      "drama"
+    ],
+    "emotionalArc": [
+      "loneliness",
+      "otherness",
+      "love"
+    ],
+    "storyBeat": "An isolated woman forms a bond with a captive being and risks everything to free him.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w211",
+    "title": "1917",
+    "creator": "Sam Mendes",
+    "type": "Film",
+    "year": 2019,
+    "tags": [
+      "duty",
+      "survival",
+      "friendship",
+      "sacrifice",
+      "time"
+    ],
+    "mood": "Urgent",
+    "desc": "Two soldiers race against time to deliver a message that could save hundreds.",
+    "region": "Hollywood",
+    "director": "Sam Mendes",
+    "cast": [
+      "George MacKay",
+      "Dean-Charles Chapman"
+    ],
+    "genres": [
+      "war",
+      "drama",
+      "thriller"
+    ],
+    "emotionalArc": [
+      "duty",
+      "survival",
+      "friendship"
+    ],
+    "storyBeat": "Two soldiers race against time to deliver a message that could save hundreds.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w212",
+    "title": "Soul",
+    "creator": "Pete Docter; Kemp Powers",
+    "type": "Film",
+    "year": 2020,
+    "tags": [
+      "meaning",
+      "purpose",
+      "music",
+      "life",
+      "wonder",
+      "emotion",
+      "growth"
+    ],
+    "mood": "Reflective",
+    "desc": "A musician’s unexpected journey changes how he understands purpose and the ordinary moments of life.",
+    "region": "Hollywood",
+    "director": "Pete Docter; Kemp Powers",
+    "cast": [
+      "Jamie Foxx",
+      "Tina Fey"
+    ],
+    "genres": [
+      "animation",
+      "fantasy",
+      "comedy"
+    ],
+    "emotionalArc": [
+      "meaning",
+      "purpose",
+      "music"
+    ],
+    "storyBeat": "A musician’s unexpected journey changes how he understands purpose and the ordinary moments of life.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w213",
+    "title": "Encanto",
+    "creator": "Jared Bush; Byron Howard",
+    "type": "Film",
+    "year": 2021,
+    "tags": [
+      "family",
+      "expectation",
+      "identity",
+      "healing",
+      "belonging"
+    ],
+    "mood": "Warm",
+    "desc": "A young woman questions the role her family expects her to play and helps it heal.",
+    "region": "Hollywood",
+    "director": "Jared Bush; Byron Howard",
+    "cast": [
+      "Stephanie Beatriz",
+      "María Cecilia Botero"
+    ],
+    "genres": [
+      "animation",
+      "musical",
+      "fantasy"
+    ],
+    "emotionalArc": [
+      "family",
+      "expectation",
+      "identity"
+    ],
+    "storyBeat": "A young woman questions the role her family expects her to play and helps it heal.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w214",
+    "title": "Turning Red",
+    "creator": "Domee Shi",
+    "type": "Film",
+    "year": 2022,
+    "tags": [
+      "adolescence",
+      "family",
+      "identity",
+      "change",
+      "acceptance"
+    ],
+    "mood": "Energetic",
+    "desc": "A teenager’s startling transformation brings family expectations and self-acceptance into conflict.",
+    "region": "Hollywood",
+    "director": "Domee Shi",
+    "cast": [
+      "Rosalie Chiang",
+      "Sandra Oh"
+    ],
+    "genres": [
+      "animation",
+      "comedy",
+      "fantasy"
+    ],
+    "emotionalArc": [
+      "adolescence",
+      "family",
+      "identity"
+    ],
+    "storyBeat": "A teenager’s startling transformation brings family expectations and self-acceptance into conflict.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w215",
+    "title": "No Time to Die",
+    "creator": "Cary Joji Fukunaga",
+    "type": "Film",
+    "year": 2021,
+    "tags": [
+      "trust",
+      "sacrifice",
+      "legacy",
+      "love",
+      "duty"
+    ],
+    "mood": "Somber",
+    "desc": "A retired agent returns to a dangerous mission where loyalty and sacrifice have a personal cost.",
+    "region": "Hollywood",
+    "director": "Cary Joji Fukunaga",
+    "cast": [
+      "Daniel Craig",
+      "Léa Seydoux",
+      "Rami Malek"
+    ],
+    "genres": [
+      "action",
+      "spy",
+      "thriller"
+    ],
+    "emotionalArc": [
+      "trust",
+      "sacrifice",
+      "legacy"
+    ],
+    "storyBeat": "A retired agent returns to a dangerous mission where loyalty and sacrifice have a personal cost.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w216",
+    "title": "Mission: Impossible – Fallout",
+    "creator": "Christopher McQuarrie",
+    "type": "Film",
+    "year": 2018,
+    "tags": [
+      "trust",
+      "teamwork",
+      "sacrifice",
+      "risk",
+      "duty"
+    ],
+    "mood": "High-stakes",
+    "desc": "A mission spirals into a race to stop catastrophe while testing trust within a team.",
+    "region": "Hollywood",
+    "director": "Christopher McQuarrie",
+    "cast": [
+      "Tom Cruise",
+      "Rebecca Ferguson",
+      "Simon Pegg",
+      "Henry Cavill"
+    ],
+    "genres": [
+      "action",
+      "spy",
+      "thriller"
+    ],
+    "emotionalArc": [
+      "trust",
+      "teamwork",
+      "sacrifice"
+    ],
+    "storyBeat": "A mission spirals into a race to stop catastrophe while testing trust within a team.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w217",
+    "title": "John Wick: Chapter 4",
+    "creator": "Chad Stahelski",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "revenge",
+      "freedom",
+      "loyalty",
+      "sacrifice",
+      "survival"
+    ],
+    "mood": "Relentless",
+    "desc": "A hunted assassin fights for a way out of a system built to keep him trapped.",
+    "region": "Hollywood",
+    "director": "Chad Stahelski",
+    "cast": [
+      "Keanu Reeves",
+      "Donnie Yen",
+      "Bill Skarsgård"
+    ],
+    "genres": [
+      "action",
+      "thriller"
+    ],
+    "emotionalArc": [
+      "revenge",
+      "freedom",
+      "loyalty"
+    ],
+    "storyBeat": "A hunted assassin fights for a way out of a system built to keep him trapped.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w218",
+    "title": "The Menu",
+    "creator": "Mark Mylod",
+    "type": "Film",
+    "year": 2022,
+    "tags": [
+      "class",
+      "power",
+      "obsession",
+      "survival",
+      "satire"
+    ],
+    "mood": "Uneasy",
+    "desc": "A luxury dinner becomes a pressure cooker exposing status, entitlement, and obsession.",
+    "region": "Hollywood",
+    "director": "Mark Mylod",
+    "cast": [
+      "Ralph Fiennes",
+      "Anya Taylor-Joy",
+      "Nicholas Hoult"
+    ],
+    "genres": [
+      "horror",
+      "comedy",
+      "thriller"
+    ],
+    "emotionalArc": [
+      "class",
+      "power",
+      "obsession"
+    ],
+    "storyBeat": "A luxury dinner becomes a pressure cooker exposing status, entitlement, and obsession.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w219",
+    "title": "Past Lives",
+    "creator": "Celine Song",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "love",
+      "time",
+      "identity",
+      "choice",
+      "longing"
+    ],
+    "mood": "Tender",
+    "desc": "Two childhood friends reunite across years and continents to consider the lives they chose.",
+    "region": "Hollywood",
+    "director": "Celine Song",
+    "cast": [
+      "Greta Lee",
+      "Teo Yoo",
+      "John Magaro"
+    ],
+    "genres": [
+      "romance",
+      "drama"
+    ],
+    "emotionalArc": [
+      "love",
+      "time",
+      "identity"
+    ],
+    "storyBeat": "Two childhood friends reunite across years and continents to consider the lives they chose.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w220",
+    "title": "Dangal",
+    "creator": "Nitesh Tiwari",
+    "type": "Film",
+    "year": 2016,
+    "tags": [
+      "family",
+      "ambition",
+      "gender",
+      "discipline",
+      "resilience"
+    ],
+    "mood": "Inspirational",
+    "desc": "A father trains his daughters to challenge expectations and compete at the highest level.",
+    "region": "Bollywood",
+    "director": "Nitesh Tiwari",
+    "cast": [
+      "Aamir Khan",
+      "Fatima Sana Shaikh",
+      "Sanya Malhotra"
+    ],
+    "genres": [
+      "sports",
+      "biography",
+      "drama"
+    ],
+    "emotionalArc": [
+      "family",
+      "ambition",
+      "gender"
+    ],
+    "storyBeat": "A father trains his daughters to challenge expectations and compete at the highest level.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w221",
+    "title": "PK",
+    "creator": "Rajkumar Hirani",
+    "type": "Film",
+    "year": 2014,
+    "tags": [
+      "belief",
+      "identity",
+      "society",
+      "truth",
+      "belonging"
+    ],
+    "mood": "Thought-provoking",
+    "desc": "An outsider’s innocent questions expose contradictions in belief and social convention.",
+    "region": "Bollywood",
+    "director": "Rajkumar Hirani",
+    "cast": [
+      "Aamir Khan",
+      "Anushka Sharma",
+      "Sushant Singh Rajput"
+    ],
+    "genres": [
+      "satire",
+      "comedy",
+      "drama"
+    ],
+    "emotionalArc": [
+      "belief",
+      "identity",
+      "society"
+    ],
+    "storyBeat": "An outsider’s innocent questions expose contradictions in belief and social convention.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w222",
+    "title": "Queen",
+    "creator": "Vikas Bahl",
+    "type": "Film",
+    "year": 2014,
+    "tags": [
+      "independence",
+      "identity",
+      "growth",
+      "freedom",
+      "confidence"
+    ],
+    "mood": "Uplifting",
+    "desc": "A cancelled wedding sends a young woman on a solo trip that changes how she sees herself.",
+    "region": "Bollywood",
+    "director": "Vikas Bahl",
+    "cast": [
+      "Kangana Ranaut",
+      "Rajkummar Rao",
+      "Lisa Haydon"
+    ],
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "emotionalArc": [
+      "independence",
+      "identity",
+      "growth"
+    ],
+    "storyBeat": "A cancelled wedding sends a young woman on a solo trip that changes how she sees herself.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w223",
+    "title": "Kahaani",
+    "creator": "Sujoy Ghosh",
+    "type": "Film",
+    "year": 2012,
+    "tags": [
+      "identity",
+      "deception",
+      "grief",
+      "truth",
+      "survival"
+    ],
+    "mood": "Suspenseful",
+    "desc": "A pregnant woman searches for her missing husband in a city full of unreliable stories.",
+    "region": "Bollywood",
+    "director": "Sujoy Ghosh",
+    "cast": [
+      "Vidya Balan",
+      "Parambrata Chatterjee",
+      "Nawazuddin Siddiqui"
+    ],
+    "genres": [
+      "mystery",
+      "thriller"
+    ],
+    "emotionalArc": [
+      "identity",
+      "deception",
+      "grief"
+    ],
+    "storyBeat": "A pregnant woman searches for her missing husband in a city full of unreliable stories.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w224",
+    "title": "Piku",
+    "creator": "Shoojit Sircar",
+    "type": "Film",
+    "year": 2015,
+    "tags": [
+      "family",
+      "aging",
+      "duty",
+      "independence",
+      "love"
+    ],
+    "mood": "Warm",
+    "desc": "A daughter and her eccentric father navigate care, independence, and everyday conflict.",
+    "region": "Bollywood",
+    "director": "Shoojit Sircar",
+    "cast": [
+      "Deepika Padukone",
+      "Amitabh Bachchan",
+      "Irrfan Khan"
+    ],
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "emotionalArc": [
+      "family",
+      "aging",
+      "duty"
+    ],
+    "storyBeat": "A daughter and her eccentric father navigate care, independence, and everyday conflict.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w225",
+    "title": "Bajrangi Bhaijaan",
+    "creator": "Kabir Khan",
+    "type": "Film",
+    "year": 2015,
+    "tags": [
+      "kindness",
+      "belonging",
+      "faith",
+      "journey",
+      "humanity"
+    ],
+    "mood": "Heartwarming",
+    "desc": "A kind-hearted man crosses borders to reunite a lost child with her family.",
+    "region": "Bollywood",
+    "director": "Kabir Khan",
+    "cast": [
+      "Salman Khan",
+      "Harshaali Malhotra",
+      "Kareena Kapoor Khan"
+    ],
+    "genres": [
+      "drama",
+      "adventure"
+    ],
+    "emotionalArc": [
+      "kindness",
+      "belonging",
+      "faith"
+    ],
+    "storyBeat": "A kind-hearted man crosses borders to reunite a lost child with her family.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w226",
+    "title": "Yeh Jawaani Hai Deewani",
+    "creator": "Ayan Mukerji",
+    "type": "Film",
+    "year": 2013,
+    "tags": [
+      "friendship",
+      "ambition",
+      "love",
+      "growth",
+      "choice"
+    ],
+    "mood": "Nostalgic",
+    "desc": "Friends reunite and confront the tension between chasing the world and choosing connection.",
+    "region": "Bollywood",
+    "director": "Ayan Mukerji",
+    "cast": [
+      "Ranbir Kapoor",
+      "Deepika Padukone",
+      "Aditya Roy Kapur",
+      "Kalki Koechlin"
+    ],
+    "genres": [
+      "romance",
+      "drama",
+      "comedy"
+    ],
+    "emotionalArc": [
+      "friendship",
+      "ambition",
+      "love"
+    ],
+    "storyBeat": "Friends reunite and confront the tension between chasing the world and choosing connection.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w227",
+    "title": "Andhadhun",
+    "creator": "Sriram Raghavan",
+    "type": "Film",
+    "year": 2018,
+    "tags": [
+      "deception",
+      "survival",
+      "morality",
+      "perception",
+      "uncertainty"
+    ],
+    "mood": "Twisty",
+    "desc": "A pianist becomes entangled in a crime where perception and truth are constantly unstable.",
+    "region": "Bollywood",
+    "director": "Sriram Raghavan",
+    "cast": [
+      "Ayushmann Khurrana",
+      "Tabu",
+      "Radhika Apte"
+    ],
+    "genres": [
+      "crime",
+      "thriller",
+      "black comedy"
+    ],
+    "emotionalArc": [
+      "deception",
+      "survival",
+      "morality"
+    ],
+    "storyBeat": "A pianist becomes entangled in a crime where perception and truth are constantly unstable.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w228",
+    "title": "Gully Boy",
+    "creator": "Zoya Akhtar",
+    "type": "Film",
+    "year": 2019,
+    "tags": [
+      "ambition",
+      "class",
+      "identity",
+      "creativity",
+      "resilience"
+    ],
+    "mood": "Electric",
+    "desc": "A young rapper from Mumbai’s streets finds a voice against social and economic limits.",
+    "region": "Bollywood",
+    "director": "Zoya Akhtar",
+    "cast": [
+      "Ranveer Singh",
+      "Alia Bhatt",
+      "Siddhant Chaturvedi"
+    ],
+    "genres": [
+      "music",
+      "drama"
+    ],
+    "emotionalArc": [
+      "ambition",
+      "class",
+      "identity"
+    ],
+    "storyBeat": "A young rapper from Mumbai’s streets finds a voice against social and economic limits.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w229",
+    "title": "Padmaavat",
+    "creator": "Sanjay Leela Bhansali",
+    "type": "Film",
+    "year": 2018,
+    "tags": [
+      "power",
+      "honor",
+      "sacrifice",
+      "obsession",
+      "resistance"
+    ],
+    "mood": "Grand",
+    "desc": "A kingdom is drawn into a conflict shaped by pride, power, and the cost of resistance.",
+    "region": "Bollywood",
+    "director": "Sanjay Leela Bhansali",
+    "cast": [
+      "Deepika Padukone",
+      "Shahid Kapoor",
+      "Ranveer Singh"
+    ],
+    "genres": [
+      "historical",
+      "drama",
+      "romance"
+    ],
+    "emotionalArc": [
+      "power",
+      "honor",
+      "sacrifice"
+    ],
+    "storyBeat": "A kingdom is drawn into a conflict shaped by pride, power, and the cost of resistance.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w230",
+    "title": "Barfi!",
+    "creator": "Anurag Basu",
+    "type": "Film",
+    "year": 2012,
+    "tags": [
+      "love",
+      "difference",
+      "kindness",
+      "belonging",
+      "joy"
+    ],
+    "mood": "Tender",
+    "desc": "A playful, unconventional love story challenges assumptions about communication and happiness.",
+    "region": "Bollywood",
+    "director": "Anurag Basu",
+    "cast": [
+      "Ranbir Kapoor",
+      "Priyanka Chopra Jonas",
+      "Ileana D’Cruz"
+    ],
+    "genres": [
+      "romance",
+      "comedy",
+      "drama"
+    ],
+    "emotionalArc": [
+      "love",
+      "difference",
+      "kindness"
+    ],
+    "storyBeat": "A playful, unconventional love story challenges assumptions about communication and happiness.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w231",
+    "title": "Kapoor & Sons",
+    "creator": "Shakun Batra",
+    "type": "Film",
+    "year": 2016,
+    "tags": [
+      "family",
+      "secrets",
+      "identity",
+      "belonging",
+      "reconciliation"
+    ],
+    "mood": "Bittersweet",
+    "desc": "Two brothers return home and expose old wounds beneath the family’s carefully maintained image.",
+    "region": "Bollywood",
+    "director": "Shakun Batra",
+    "cast": [
+      "Sidharth Malhotra",
+      "Fawad Khan",
+      "Alia Bhatt",
+      "Rishi Kapoor"
+    ],
+    "genres": [
+      "family",
+      "drama",
+      "comedy"
+    ],
+    "emotionalArc": [
+      "family",
+      "secrets",
+      "identity"
+    ],
+    "storyBeat": "Two brothers return home and expose old wounds beneath the family’s carefully maintained image.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w232",
+    "title": "Dear Zindagi",
+    "creator": "Gauri Shinde",
+    "type": "Film",
+    "year": 2016,
+    "tags": [
+      "psychology",
+      "growth",
+      "healing",
+      "identity",
+      "relationships"
+    ],
+    "mood": "Reflective",
+    "desc": "A young cinematographer learns to face emotional patterns and rethink what a good life means.",
+    "region": "Bollywood",
+    "director": "Gauri Shinde",
+    "cast": [
+      "Alia Bhatt",
+      "Shah Rukh Khan"
+    ],
+    "genres": [
+      "drama",
+      "romance"
+    ],
+    "emotionalArc": [
+      "psychology",
+      "growth",
+      "healing"
+    ],
+    "storyBeat": "A young cinematographer learns to face emotional patterns and rethink what a good life means.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w233",
+    "title": "Raazi",
+    "creator": "Meghna Gulzar",
+    "type": "Film",
+    "year": 2018,
+    "tags": [
+      "duty",
+      "identity",
+      "family",
+      "sacrifice",
+      "loyalty"
+    ],
+    "mood": "Tense",
+    "desc": "A young woman enters a dangerous undercover mission where duty conflicts with personal bonds.",
+    "region": "Bollywood",
+    "director": "Meghna Gulzar",
+    "cast": [
+      "Alia Bhatt",
+      "Vicky Kaushal",
+      "Jaideep Ahlawat"
+    ],
+    "genres": [
+      "spy",
+      "thriller",
+      "drama"
+    ],
+    "emotionalArc": [
+      "duty",
+      "identity",
+      "family"
+    ],
+    "storyBeat": "A young woman enters a dangerous undercover mission where duty conflicts with personal bonds.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w234",
+    "title": "Article 15",
+    "creator": "Anubhav Sinha",
+    "type": "Film",
+    "year": 2019,
+    "tags": [
+      "justice",
+      "inequality",
+      "prejudice",
+      "power",
+      "duty"
+    ],
+    "mood": "Urgent",
+    "desc": "An officer confronts systemic discrimination while investigating a disturbing crime.",
+    "region": "Bollywood",
+    "director": "Anubhav Sinha",
+    "cast": [
+      "Ayushmann Khurrana",
+      "Isha Talwar",
+      "Sayani Gupta"
+    ],
+    "genres": [
+      "crime",
+      "drama",
+      "mystery"
+    ],
+    "emotionalArc": [
+      "justice",
+      "inequality",
+      "prejudice"
+    ],
+    "storyBeat": "An officer confronts systemic discrimination while investigating a disturbing crime.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w235",
+    "title": "Jawan",
+    "creator": "Atlee",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "justice",
+      "corruption",
+      "revenge",
+      "identity",
+      "collective action"
+    ],
+    "mood": "Rousing",
+    "desc": "A vigilante exposes systemic failures and asks who should be held accountable.",
+    "region": "Bollywood",
+    "director": "Atlee",
+    "cast": [
+      "Shah Rukh Khan",
+      "Nayanthara",
+      "Vijay Sethupathi",
+      "Deepika Padukone"
+    ],
+    "genres": [
+      "action",
+      "thriller"
+    ],
+    "emotionalArc": [
+      "justice",
+      "corruption",
+      "revenge"
+    ],
+    "storyBeat": "A vigilante exposes systemic failures and asks who should be held accountable.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w236",
+    "title": "Pathaan",
+    "creator": "Siddharth Anand",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "loyalty",
+      "identity",
+      "teamwork",
+      "duty",
+      "redemption"
+    ],
+    "mood": "Adrenaline-filled",
+    "desc": "An exiled agent returns to stop a threat and rebuild trust with unlikely allies.",
+    "region": "Bollywood",
+    "director": "Siddharth Anand",
+    "cast": [
+      "Shah Rukh Khan",
+      "Deepika Padukone",
+      "John Abraham"
+    ],
+    "genres": [
+      "action",
+      "spy",
+      "thriller"
+    ],
+    "emotionalArc": [
+      "loyalty",
+      "identity",
+      "teamwork"
+    ],
+    "storyBeat": "An exiled agent returns to stop a threat and rebuild trust with unlikely allies.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w237",
+    "title": "12th Fail",
+    "creator": "Vidhu Vinod Chopra",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "resilience",
+      "ambition",
+      "education",
+      "integrity",
+      "hope"
+    ],
+    "mood": "Inspirational",
+    "desc": "A student rebuilds after failure and pursues a difficult dream without abandoning integrity.",
+    "region": "Bollywood",
+    "director": "Vidhu Vinod Chopra",
+    "cast": [
+      "Vikrant Massey",
+      "Medha Shankar"
+    ],
+    "genres": [
+      "drama",
+      "biography"
+    ],
+    "emotionalArc": [
+      "resilience",
+      "ambition",
+      "education"
+    ],
+    "storyBeat": "A student rebuilds after failure and pursues a difficult dream without abandoning integrity.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w238",
+    "title": "Laapataa Ladies",
+    "creator": "Kiran Rao",
+    "type": "Film",
+    "year": 2024,
+    "tags": [
+      "identity",
+      "independence",
+      "gender",
+      "belonging",
+      "self-discovery"
+    ],
+    "mood": "Warm",
+    "desc": "A mix-up separates two brides and opens unexpected paths toward independence and self-knowledge.",
+    "region": "Bollywood",
+    "director": "Kiran Rao",
+    "cast": [
+      "Nitanshi Goel",
+      "Pratibha Ranta",
+      "Sparsh Shrivastava"
+    ],
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "emotionalArc": [
+      "identity",
+      "independence",
+      "gender"
+    ],
+    "storyBeat": "A mix-up separates two brides and opens unexpected paths toward independence and self-knowledge.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w239",
+    "title": "Stree 2",
+    "creator": "Amar Kaushik",
+    "type": "Film",
+    "year": 2024,
+    "tags": [
+      "community",
+      "fear",
+      "courage",
+      "belonging",
+      "myth"
+    ],
+    "mood": "Playful",
+    "desc": "A town joins forces against a new supernatural threat that tests its courage and solidarity.",
+    "region": "Bollywood",
+    "director": "Amar Kaushik",
+    "cast": [
+      "Rajkummar Rao",
+      "Shraddha Kapoor",
+      "Pankaj Tripathi",
+      "Abhishek Banerjee"
+    ],
+    "genres": [
+      "horror",
+      "comedy"
+    ],
+    "emotionalArc": [
+      "community",
+      "fear",
+      "courage"
+    ],
+    "storyBeat": "A town joins forces against a new supernatural threat that tests its courage and solidarity.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w240",
+    "title": "Tumbbad",
+    "creator": "Rahi Anil Barve",
+    "type": "Film",
+    "year": 2018,
+    "tags": [
+      "greed",
+      "inheritance",
+      "fear",
+      "obsession",
+      "consequences"
+    ],
+    "mood": "Gothic",
+    "desc": "A family’s pursuit of hidden wealth becomes a generational trap of greed and consequence.",
+    "region": "Bollywood",
+    "director": "Rahi Anil Barve",
+    "cast": [
+      "Sohum Shah",
+      "Jyoti Malshe"
+    ],
+    "genres": [
+      "horror",
+      "fantasy"
+    ],
+    "emotionalArc": [
+      "greed",
+      "inheritance",
+      "fear"
+    ],
+    "storyBeat": "A family’s pursuit of hidden wealth becomes a generational trap of greed and consequence.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w241",
+    "title": "War",
+    "creator": "Siddharth Anand",
+    "type": "Film",
+    "year": 2019,
+    "tags": [
+      "loyalty",
+      "betrayal",
+      "identity",
+      "duty",
+      "trust"
+    ],
+    "mood": "High-stakes",
+    "desc": "An elite agent hunts his former mentor while the line between betrayal and duty shifts.",
+    "region": "Bollywood",
+    "director": "Siddharth Anand",
+    "cast": [
+      "Hrithik Roshan",
+      "Tiger Shroff",
+      "Vaani Kapoor"
+    ],
+    "genres": [
+      "action",
+      "spy",
+      "thriller"
+    ],
+    "emotionalArc": [
+      "loyalty",
+      "betrayal",
+      "identity"
+    ],
+    "storyBeat": "An elite agent hunts his former mentor while the line between betrayal and duty shifts.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w242",
+    "title": "Uri: The Surgical Strike",
+    "creator": "Aditya Dhar",
+    "type": "Film",
+    "year": 2019,
+    "tags": [
+      "duty",
+      "teamwork",
+      "sacrifice",
+      "resilience",
+      "justice"
+    ],
+    "mood": "Intense",
+    "desc": "A military team prepares a high-risk operation shaped by grief, discipline, and duty.",
+    "region": "Bollywood",
+    "director": "Aditya Dhar",
+    "cast": [
+      "Vicky Kaushal",
+      "Paresh Rawal",
+      "Yami Gautam"
+    ],
+    "genres": [
+      "war",
+      "action",
+      "drama"
+    ],
+    "emotionalArc": [
+      "duty",
+      "teamwork",
+      "sacrifice"
+    ],
+    "storyBeat": "A military team prepares a high-risk operation shaped by grief, discipline, and duty.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w243",
+    "title": "Drishyam 2",
+    "creator": "Abhishek Pathak",
+    "type": "Film",
+    "year": 2022,
+    "tags": [
+      "family",
+      "deception",
+      "justice",
+      "protection",
+      "morality"
+    ],
+    "mood": "Tense",
+    "desc": "A father’s attempt to protect his family collides with a renewed investigation.",
+    "region": "Bollywood",
+    "director": "Abhishek Pathak",
+    "cast": [
+      "Ajay Devgn",
+      "Akshaye Khanna",
+      "Tabu",
+      "Shriya Saran"
+    ],
+    "genres": [
+      "crime",
+      "thriller",
+      "drama"
+    ],
+    "emotionalArc": [
+      "family",
+      "deception",
+      "justice"
+    ],
+    "storyBeat": "A father’s attempt to protect his family collides with a renewed investigation.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w244",
+    "title": "Brahmāstra: Part One – Shiva",
+    "creator": "Ayan Mukerji",
+    "type": "Film",
+    "year": 2022,
+    "tags": [
+      "destiny",
+      "love",
+      "identity",
+      "power",
+      "belonging"
+    ],
+    "mood": "Mythic",
+    "desc": "A young man discovers a hidden power and a place in a conflict larger than himself.",
+    "region": "Bollywood",
+    "director": "Ayan Mukerji",
+    "cast": [
+      "Ranbir Kapoor",
+      "Alia Bhatt",
+      "Amitabh Bachchan",
+      "Mouni Roy"
+    ],
+    "genres": [
+      "fantasy",
+      "adventure",
+      "action"
+    ],
+    "emotionalArc": [
+      "destiny",
+      "love",
+      "identity"
+    ],
+    "storyBeat": "A young man discovers a hidden power and a place in a conflict larger than himself.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w245",
+    "title": "Gangubai Kathiawadi",
+    "creator": "Sanjay Leela Bhansali",
+    "type": "Film",
+    "year": 2022,
+    "tags": [
+      "power",
+      "resilience",
+      "justice",
+      "identity",
+      "community"
+    ],
+    "mood": "Defiant",
+    "desc": "A woman transforms vulnerability into influence while fighting for dignity and agency.",
+    "region": "Bollywood",
+    "director": "Sanjay Leela Bhansali",
+    "cast": [
+      "Alia Bhatt",
+      "Shantanu Maheshwari",
+      "Vijay Raaz"
+    ],
+    "genres": [
+      "biography",
+      "crime",
+      "drama"
+    ],
+    "emotionalArc": [
+      "power",
+      "resilience",
+      "justice"
+    ],
+    "storyBeat": "A woman transforms vulnerability into influence while fighting for dignity and agency.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w246",
+    "title": "Chhichhore",
+    "creator": "Nitesh Tiwari",
+    "type": "Film",
+    "year": 2019,
+    "tags": [
+      "friendship",
+      "failure",
+      "resilience",
+      "belonging",
+      "growth"
+    ],
+    "mood": "Heartfelt",
+    "desc": "Former college friends revisit failure and learn to measure life beyond winning.",
+    "region": "Bollywood",
+    "director": "Nitesh Tiwari",
+    "cast": [
+      "Sushant Singh Rajput",
+      "Shraddha Kapoor",
+      "Varun Sharma"
+    ],
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "emotionalArc": [
+      "friendship",
+      "failure",
+      "resilience"
+    ],
+    "storyBeat": "Former college friends revisit failure and learn to measure life beyond winning.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w247",
+    "title": "Tamasha",
+    "creator": "Imtiaz Ali",
+    "type": "Film",
+    "year": 2015,
+    "tags": [
+      "identity",
+      "performance",
+      "love",
+      "freedom",
+      "self-discovery"
+    ],
+    "mood": "Reflective",
+    "desc": "A man trapped in a prescribed life rediscovers the self he has hidden from the world.",
+    "region": "Bollywood",
+    "director": "Imtiaz Ali",
+    "cast": [
+      "Ranbir Kapoor",
+      "Deepika Padukone"
+    ],
+    "genres": [
+      "romance",
+      "drama"
+    ],
+    "emotionalArc": [
+      "identity",
+      "performance",
+      "love"
+    ],
+    "storyBeat": "A man trapped in a prescribed life rediscovers the self he has hidden from the world.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w248",
+    "title": "Secret Superstar",
+    "creator": "Advait Chandan",
+    "type": "Film",
+    "year": 2017,
+    "tags": [
+      "ambition",
+      "family",
+      "freedom",
+      "courage",
+      "creativity"
+    ],
+    "mood": "Hopeful",
+    "desc": "A teenage singer pursues her dream anonymously while navigating control at home.",
+    "region": "Bollywood",
+    "director": "Advait Chandan",
+    "cast": [
+      "Zaira Wasim",
+      "Aamir Khan",
+      "Meher Vij"
+    ],
+    "genres": [
+      "music",
+      "drama"
+    ],
+    "emotionalArc": [
+      "ambition",
+      "family",
+      "freedom"
+    ],
+    "storyBeat": "A teenage singer pursues her dream anonymously while navigating control at home.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w249",
+    "title": "Bajirao Mastani",
+    "creator": "Sanjay Leela Bhansali",
+    "type": "Film",
+    "year": 2015,
+    "tags": [
+      "love",
+      "duty",
+      "power",
+      "sacrifice",
+      "belonging"
+    ],
+    "mood": "Epic",
+    "desc": "A powerful romance clashes with political duty and social expectation.",
+    "region": "Bollywood",
+    "director": "Sanjay Leela Bhansali",
+    "cast": [
+      "Ranveer Singh",
+      "Deepika Padukone",
+      "Priyanka Chopra Jonas"
+    ],
+    "genres": [
+      "historical",
+      "romance",
+      "drama"
+    ],
+    "emotionalArc": [
+      "love",
+      "duty",
+      "power"
+    ],
+    "storyBeat": "A powerful romance clashes with political duty and social expectation.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w250",
+    "title": "Sanju",
+    "creator": "Rajkumar Hirani",
+    "type": "Film",
+    "year": 2018,
+    "tags": [
+      "identity",
+      "friendship",
+      "public image",
+      "consequences",
+      "redemption"
+    ],
+    "mood": "Reflective",
+    "desc": "A turbulent public life is retold through friendship, mistakes, and the struggle to define oneself.",
+    "region": "Bollywood",
+    "director": "Rajkumar Hirani",
+    "cast": [
+      "Ranbir Kapoor",
+      "Vicky Kaushal",
+      "Paresh Rawal"
+    ],
+    "genres": [
+      "biography",
+      "drama",
+      "comedy"
+    ],
+    "emotionalArc": [
+      "identity",
+      "friendship",
+      "public image"
+    ],
+    "storyBeat": "A turbulent public life is retold through friendship, mistakes, and the struggle to define oneself.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w251",
+    "title": "Shershaah",
+    "creator": "Vishnuvardhan",
+    "type": "Film",
+    "year": 2021,
+    "tags": [
+      "duty",
+      "love",
+      "courage",
+      "sacrifice",
+      "legacy"
+    ],
+    "mood": "Moving",
+    "desc": "A soldier’s story brings together love, courage, and the cost of service.",
+    "region": "Bollywood",
+    "director": "Vishnuvardhan",
+    "cast": [
+      "Sidharth Malhotra",
+      "Kiara Advani"
+    ],
+    "genres": [
+      "war",
+      "biography",
+      "romance"
+    ],
+    "emotionalArc": [
+      "duty",
+      "love",
+      "courage"
+    ],
+    "storyBeat": "A soldier’s story brings together love, courage, and the cost of service.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w252",
+    "title": "Sardar Udham",
+    "creator": "Shoojit Sircar",
+    "type": "Film",
+    "year": 2021,
+    "tags": [
+      "grief",
+      "justice",
+      "memory",
+      "resistance",
+      "sacrifice"
+    ],
+    "mood": "Somber",
+    "desc": "A revolutionary’s long pursuit of justice is shaped by memory, grief, and resistance.",
+    "region": "Bollywood",
+    "director": "Shoojit Sircar",
+    "cast": [
+      "Vicky Kaushal",
+      "Shaun Scott"
+    ],
+    "genres": [
+      "biography",
+      "history",
+      "drama"
+    ],
+    "emotionalArc": [
+      "grief",
+      "justice",
+      "memory"
+    ],
+    "storyBeat": "A revolutionary’s long pursuit of justice is shaped by memory, grief, and resistance.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w253",
+    "title": "Rocky Aur Rani Kii Prem Kahaani",
+    "creator": "Karan Johar",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "family",
+      "love",
+      "gender",
+      "tradition",
+      "change"
+    ],
+    "mood": "Joyful",
+    "desc": "Two people from contrasting families challenge traditions to make room for love and change.",
+    "region": "Bollywood",
+    "director": "Karan Johar",
+    "cast": [
+      "Ranveer Singh",
+      "Alia Bhatt",
+      "Dharmendra",
+      "Jaya Bachchan"
+    ],
+    "genres": [
+      "romance",
+      "comedy",
+      "drama"
+    ],
+    "emotionalArc": [
+      "family",
+      "love",
+      "gender"
+    ],
+    "storyBeat": "Two people from contrasting families challenge traditions to make room for love and change.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w254",
+    "title": "Dunki",
+    "creator": "Rajkumar Hirani",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "migration",
+      "friendship",
+      "hope",
+      "belonging",
+      "sacrifice"
+    ],
+    "mood": "Bittersweet",
+    "desc": "Friends risk everything on an irregular migration route in pursuit of a place to call home.",
+    "region": "Bollywood",
+    "director": "Rajkumar Hirani",
+    "cast": [
+      "Shah Rukh Khan",
+      "Taapsee Pannu",
+      "Vicky Kaushal"
+    ],
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "emotionalArc": [
+      "migration",
+      "friendship",
+      "hope"
+    ],
+    "storyBeat": "Friends risk everything on an irregular migration route in pursuit of a place to call home.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w255",
+    "title": "Animal",
+    "creator": "Sandeep Reddy Vanga",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "family",
+      "obsession",
+      "violence",
+      "identity",
+      "inheritance"
+    ],
+    "mood": "Dark",
+    "desc": "A son’s need for his father’s approval spirals into destructive violence and obsession.",
+    "region": "Bollywood",
+    "director": "Sandeep Reddy Vanga",
+    "cast": [
+      "Ranbir Kapoor",
+      "Anil Kapoor",
+      "Rashmika Mandanna",
+      "Bobby Deol"
+    ],
+    "genres": [
+      "crime",
+      "action",
+      "drama"
+    ],
+    "emotionalArc": [
+      "family",
+      "obsession",
+      "violence"
+    ],
+    "storyBeat": "A son’s need for his father’s approval spirals into destructive violence and obsession.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w256",
+    "title": "OMG 2",
+    "creator": "Amit Rai",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "education",
+      "stigma",
+      "justice",
+      "belief",
+      "courage"
+    ],
+    "mood": "Thought-provoking",
+    "desc": "A family’s legal fight challenges shame and silence around essential education.",
+    "region": "Bollywood",
+    "director": "Amit Rai",
+    "cast": [
+      "Akshay Kumar",
+      "Pankaj Tripathi",
+      "Yami Gautam"
+    ],
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "emotionalArc": [
+      "education",
+      "stigma",
+      "justice"
+    ],
+    "storyBeat": "A family’s legal fight challenges shame and silence around essential education.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w257",
+    "title": "Sam Bahadur",
+    "creator": "Meghna Gulzar",
+    "type": "Film",
+    "year": 2023,
+    "tags": [
+      "leadership",
+      "duty",
+      "integrity",
+      "legacy",
+      "courage"
+    ],
+    "mood": "Respectful",
+    "desc": "A military leader’s career explores judgment, discipline, and responsibility.",
+    "region": "Bollywood",
+    "director": "Meghna Gulzar",
+    "cast": [
+      "Vicky Kaushal",
+      "Sanya Malhotra",
+      "Fatima Sana Shaikh"
+    ],
+    "genres": [
+      "biography",
+      "war",
+      "drama"
+    ],
+    "emotionalArc": [
+      "leadership",
+      "duty",
+      "integrity"
+    ],
+    "storyBeat": "A military leader’s career explores judgment, discipline, and responsibility.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w258",
+    "title": "Crew",
+    "creator": "Rajesh A Krishnan",
+    "type": "Film",
+    "year": 2024,
+    "tags": [
+      "ambition",
+      "friendship",
+      "survival",
+      "deception",
+      "independence"
+    ],
+    "mood": "Playful",
+    "desc": "Three flight attendants improvise their way through financial pressure and a risky scheme.",
+    "region": "Bollywood",
+    "director": "Rajesh A Krishnan",
+    "cast": [
+      "Tabu",
+      "Kareena Kapoor Khan",
+      "Kriti Sanon"
+    ],
+    "genres": [
+      "comedy",
+      "crime"
+    ],
+    "emotionalArc": [
+      "ambition",
+      "friendship",
+      "survival"
+    ],
+    "storyBeat": "Three flight attendants improvise their way through financial pressure and a risky scheme.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w259",
+    "title": "Fighter",
+    "creator": "Siddharth Anand",
+    "type": "Film",
+    "year": 2024,
+    "tags": [
+      "teamwork",
+      "duty",
+      "grief",
+      "courage",
+      "resilience"
+    ],
+    "mood": "Adrenaline-filled",
+    "desc": "An elite air-force team confronts danger while rebuilding trust after loss.",
+    "region": "Bollywood",
+    "director": "Siddharth Anand",
+    "cast": [
+      "Hrithik Roshan",
+      "Deepika Padukone",
+      "Anil Kapoor"
+    ],
+    "genres": [
+      "action",
+      "drama"
+    ],
+    "emotionalArc": [
+      "teamwork",
+      "duty",
+      "grief"
+    ],
+    "storyBeat": "An elite air-force team confronts danger while rebuilding trust after loss.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w260",
+    "title": "Article 370",
+    "creator": "Aditya Suhas Jambhale",
+    "type": "Film",
+    "year": 2024,
+    "tags": [
+      "duty",
+      "power",
+      "conflict",
+      "justice",
+      "strategy"
+    ],
+    "mood": "Tense",
+    "desc": "An intelligence operation unfolds amid political upheaval and high-stakes decisions.",
+    "region": "Bollywood",
+    "director": "Aditya Suhas Jambhale",
+    "cast": [
+      "Yami Gautam",
+      "Priyamani",
+      "Arun Govil"
+    ],
+    "genres": [
+      "political thriller",
+      "action"
+    ],
+    "emotionalArc": [
+      "duty",
+      "power",
+      "conflict"
+    ],
+    "storyBeat": "An intelligence operation unfolds amid political upheaval and high-stakes decisions.",
+    "creditNote": "Curated film metadata; individual credits should be checked against a reliable filmography before treating as independently verified."
+  },
+  {
+    "id": "w261",
+    "title": "Sinners",
+    "creator": "Ryan Coogler",
+    "type": "Film",
+    "year": 2025,
+    "tags": [
+      "family",
+      "fear",
+      "history",
+      "violence",
+      "redemption",
+      "class",
+      "survival"
+    ],
+    "mood": "Dark",
+    "desc": "Twin brothers return home to start over, only to discover a greater evil waiting for them.",
+    "region": "Hollywood",
+    "director": "Ryan Coogler",
+    "cast": [
+      "Michael B. Jordan",
+      "Hailee Steinfeld",
+      "Jack O’Connell",
+      "Wunmi Mosaku"
+    ],
+    "genres": [
+      "horror",
+      "thriller",
+      "drama"
+    ],
+    "emotionalArc": [
+      "family",
+      "fear",
+      "history"
+    ],
+    "storyBeat": "Twin brothers return home to start over, only to discover a greater evil waiting for them.",
+    "creditNote": "Curated credits; see the linked studio or certification record where provided.",
+    "creditSourceUrl": "https://www.sinnersmovie.com/gallery/",
+    "creditSourceLabel": "Official studio or CBFC listing"
+  },
+  {
+    "id": "w262",
+    "title": "Superman",
+    "creator": "James Gunn",
+    "type": "Film",
+    "year": 2025,
+    "tags": [
+      "compassion",
+      "identity",
+      "hope",
+      "responsibility",
+      "belonging"
+    ],
+    "mood": "Hopeful",
+    "desc": "A hero guided by compassion tries to reconcile his heritage with his belief in human goodness.",
+    "region": "Hollywood",
+    "director": "James Gunn",
+    "cast": [
+      "David Corenswet",
+      "Rachel Brosnahan",
+      "Nicholas Hoult"
+    ],
+    "genres": [
+      "superhero",
+      "action",
+      "adventure"
+    ],
+    "emotionalArc": [
+      "compassion",
+      "identity",
+      "hope"
+    ],
+    "storyBeat": "A hero guided by compassion tries to reconcile his heritage with his belief in human goodness.",
+    "creditNote": "Curated credits; see the linked studio or certification record where provided.",
+    "creditSourceUrl": "https://www.dc.com/movies/superman-2025",
+    "creditSourceLabel": "Official studio or CBFC listing"
+  },
+  {
+    "id": "w263",
+    "title": "F1",
+    "creator": "Joseph Kosinski",
+    "type": "Film",
+    "year": 2025,
+    "tags": [
+      "ambition",
+      "mentorship",
+      "teamwork",
+      "risk",
+      "legacy"
+    ],
+    "mood": "Adrenaline-filled",
+    "desc": "A veteran driver returns to the grid to mentor a rookie and pursue one last chance at victory.",
+    "region": "Hollywood",
+    "director": "Joseph Kosinski",
+    "cast": [
+      "Brad Pitt",
+      "Damson Idris",
+      "Kerry Condon"
+    ],
+    "genres": [
+      "sports",
+      "drama",
+      "action"
+    ],
+    "emotionalArc": [
+      "ambition",
+      "mentorship",
+      "teamwork"
+    ],
+    "storyBeat": "A veteran driver returns to the grid to mentor a rookie and pursue one last chance at victory.",
+    "creditNote": "Curated credits; see the linked studio or certification record where provided."
+  },
+  {
+    "id": "w264",
+    "title": "Chhaava",
+    "creator": "Laxman Utekar",
+    "type": "Film",
+    "year": 2025,
+    "tags": [
+      "freedom",
+      "legacy",
+      "sacrifice",
+      "courage",
+      "resistance"
+    ],
+    "mood": "Epic",
+    "desc": "Sambhaji Maharaj’s struggle becomes a story of courage, sacrifice, and a legacy under threat.",
+    "region": "Bollywood",
+    "director": "Laxman Utekar",
+    "cast": [
+      "Vicky Kaushal",
+      "Rashmika Mandanna",
+      "Akshaye Khanna"
+    ],
+    "genres": [
+      "historical",
+      "action",
+      "drama"
+    ],
+    "emotionalArc": [
+      "freedom",
+      "legacy",
+      "sacrifice"
+    ],
+    "storyBeat": "Sambhaji Maharaj’s struggle becomes a story of courage, sacrifice, and a legacy under threat.",
+    "creditNote": "Curated credits; see the linked studio or certification record where provided.",
+    "creditSourceUrl": "https://www.yashrajfilms.com/movies/chhaava",
+    "creditSourceLabel": "Official studio or CBFC listing"
+  },
+  {
+    "id": "w265",
+    "title": "War 2",
+    "creator": "Ayan Mukerji",
+    "type": "Film",
+    "year": 2025,
+    "tags": [
+      "loyalty",
+      "identity",
+      "duty",
+      "trust",
+      "conflict"
+    ],
+    "mood": "High-stakes",
+    "desc": "A rogue agent faces an equally formidable opponent in a high-stakes battle of loyalties.",
+    "region": "Bollywood",
+    "director": "Ayan Mukerji",
+    "cast": [
+      "Hrithik Roshan",
+      "N. T. Rama Rao Jr.",
+      "Kiara Advani"
+    ],
+    "genres": [
+      "action",
+      "spy",
+      "thriller"
+    ],
+    "emotionalArc": [
+      "loyalty",
+      "identity",
+      "duty"
+    ],
+    "storyBeat": "A rogue agent faces an equally formidable opponent in a high-stakes battle of loyalties.",
+    "creditNote": "Curated credits; see the linked studio or certification record where provided.",
+    "creditSourceUrl": "https://www.yashrajfilms.com/movies/war-2",
+    "creditSourceLabel": "Official studio or CBFC listing"
+  },
+  {
+    "id": "w266",
+    "title": "Raid 2",
+    "creator": "Raj Kumar Gupta",
+    "type": "Film",
+    "year": 2025,
+    "tags": [
+      "justice",
+      "corruption",
+      "duty",
+      "morality",
+      "power"
+    ],
+    "mood": "Tense",
+    "desc": "An income-tax officer pursues another high-profile case where corruption and public duty collide.",
+    "region": "Bollywood",
+    "director": "Raj Kumar Gupta",
+    "cast": [
+      "Ajay Devgn",
+      "Riteish Deshmukh",
+      "Vaani Kapoor",
+      "Saurabh Shukla"
+    ],
+    "genres": [
+      "crime",
+      "thriller",
+      "drama"
+    ],
+    "emotionalArc": [
+      "justice",
+      "corruption",
+      "duty"
+    ],
+    "storyBeat": "An income-tax officer pursues another high-profile case where corruption and public duty collide.",
+    "creditNote": "Curated credits; see the linked studio or certification record where provided.",
+    "creditSourceUrl": "https://cbfcindia.gov.in/cbfcAdmin/search-result.php?recid=Q0EwMTA0MDMyMDI1MDAyOTY%3D",
+    "creditSourceLabel": "Official studio or CBFC listing"
+  },
+  {
+    "id": "w267",
+    "title": "Thamma",
+    "creator": "Aditya Sarpotdar",
+    "type": "Film",
+    "year": 2025,
+    "tags": [
+      "love",
+      "destiny",
+      "myth",
+      "identity",
+      "belonging"
+    ],
+    "mood": "Supernatural",
+    "desc": "A supernatural romance puts two people’s love against myth, mystery, and forces beyond their control.",
+    "region": "Bollywood",
+    "director": "Aditya Sarpotdar",
+    "cast": [
+      "Ayushmann Khurrana",
+      "Rashmika Mandanna",
+      "Paresh Rawal",
+      "Nawazuddin Siddiqui"
+    ],
+    "genres": [
+      "horror",
+      "comedy",
+      "romance"
+    ],
+    "emotionalArc": [
+      "love",
+      "destiny",
+      "myth"
+    ],
+    "storyBeat": "A supernatural romance puts two people’s love against myth, mystery, and forces beyond their control.",
+    "creditNote": "Curated credits; see the linked studio or certification record where provided.",
+    "creditSourceUrl": "https://www.yashrajfilms.com/movies/thamma",
+    "creditSourceLabel": "Official studio or CBFC listing"
+  },
+  {
+    "id": "w268",
+    "title": "Ikkis",
+    "creator": "Sriram Raghavan",
+    "type": "Film",
+    "year": 2025,
+    "tags": [
+      "duty",
+      "courage",
+      "legacy",
+      "sacrifice",
+      "memory"
+    ],
+    "mood": "Somber",
+    "desc": "A young soldier’s story explores duty, courage, and the lasting cost of war.",
+    "region": "Bollywood",
+    "director": "Sriram Raghavan",
+    "cast": [
+      "Agastya Nanda",
+      "Dharmendra",
+      "Jaideep Ahlawat"
+    ],
+    "genres": [
+      "war",
+      "biography",
+      "drama"
+    ],
+    "emotionalArc": [
+      "duty",
+      "courage",
+      "legacy"
+    ],
+    "storyBeat": "A young soldier’s story explores duty, courage, and the lasting cost of war.",
+    "creditNote": "Curated credits; see the linked studio or certification record where provided.",
+    "creditSourceUrl": "https://www.yashrajfilms.com/movies/ikkis",
+    "creditSourceLabel": "Official studio or CBFC listing"
+  },
+  {
+    "id": "w269",
+    "title": "My Name Is Khan",
+    "creator": "Karan Johar",
+    "type": "Film",
+    "year": 2010,
+    "tags": [
+      "identity",
+      "prejudice",
+      "love",
+      "journey",
+      "belonging"
+    ],
+    "mood": "Moving",
+    "desc": "A man with Asperger syndrome travels across America to challenge prejudice and keep a promise.",
+    "region": "Bollywood",
+    "director": "Karan Johar",
+    "cast": [
+      "Shah Rukh Khan",
+      "Kajol",
+      "Jimmy Sheirgill"
+    ],
+    "genres": [
+      "drama",
+      "romance"
+    ],
+    "emotionalArc": [
+      "identity",
+      "prejudice",
+      "love"
+    ],
+    "storyBeat": "A man with Asperger syndrome travels across America to challenge prejudice and keep a promise.",
+    "creditNote": "Curated film metadata; cast list is selected rather than exhaustive."
+  },
+  {
+    "id": "w270",
+    "title": "Dabangg",
+    "creator": "Abhinav Kashyap",
+    "type": "Film",
+    "year": 2010,
+    "tags": [
+      "justice",
+      "corruption",
+      "family",
+      "power",
+      "duty"
+    ],
+    "mood": "Energetic",
+    "desc": "A fearless police officer confronts corruption while navigating family loyalty and personal codes.",
+    "region": "Bollywood",
+    "director": "Abhinav Kashyap",
+    "cast": [
+      "Salman Khan",
+      "Sonakshi Sinha",
+      "Sonu Sood"
+    ],
+    "genres": [
+      "action",
+      "comedy"
+    ],
+    "emotionalArc": [
+      "justice",
+      "corruption",
+      "family"
+    ],
+    "storyBeat": "A fearless police officer confronts corruption while navigating family loyalty and personal codes.",
+    "creditNote": "Curated film metadata; cast list is selected rather than exhaustive."
+  },
+  {
+    "id": "w271",
+    "title": "Zindagi Na Milegi Dobara",
+    "creator": "Zoya Akhtar",
+    "type": "Film",
+    "year": 2011,
+    "tags": [
+      "friendship",
+      "fear",
+      "growth",
+      "freedom",
+      "self-discovery"
+    ],
+    "mood": "Uplifting",
+    "desc": "Three friends take a road trip that forces them to face fears and rethink what makes life meaningful.",
+    "region": "Bollywood",
+    "director": "Zoya Akhtar",
+    "cast": [
+      "Hrithik Roshan",
+      "Farhan Akhtar",
+      "Abhay Deol",
+      "Katrina Kaif"
+    ],
+    "genres": [
+      "comedy",
+      "drama",
+      "road film"
+    ],
+    "emotionalArc": [
+      "friendship",
+      "fear",
+      "growth"
+    ],
+    "storyBeat": "Three friends take a road trip that forces them to face fears and rethink what makes life meaningful.",
+    "creditNote": "Curated film metadata; cast list is selected rather than exhaustive."
+  },
+  {
+    "id": "w272",
+    "title": "Rockstar",
+    "creator": "Imtiaz Ali",
+    "type": "Film",
+    "year": 2011,
+    "tags": [
+      "ambition",
+      "music",
+      "love",
+      "identity",
+      "grief"
+    ],
+    "mood": "Melancholic",
+    "desc": "An aspiring musician discovers that fame and heartbreak reshape both his art and his identity.",
+    "region": "Bollywood",
+    "director": "Imtiaz Ali",
+    "cast": [
+      "Ranbir Kapoor",
+      "Nargis Fakhri"
+    ],
+    "genres": [
+      "romance",
+      "music",
+      "drama"
+    ],
+    "emotionalArc": [
+      "ambition",
+      "music",
+      "love"
+    ],
+    "storyBeat": "An aspiring musician discovers that fame and heartbreak reshape both his art and his identity.",
+    "creditNote": "Curated film metadata; cast list is selected rather than exhaustive."
+  },
+  {
+    "id": "w273",
+    "title": "Delhi Belly",
+    "creator": "Abhinay Deo",
+    "type": "Film",
+    "year": 2011,
+    "tags": [
+      "friendship",
+      "chaos",
+      "survival",
+      "deception",
+      "urban life"
+    ],
+    "mood": "Chaotic",
+    "desc": "Three roommates stumble into a criminal mess that tests friendship and improvisation.",
+    "region": "Bollywood",
+    "director": "Abhinay Deo",
+    "cast": [
+      "Imran Khan",
+      "Vir Das",
+      "Kunaal Roy Kapur"
+    ],
+    "genres": [
+      "comedy",
+      "crime"
+    ],
+    "emotionalArc": [
+      "friendship",
+      "chaos",
+      "survival"
+    ],
+    "storyBeat": "Three roommates stumble into a criminal mess that tests friendship and improvisation.",
+    "creditNote": "Curated film metadata; cast list is selected rather than exhaustive."
+  },
+  {
+    "id": "w274",
+    "title": "Don 2",
+    "creator": "Farhan Akhtar",
+    "type": "Film",
+    "year": 2011,
+    "tags": [
+      "ambition",
+      "deception",
+      "identity",
+      "power",
+      "loyalty"
+    ],
+    "mood": "Stylish",
+    "desc": "A master criminal plans an audacious heist while alliances remain uncertain.",
+    "region": "Bollywood",
+    "director": "Farhan Akhtar",
+    "cast": [
+      "Shah Rukh Khan",
+      "Priyanka Chopra Jonas",
+      "Boman Irani"
+    ],
+    "genres": [
+      "action",
+      "crime",
+      "thriller"
+    ],
+    "emotionalArc": [
+      "ambition",
+      "deception",
+      "identity"
+    ],
+    "storyBeat": "A master criminal plans an audacious heist while alliances remain uncertain.",
+    "creditNote": "Curated film metadata; cast list is selected rather than exhaustive."
+  }
+]

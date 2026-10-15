@@ -1,0 +1,101 @@
+[
+  {
+    "id": "nolan-inception-interstellar",
+    "from": "w47",
+    "to": "w48",
+    "kind": "director",
+    "person": "Christopher Nolan",
+    "label": "Same director",
+    "explanation": "Christopher Nolan directed both Inception (2010) and Interstellar (2014).",
+    "sourceLabel": "American Film Institute filmography",
+    "sourceUrl": "https://catalog.afi.com/Catalog/PersonDetails/175893"
+  },
+  {
+    "id": "miyazaki-spirited-totoro",
+    "from": "w25",
+    "to": "w70",
+    "kind": "director",
+    "person": "Hayao Miyazaki",
+    "label": "Same director",
+    "explanation": "Hayao Miyazaki directed both Spirited Away (2001) and My Neighbor Totoro (1988).",
+    "sourceLabel": "Academy of Motion Picture Arts and Sciences",
+    "sourceUrl": "https://www.oscars.org/governors-awards/2014/hayao-miyazaki"
+  },
+  {
+    "id": "miyazaki-spirited-kiki",
+    "from": "w25",
+    "to": "w96",
+    "kind": "director",
+    "person": "Hayao Miyazaki",
+    "label": "Same director",
+    "explanation": "Hayao Miyazaki directed both Spirited Away (2001) and Kiki’s Delivery Service (1989).",
+    "sourceLabel": "Academy of Motion Picture Arts and Sciences",
+    "sourceUrl": "https://www.oscars.org/governors-awards/2014/hayao-miyazaki"
+  },
+  {
+    "id": "miyazaki-totoro-kiki",
+    "from": "w70",
+    "to": "w96",
+    "kind": "director",
+    "person": "Hayao Miyazaki",
+    "label": "Same director",
+    "explanation": "Hayao Miyazaki directed both My Neighbor Totoro (1988) and Kiki’s Delivery Service (1989).",
+    "sourceLabel": "Academy of Motion Picture Arts and Sciences",
+    "sourceUrl": "https://www.oscars.org/governors-awards/2014/hayao-miyazaki"
+  },
+  {
+    "id": "miyazaki-mononoke-totoro",
+    "from": "w97",
+    "to": "w70",
+    "kind": "director",
+    "person": "Hayao Miyazaki",
+    "label": "Same director",
+    "explanation": "Hayao Miyazaki directed both Princess Mononoke (1997) and My Neighbor Totoro (1988).",
+    "sourceLabel": "Academy of Motion Picture Arts and Sciences",
+    "sourceUrl": "https://www.oscars.org/governors-awards/2014/hayao-miyazaki"
+  },
+  {
+    "id": "kurosawa-seven-rashomon",
+    "from": "w55",
+    "to": "w56",
+    "kind": "director",
+    "person": "Akira Kurosawa",
+    "label": "Same director",
+    "explanation": "Akira Kurosawa directed both Seven Samurai (1954) and Rashomon (1950).",
+    "sourceLabel": "The Criterion Collection — Rashomon",
+    "sourceUrl": "https://www.criterion.com/films/307-rashomon"
+  },
+  {
+    "id": "wilder-apartment-somelikeit",
+    "from": "w77",
+    "to": "w79",
+    "kind": "director",
+    "person": "Billy Wilder",
+    "label": "Same director",
+    "explanation": "Billy Wilder directed both The Apartment (1960) and Some Like It Hot (1959).",
+    "sourceLabel": "American Film Institute Catalog — Billy Wilder",
+    "sourceUrl": "https://catalog.afi.com/Person/22099-Billy-Wilder"
+  },
+  {
+    "id": "wilder-apartment-sunset",
+    "from": "w77",
+    "to": "w78",
+    "kind": "director",
+    "person": "Billy Wilder",
+    "label": "Same director",
+    "explanation": "Billy Wilder directed both The Apartment (1960) and Sunset Boulevard (1950).",
+    "sourceLabel": "American Film Institute Catalog — Billy Wilder",
+    "sourceUrl": "https://catalog.afi.com/Person/22099-Billy-Wilder"
+  },
+  {
+    "id": "wilder-sunset-somelikeit",
+    "from": "w78",
+    "to": "w79",
+    "kind": "director",
+    "person": "Billy Wilder",
+    "label": "Same director",
+    "explanation": "Billy Wilder directed both Sunset Boulevard (1950) and Some Like It Hot (1959).",
+    "sourceLabel": "American Film Institute Catalog — Billy Wilder",
+    "sourceUrl": "https://catalog.afi.com/Person/22099-Billy-Wilder"
+  }
+]
