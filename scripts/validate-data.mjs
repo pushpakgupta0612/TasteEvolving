@@ -1,36 +1,37 @@
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readFile } from 'node:fs/promises';
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const worksPath = path.join(root, 'src/lib/data/works.json');
-const factsPath = path.join(root, 'src/lib/data/factual-connections.json');
-const works = JSON.parse(fs.readFileSync(worksPath, 'utf8'));
-const facts = JSON.parse(fs.readFileSync(factsPath, 'utf8'));
-const fail = (message) => { console.error(`✗ ${message}`); process.exitCode = 1; };
-if (!Array.isArray(works) || !works.length) fail('works.json must be a non-empty array.');
-if (!Array.isArray(facts)) fail('factual-connections.json must be an array.');
+const raw = await readFile(new URL('../src/lib/data/works.json', import.meta.url), 'utf8');
+const factsRaw = await readFile(new URL('../src/lib/data/factual-connections.json', import.meta.url), 'utf8');
+const works = JSON.parse(raw);
+const factualConnections = JSON.parse(factsRaw);
+const required = ['id', 'title', 'creator', 'type', 'year', 'tags', 'mood', 'desc'];
+const errors = [];
 const ids = new Set();
 for (const [index, work] of works.entries()) {
-  if (!work || typeof work !== 'object') { fail(`Work at index ${index} is not an object.`); continue; }
-  for (const key of ['id', 'title', 'type', 'creator', 'mood', 'desc']) if (!work[key]) fail(`Work at index ${index} is missing ${key}.`);
-  if (!Array.isArray(work.tags)) fail(`${work.id ?? index}: tags must be an array.`);
-  if (ids.has(work.id)) fail(`Duplicate work ID: ${work.id}`);
+  for (const key of required) if (work[key] === undefined || work[key] === null || work[key] === '') errors.push(`Row ${index + 1}: missing ${key}`);
+  if (ids.has(work.id)) errors.push(`Row ${index + 1}: duplicate id ${work.id}`);
   ids.add(work.id);
+  if (!Array.isArray(work.tags) || work.tags.length === 0) errors.push(`Row ${index + 1}: tags must be a non-empty array`);
+  if (!Number.isInteger(work.year) || work.year < 0 || work.year > 2100) errors.push(`Row ${index + 1}: invalid year`);
+  for (const key of ['cast', 'genres', 'emotionalArc']) if (work[key] !== undefined && (!Array.isArray(work[key]) || work[key].some((value) => typeof value !== 'string' || !value.trim()))) errors.push(`Row ${index + 1}: ${key} must be an array of non-empty strings`);
+  if (work.director !== undefined && typeof work.director !== 'string') errors.push(`Row ${index + 1}: director must be a string`);
+  if (work.region !== undefined && typeof work.region !== 'string') errors.push(`Row ${index + 1}: region must be a string`);
+  if (work.creditSourceUrl !== undefined && !String(work.creditSourceUrl).startsWith('https://')) errors.push(`Row ${index + 1}: creditSourceUrl must use HTTPS`);
 }
-const factIds = new Set();
-for (const [index, fact] of facts.entries()) {
-  if (!fact || typeof fact !== 'object') { fail(`Fact at index ${index} is not an object.`); continue; }
-  for (const key of ['id', 'from', 'to', 'kind', 'person', 'explanation']) if (!fact[key]) fail(`Fact at index ${index} is missing ${key}.`);
-  if (factIds.has(fact.id)) fail(`Duplicate factual connection ID: ${fact.id}`);
-  factIds.add(fact.id);
-  if (!ids.has(fact.from)) fail(`${fact.id}: unknown source work ID ${fact.from}.`);
-  if (!ids.has(fact.to)) fail(`${fact.id}: unknown target work ID ${fact.to}.`);
-  if (fact.from === fact.to) fail(`${fact.id}: source and target must differ.`);
+for (const link of factualConnections) {
+  if (!ids.has(link.from) || !ids.has(link.to)) errors.push(`Factual link ${link.id}: references an unknown work ID`);
+  for (const key of ['id', 'kind', 'person', 'label', 'explanation', 'sourceLabel', 'sourceUrl']) if (!link[key]) errors.push(`Factual link ${link.id}: missing ${key}`);
+  if (!String(link.sourceUrl).startsWith('https://')) errors.push(`Factual link ${link.id}: source URL must use HTTPS`);
 }
-if (!process.exitCode) {
-  const formats = Object.fromEntries([...new Set(works.map(w => w.type))].sort().map(type => [type, works.filter(w => w.type === type).length]));
-  console.log(`✓ Catalogue valid: ${works.length} works, ${ids.size} unique IDs.`);
-  console.log(`✓ Factual connections valid: ${facts.length} sourced relationships.`);
+if (errors.length) {
+  console.error(`Catalogue validation failed with ${errors.length} issue(s):`);
+  for (const error of errors) console.error(`- ${error}`);
+  process.exitCode = 1;
+} else {
+  const formats = Object.fromEntries([...new Set(works.map((work) => work.type))].sort().map((type) => [type, works.filter((work) => work.type === type).length]));
+  console.log(`Catalogue valid: ${works.length} works, ${ids.size} unique IDs.`);
+  console.log(`Factual connections valid: ${factualConnections.length} sourced relationships.`);
   console.log('Formats:', formats);
+  const filmRegions = Object.fromEntries(['Hollywood', 'Bollywood'].map((region) => [region, works.filter((work) => work.type === 'Film' && work.region === region).length]));
+  console.log('Movie regions (curated selections):', filmRegions);
 }

@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap');
+
+:root { font-family: 'DM Sans', sans-serif; color: #f4f0e8; background: #10100f; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+html { min-width: 320px; background: #10100f; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid #c4a7ff; outline-offset: 3px; }
+::selection { color: #17131e; background: #c4a7ff; }
+
+/* Region filters and narrative finish for the expanded Hollywood/Bollywood catalogue. */
+.region-tabs { display:flex; flex-wrap:wrap; align-items:center; gap:.55rem; margin:.25rem 0 1rem; padding:.7rem .85rem; border:1px solid rgba(255,255,255,.09); border-radius:14px; background:rgba(255,255,255,.025); }
+.region-tabs > span { margin-right:.35rem; color:#a9a39b; font:500 .68rem 'DM Mono',monospace; letter-spacing:.09em; }
+.region-tabs button { border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:.48rem .85rem; color:#d9d4cc; background:transparent; font-size:.82rem; }
+.region-tabs button.filter-active { color:#17131e; border-color:#c4a7ff; background:#c4a7ff; }
+.game-region-tabs { margin-top:1.1rem; }
+.method-note { line-height:1.7; }
+@media (max-width: 720px) {
+  .region-tabs { gap:.4rem; padding:.65rem; }
+  .region-tabs > span { flex-basis:100%; }
+  .region-tabs button { flex:1 1 auto; }
+}
+
+.bridge-story-card { margin:1rem 0 1.2rem; padding:clamp(1rem,2.5vw,1.5rem); border:1px solid rgba(196,167,255,.24); border-radius:18px; background:linear-gradient(135deg,rgba(196,167,255,.09),rgba(142,219,210,.045)); }
+.bridge-story-card h3 { margin:.4rem 0 .55rem; font-size:clamp(1.05rem,2vw,1.4rem); letter-spacing:-.025em; }
+.bridge-story-card p { max-width:78ch; margin:0; color:#d4cfc8; line-height:1.75; font-size:.93rem; }
+.bridge-story-meta { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+.bridge-story-meta span { padding:.4rem .65rem; border:1px solid rgba(255,255,255,.1); border-radius:999px; color:#d4cfc8; background:rgba(0,0,0,.16); font-size:.74rem; }

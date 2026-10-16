@@ -3,7 +3,7 @@
   import worksData from './lib/data/works.json';
   import factualConnectionsData from './lib/data/factual-connections.json';
 
-  type Work = { id: string; title: string; creator: string; type: string; year: number; tags: string[]; mood: string; desc: string; region?: string; director?: string; cast?: string[]; genres?: string[]; emotionalArc?: string[]; storyBeat?: string; creditNote?: string; creditSourceUrl?: string; creditSourceLabel?: string };
+  type Work = { id: string; title: string; creator: string; type: string; year: number; tags: string[]; mood: string; desc: string; region?: string; director?: string; cast?: string[]; genres?: string[]; emotionalArc?: string[]; storyBeat?: string; creditNote?: string; creditSourceUrl?: string; creditSourceLabel?: string; catalogueSource?: string; catalogueSourceUrl?: string; tagsSuggested?: boolean };
   type PathMode = 'balanced' | 'surprising' | 'coherent';
   type SavedBridge = { id: number; start: string; end: string; path: string[]; mode: PathMode; savedAt: string };
   type Edge = { from: string; to: string; common: string[]; score: number };
@@ -12,8 +12,13 @@
   type GameEdge = { kind: 'theme' | 'fact' | 'both' | 'mood' | 'genre' | 'actor' | 'director'; themes: string[]; fact?: FactualConnection };
   type GameMode = 'build' | 'quiz';
   type GameFilter = 'both' | 'themes' | 'facts' | 'mood' | 'director' | 'actors' | 'genre';
+  type LiveKind = 'movie' | 'book' | 'music';
+  type LiveResult = { id: string; title: string; creator: string; year: string; description: string; image: string; url: string; source: string; kind: LiveKind };
 
-  const works: Work[] = worksData as Work[];
+  const baseWorks: Work[] = worksData as Work[];
+  let works: Work[] = [...baseWorks];
+  let importedWorks: Work[] = [];
+  let libraryNotice = '';
   const factualConnections: FactualConnection[] = factualConnectionsData as FactualConnection[];
 
   const categories = ['All','Book','Film','Series','Music','Art'];
@@ -62,6 +67,12 @@
   let artworkUrls: Record<string, string> = {};
   let failedArtwork: string[] = [];
   let artworkStatus = 'Loading cover art';
+  let liveQuery = '';
+  let liveKind: LiveKind = 'movie';
+  let liveResults: LiveResult[] = [];
+  let liveLoading = false;
+  let liveError = '';
+  let liveSearched = false;
   let loadingArtwork: string[] = [];
   let toast = '';
   let showAbout = false;
@@ -69,6 +80,8 @@
 
   onMount(() => {
     try {
+      importedWorks = JSON.parse(localStorage.getItem('taste-imported-works-v1') || '[]') as Work[];
+      works = [...baseWorks, ...importedWorks.filter((item) => !baseWorks.some((base) => base.id === item.id))];
       savedIds = JSON.parse(localStorage.getItem('taste-saved') || '[]') as string[];
       savedBridges = JSON.parse(localStorage.getItem('taste-bridges') || '[]') as SavedBridge[];
       trailIds = JSON.parse(localStorage.getItem('taste-trail') || '[]') as string[];
@@ -107,9 +120,22 @@
       const data = await response.json();
       const pages = Object.values(data?.query?.pages || []) as any[];
       const normalized = work.title.toLowerCase().replace(/[^a-z0-9]/g, '');
-      const match = pages.find((page: any) => String(page.title || '').toLowerCase().replace(/[^a-z0-9]/g, '').startsWith(normalized) && page.thumbnail?.source)
-        || pages.find((page: any) => page.thumbnail?.source);
-      return match?.thumbnail?.source || null;
+      const match = pages.find((page: any) => String(page.title || '').toLowerCase().replace(/[^a-z0-9]/g, '').startsWith(normalized) && page.thumbnail?.source);
+      if (match?.thumbnail?.source) return match.thumbnail.source;
+      // Wikimedia misses some film posters. Apple Search is a second public source that needs no key.
+      if (work.type === 'Film' || work.type === 'Series') {
+        const fallbackUrl = new URL('https://itunes.apple.com/search');
+        fallbackUrl.search = new URLSearchParams({ term: work.title, entity: 'movie', limit: '8' }).toString();
+        const fallbackResponse = await fetch(fallbackUrl);
+        if (fallbackResponse.ok) {
+          const fallbackData = await fallbackResponse.json();
+          const items = Array.isArray(fallbackData.results) ? fallbackData.results : [];
+          const exact = items.find((item: any) => String(item.trackName || '').toLowerCase().replace(/[^a-z0-9]/g, '') === normalized && item.artworkUrl100);
+          const candidate = exact || items.find((item: any) => item.artworkUrl100);
+          if (candidate?.artworkUrl100) return String(candidate.artworkUrl100).replace('100x100bb', '600x900bb');
+        }
+      }
+      return null;
     } catch { return null; }
   }
 
@@ -135,6 +161,119 @@
     loadingArtwork = loadingArtwork.filter(id => !requested.includes(id));
     artworkStatus = `${Object.keys(artworkUrls).length} covers found`;
     try { localStorage.setItem('taste-artwork-cache-v1', JSON.stringify(cache)); } catch { /* storage may be full or disabled */ }
+  }
+
+  async function searchLiveDiscovery() {
+    const term = liveQuery.trim();
+    if (!term) { liveError = 'Enter a title, creator, or idea to search beyond the catalogue.'; liveResults = []; liveSearched = false; return; }
+    liveLoading = true; liveError = ''; liveSearched = true; liveResults = [];
+    try {
+      const params = new URLSearchParams({ type: liveKind, q: term });
+      let response: Response;
+      try {
+        response = await fetch(`/api/discover?${params.toString()}`);
+      } catch {
+        response = new Response(null, { status: 503 });
+      }
+      if (response.ok && (response.headers.get('content-type') || '').includes('application/json')) {
+        const data = await response.json();
+        liveResults = Array.isArray(data.results) ? data.results as LiveResult[] : [];
+      } else if (liveKind === 'book') {
+        const url = new URL('https://openlibrary.org/search.json');
+        url.search = new URLSearchParams({ q: term, limit: '8', fields: 'key,title,author_name,first_publish_year,cover_i,edition_count' }).toString();
+        const fallback = await fetch(url);
+        if (!fallback.ok) throw new Error('Open Library is not responding right now. Try again shortly.');
+        const data = await fallback.json();
+        liveResults = (data.docs || []).slice(0, 8).map((doc: any) => ({
+          id: String(doc.key || doc.title), title: String(doc.title || 'Untitled'), creator: (doc.author_name || ['Unknown author']).slice(0, 2).join(', '),
+          year: String(doc.first_publish_year || 'Year unavailable'), description: `${doc.edition_count || 1} editions listed in Open Library.`,
+          image: doc.cover_i ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg` : '', url: `https://openlibrary.org${doc.key || ''}`, source: 'Open Library', kind: 'book' as LiveKind
+        }));
+      } else if (liveKind === 'music') {
+        const url = new URL('https://itunes.apple.com/search');
+        url.search = new URLSearchParams({ term, entity: 'song', limit: '8' }).toString();
+        const fallback = await fetch(url);
+        if (!fallback.ok) throw new Error('The music catalogue is not responding right now. Try again shortly.');
+        const data = await fallback.json();
+        liveResults = (data.results || []).slice(0, 8).map((item: any) => ({
+          id: String(item.trackId || item.collectionId || item.trackName), title: String(item.trackName || item.collectionName || 'Untitled'), creator: String(item.artistName || 'Unknown artist'),
+          year: item.releaseDate ? String(item.releaseDate).slice(0, 4) : 'Year unavailable', description: [item.collectionName, item.primaryGenreName].filter(Boolean).join(' · ') || 'Music result from the iTunes Search API.',
+          image: String(item.artworkUrl100 || '').replace('100x100bb', '600x600bb'), url: String(item.trackViewUrl || item.collectionViewUrl || 'https://music.apple.com/'), source: 'Apple iTunes', kind: 'music' as LiveKind
+        }));
+      } else {
+        throw new Error('Film & TV discovery needs TMDB_READ_ACCESS_TOKEN or TMDB_API_KEY in Vercel Environment Variables, then redeploy.');
+      }
+      if (!liveResults.length && !liveError) liveError = 'No results found. Try a shorter title or another search term.';
+    } catch (error) {
+      liveError = error instanceof Error ? error.message : 'Live search is temporarily unavailable.';
+    } finally { liveLoading = false; }
+  }
+
+  function openLiveResult(result: LiveResult) {
+    const normalized = result.title.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const localMatch = works.find(work => work.title.toLowerCase().replace(/[^a-z0-9]/g, '') === normalized && (result.kind === 'movie' ? work.type === 'Film' || work.type === 'Series' : result.kind === 'book' ? work.type === 'Book' : work.type === 'Music'));
+    if (localMatch) { pickFromExplore(localMatch.id); notify(`Found ${localMatch.title} in your curated collection`); }
+    else window.open(result.url, '_blank', 'noopener,noreferrer');
+  }
+
+  function suggestedTagsFor(result: LiveResult): string[] {
+    const text = `${result.title} ${result.description} ${result.creator}`.toLowerCase();
+    const rules: Array<[string, string[]]> = [
+      ['identity', ['identity', 'self-discovery', 'belonging', 'who am i']],
+      ['technology', ['technology', 'artificial intelligence', 'robot', 'digital', 'computer', 'internet', 'virtual']],
+      ['memory', ['memory', 'remember', 'past', 'nostalgia']],
+      ['power', ['power', 'politic', 'kingdom', 'control', 'authority']],
+      ['justice', ['justice', 'court', 'law', 'crime', 'rights', 'injustice']],
+      ['love', ['love', 'romance', 'relationship', 'heartbreak']],
+      ['family', ['family', 'parent', 'mother', 'father', 'sibling']],
+      ['friendship', ['friend', 'companionship', 'loyalty']],
+      ['survival', ['survival', 'survive', 'war', 'disaster', 'escape']],
+      ['nature', ['nature', 'forest', 'earth', 'animal', 'environment', 'wild']],
+      ['ambition', ['ambition', 'dream', 'success', 'career', 'competition']],
+      ['alienation', ['alienation', 'lonely', 'isolation', 'outsider']],
+      ['consciousness', ['consciousness', 'reality', 'existence', 'philosoph']],
+      ['music', ['music', 'singer', 'song', 'concert', 'band', 'album']],
+      ['mystery', ['mystery', 'secret', 'detective', 'investigation', 'murder']],
+      ['courage', ['courage', 'brave', 'hero', 'overcome', 'resilience']]
+    ];
+    const tags = rules.filter(([, words]) => words.some((word) => text.includes(word))).map(([tag]) => tag);
+    return [...new Set(tags)].slice(0, 4).length ? [...new Set(tags)].slice(0, 4) : ['discovery'];
+  }
+
+  function addLiveResultToLibrary(result: LiveResult) {
+    const normalized = result.title.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const existing = works.find((work) => work.title.toLowerCase().replace(/[^a-z0-9]/g, '') === normalized && work.type === (result.kind === 'movie' ? 'Film' : result.kind === 'book' ? 'Book' : 'Music'));
+    if (existing) {
+      libraryNotice = `${result.title} is already in your library.`;
+      notify('This work is already in your library.');
+      return;
+    }
+    const idSlug = result.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48) || 'work';
+    const id = `import-${result.kind}-${idSlug}-${Math.abs([...result.id].reduce((sum, char) => sum * 31 + char.charCodeAt(0), 7)).toString(36)}`;
+    const tags = suggestedTagsFor(result);
+    const work: Work = {
+      id, title: result.title, creator: result.creator,
+      type: result.kind === 'movie' ? (/television/i.test(result.creator) ? 'Series' : 'Film') : result.kind === 'book' ? 'Book' : 'Music',
+      year: Number.parseInt(result.year, 10) || 0, tags, mood: 'Curious', desc: result.description,
+      catalogueSource: result.source, catalogueSourceUrl: result.url, tagsSuggested: true,
+      ...(result.kind === 'movie' ? { genres: [] as string[] } : {})
+    };
+    importedWorks = [...importedWorks, work];
+    works = [...baseWorks, ...importedWorks];
+    if (result.image) artworkUrls = { ...artworkUrls, [work.id]: result.image };
+    try { localStorage.setItem('taste-imported-works-v1', JSON.stringify(importedWorks)); } catch { libraryNotice = 'This browser could not save the library (storage may be full). Export your imports to keep them.'; }
+    libraryNotice = `Added “${result.title}” to your personal library. Its theme tags are suggestions; review them before relying on a bridge.`;
+    notify('Added to your personal library.');
+  }
+
+  function exportImportedWorks() {
+    if (!importedWorks.length) { notify('Add a live result to your library first.'); return; }
+    const blob = new Blob([JSON.stringify(importedWorks, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url; link.download = 'tasteevolving-imported-works.json'; link.click();
+    URL.revokeObjectURL(url);
+    notify('Exported your imported works as JSON.');
   }
 
   function markArtworkFailed(id: string) {
@@ -468,81 +607,78 @@
     return options[Math.floor(Math.random() * options.length)];
   }
   function chooseChallengePair(): { start: string; target: string; path: string[] } {
-    // Actor rounds must begin with films that actually have cast credits and a usable shared-cast route.
-    if (gameFilter === 'actors') {
-      const films = works.filter(work => work.type === 'Film' && (work.cast ?? []).length > 0);
-      const pairs: { start: Work; target: Work }[] = [];
-      for (let i = 0; i < films.length; i++) for (let j = i + 1; j < films.length; j++) {
-        if (intersection(films[i].cast ?? [], films[j].cast ?? []).length) pairs.push({ start: films[i], target: films[j] });
-      }
-      if (pairs.length) {
-        const pair = pairs[Math.floor(Math.random() * pairs.length)];
-        return { start: pair.start.id, target: pair.target.id, path: [pair.start.id, pair.target.id] };
-      }
-    }
-    // Prefer a non-trivial path so each round asks the player to discover at least one bridge.
-    for (let attempt = 0; attempt < 180; attempt++) {
-      const pool = ['actors','director','genre'].includes(gameFilter) ? works.filter(work => work.type === 'Film') : works;
-      if (pool.length < 2) continue;
+    // Quiz rounds should feel like a journey, not a one-click giveaway.
+    // Prefer routes of 3–5 works so the target is not also the first answer.
+    const pool = ['actors', 'director', 'genre'].includes(gameFilter)
+      ? works.filter(work => work.type === 'Film')
+      : works;
+    const candidates: { start: string; target: string; path: string[] }[] = [];
+
+    for (let attempt = 0; attempt < 320; attempt++) {
       const start = pool[Math.floor(Math.random() * pool.length)];
-      const target = pool.filter(work => work.id !== start.id)[Math.floor(Math.random() * (pool.length - 1))];
-      if (!target) continue;
+      const target = pool[Math.floor(Math.random() * pool.length)];
+      if (!start || !target || start.id === target.id) continue;
       const path = shortestGamePath(start.id, target.id, gameFilter);
-      if (path.length >= 3 && path.length <= 5) return { start: start.id, target: target.id, path };
-    }
-    // Fallbacks must obey the selected connection rule, including mood-only rounds.
-    const validEdges: { start: string; target: string }[] = [];
-    const challengePool = ['actors','director','genre'].includes(gameFilter) ? works.filter(work => work.type === 'Film') : works;
-    for (const work of challengePool) {
-      for (const neighborId of gameNeighbors(work.id, gameFilter)) {
-        if (work.id < neighborId && challengePool.some(candidate => candidate.id === neighborId)) validEdges.push({ start: work.id, target: neighborId });
+      if (path.length >= 3 && path.length <= 5) {
+        candidates.push({ start: start.id, target: target.id, path });
+        if (candidates.length >= 12) break;
       }
     }
-    const fallback = validEdges[Math.floor(Math.random() * validEdges.length)];
-    if (fallback) return { start: fallback.start, target: fallback.target, path: [fallback.start, fallback.target] };
-    // Keep the selected connection rule. Never silently replace a shared-actor round
-    // with a different mode; use a real edge from the selected region as the fallback.
-    if (validEdges.length) {
-      const fallback = validEdges[Math.floor(Math.random() * validEdges.length)];
-      return { start: fallback.start, target: fallback.target, path: [fallback.start, fallback.target] };
-    }
-    // No supported connection exists for this region/filter combination. Keep the
-    // user's selected mode and choose two titles from the selected pool; the UI can
-    // explain that a new challenge is needed instead of silently changing modes.
-    const pool = ['actors','director','genre'].includes(gameFilter) ? works.filter(work => work.type === 'Film') : works;
-    if (pool.length >= 2) {
+    if (candidates.length) return candidates[Math.floor(Math.random() * candidates.length)];
+
+    // Some strict filters (for example, same director) have sparse graphs.
+    // Sample more pairs and keep the longest route we can actually support.
+    let best: { start: string; target: string; path: string[] } | null = null;
+    for (let attempt = 0; attempt < 900; attempt++) {
       const start = pool[Math.floor(Math.random() * pool.length)];
-      const target = pool.find(work => work.id !== start.id)!;
-      return { start: start.id, target: target.id, path: [start.id, target.id] };
+      const target = pool[Math.floor(Math.random() * pool.length)];
+      if (!start || !target || start.id === target.id) continue;
+      const path = shortestGamePath(start.id, target.id, gameFilter);
+      if (path.length > (best?.path.length ?? 0)) best = { start: start.id, target: target.id, path };
+      if (best && best.path.length >= 3) break;
     }
-    return { start: works[0].id, target: works[1].id, path: [works[0].id, works[1].id] };
+    if (best) return best;
+
+    // Last-resort fallback remains inside the selected pool and is clearly handled
+    // by the UI if this connection filter has no usable route.
+    const start = pool[0] ?? works[0];
+    const target = pool.find(work => work.id !== start.id) ?? works.find(work => work.id !== start.id) ?? works[1];
+    return { start: start.id, target: target.id, path: [start.id, target.id] };
   }
+
   function buildQuizOptions() {
     const current = gamePathIds[gamePathIds.length - 1];
     const blocked = gamePathIds.slice(0, -1);
     const shortest = shortestGamePath(current, gameTargetId, gameFilter, blocked);
-    if (shortest.length < 2) { gameOptions = []; return; }
-    const correct = shortest[1];
-    const neighbors = gameNeighbors(current, gameFilter).filter(id => id !== correct && id !== gameTargetId && !gamePathIds.includes(id));
-    const plausible = neighbors.filter(id => {
-      const route = shortestGamePath(id, gameTargetId, gameFilter, [...blocked, current]);
-      return !route.length || route.length >= shortest.length;
-    });
-    const randomDistractors = works.map(work => work.id).filter(id => id !== correct && id !== current && id !== gameTargetId && !gamePathIds.includes(id) && !plausible.includes(id)).sort(() => Math.random() - .5);
-    const pool = [...plausible.sort(() => Math.random() - .5), ...randomDistractors];
-    gameOptions = [correct, ...pool.slice(0, 3)].sort(() => Math.random() - .5);
-    if (!gameOptions.includes(correct)) gameOptions[0] = correct;
+    if (shortest.length < 2) {
+      // Never show a broken, empty, or single-answer quiz. Restart with a valid challenge.
+      const challenge = chooseChallengePair();
+      gameStartId = challenge.start; gameTargetId = challenge.target; gamePathIds = [challenge.start];
+      gameFeedback = 'A fresh route is ready — find the first link!'; gameFeedbackKind = 'info';
+      const freshPath = shortestGamePath(gamePathIds[0], gameTargetId, gameFilter);
+      if (freshPath.length < 2) { gameOptions = []; return; }
+      gameOptions = makeQuizChoices(freshPath[1], gamePathIds[0], gameTargetId, []);
+      return;
+    }
+    gameOptions = makeQuizChoices(shortest[1], current, gameTargetId, blocked);
+  }
+  function makeQuizChoices(correct: string, current: string, target: string, blocked: string[]): string[] {
+    // Mix plausible near-misses with catalogue-wide decoys; always keep four distinct choices.
+    const neighbors = gameNeighbors(current, gameFilter).filter(id => id !== correct && id !== target && id !== current && !gamePathIds.includes(id));
+    const plausible = neighbors.sort(() => Math.random() - .5);
+    const currentWork = gameWork(current);
+    const sameType = works.filter(work => work.id !== correct && work.id !== current && work.id !== target && !gamePathIds.includes(work.id) && work.type === currentWork?.type).map(work => work.id);
+    const anyWorks = works.filter(work => work.id !== correct && work.id !== current && work.id !== target && !gamePathIds.includes(work.id)).map(work => work.id);
+    const decoys = [...plausible, ...sameType.sort(() => Math.random() - .5), ...anyWorks.sort(() => Math.random() - .5)];
+    const uniqueDecoys = [...new Set(decoys)].filter(id => id !== correct).slice(0, 3);
+    // Small catalogues can have fewer same-type decoys, so top up from the full catalogue.
+    if (uniqueDecoys.length < 3) {
+      for (const work of anyWorks) if (!uniqueDecoys.includes(work) && work !== correct && uniqueDecoys.length < 3) uniqueDecoys.push(work);
+    }
+    return [correct, ...uniqueDecoys].sort(() => Math.random() - .5);
   }
   function startNewGame() {
-    // In multiple-choice mode, avoid a trivial first question where the destination
-    // itself is the only correct next step. Prefer a route with at least one
-    // intermediate work so the player has to discover the connection chain.
-    let challenge = chooseChallengePair();
-    if (gameMode === 'quiz') {
-      for (let attempt = 0; attempt < 60 && challenge.path.length < 3; attempt++) {
-        challenge = chooseChallengePair();
-      }
-    }
+    const challenge = chooseChallengePair();
     gameStartId = challenge.start; gameTargetId = challenge.target; gamePathIds = [challenge.start];
     gameComplete = false; gameFeedback = ''; gameFeedbackKind = 'info'; gameLastEdge = null; gameSearch = ''; selectedGameActor = ''; actorHintCount = 0; actorHintText = '';
     if (gameMode === 'quiz') buildQuizOptions(); else gameOptions = [];
@@ -756,18 +892,18 @@
   }
 </script>
 
-<svelte:head><title>My Taste, Evolving — Find the unexpected</title><meta name="description" content="Explore unexpected connections between books, films, music and art."/><meta name="theme-color" content="#10100f"/></svelte:head>
+<svelte:head><title>My Taste, Evolving — Find the unexpected</title><meta name="description" content="Explore unexpected connections between books, films, music and art."/><meta name="theme-color" content="#f3f0e8"/></svelte:head>
 
 <div class="app-shell">
   <aside class="sidebar">
-    <button class="brand" onclick={() => activeTab='bridge'}><span class="brand-mark">✳</span><span>taste<span class="brand-light">/evolving</span></span></button>
+    <button class="brand" onclick={() => activeTab='bridge'}><span class="brand-mark" aria-hidden="true"><span>t</span><i></i></span><span>taste<span class="brand-light">/evolving</span></span></button>
     <div class="side-label">YOUR SPACE</div>
-    <button class:nav-active={activeTab==='bridge'} class="nav-item" onclick={() => activeTab='bridge'}><span class="nav-icon">◈</span> Taste Bridge <span class="nav-arrow">↗</span></button>
-    <button class:nav-active={activeTab==='game'} class="nav-item" onclick={() => {activeTab='game'; if (!gamePathIds.length) startNewGame();}}><span class="nav-icon">⌘</span> Connection Chain <span class="nav-arrow">↗</span></button>
-    <button class:nav-active={activeTab==='explore'} class="nav-item" onclick={() => activeTab='explore'}><span class="nav-icon">⌕</span> Explore works</button>
-    <button class:nav-active={activeTab==='saved'} class="nav-item" onclick={() => activeTab='saved'}><span class="nav-icon">♡</span> My collection <span class="count">{savedIds.length+savedBridges.length+savedTrails.length}</span></button>
-    <button class:nav-active={activeTab==='trails'} class="nav-item" onclick={() => activeTab='trails'}><span class="nav-icon">⌁</span> Discovery trails <span class="count">{trailIds.length}</span></button>
-    <div class="sidebar-bottom"><div class="mini-note"><span class="note-icon">✳</span><div><b>Follow your curiosity.</b><p>Every connection is an invitation to explore.</p></div></div><button class="about-link" onclick={() => showAbout=true}>How it works <span>↗</span></button></div>
+    <button class:nav-active={activeTab==='bridge'} class="nav-item" onclick={() => activeTab='bridge'}><span class="nav-icon nav-icon-bridge" aria-hidden="true">⟡</span> Taste Bridge <span class="nav-arrow">↗</span></button>
+    <button class:nav-active={activeTab==='game'} class="nav-item" onclick={() => {activeTab='game'; if (!gamePathIds.length) startNewGame();}}><span class="nav-icon nav-icon-chain" aria-hidden="true">⤳</span> Connection Chain <span class="nav-arrow">↗</span></button>
+    <button class:nav-active={activeTab==='explore'} class="nav-item" onclick={() => activeTab='explore'}><span class="nav-icon nav-icon-explore" aria-hidden="true">⌖</span> Explore works</button>
+    <button class:nav-active={activeTab==='saved'} class="nav-item" onclick={() => activeTab='saved'}><span class="nav-icon nav-icon-collection" aria-hidden="true">▤</span> My collection <span class="count">{savedIds.length+savedBridges.length+savedTrails.length}</span></button>
+    <button class:nav-active={activeTab==='trails'} class="nav-item" onclick={() => activeTab='trails'}><span class="nav-icon nav-icon-trails" aria-hidden="true">⌘</span> Discovery trails <span class="count">{trailIds.length}</span></button>
+    <div class="sidebar-bottom"><div class="mini-note"><span class="note-icon">⌁</span><div><b>Follow your curiosity.</b><p>Every connection is an invitation to explore.</p></div></div><button class="about-link" onclick={() => showAbout=true}>How it works <span>↗</span></button></div>
   </aside>
 
   <main class="main">
@@ -822,11 +958,11 @@
         </section>
       {:else}<div class="empty-state"><span>◈</span><h3>No bridge found yet</h3><p>Choose one book or movie, and we will find a destination for you.</p></div>{/if}
     {:else if activeTab==='game'}
-      <section class="page-intro game-intro"><div class="eyebrow"><span class="eyebrow-line"></span> PLAY THE CONNECTIONS</div><h1>Can you build the <em>bridge?</em></h1><p class="intro-copy">We give you a start and a destination. Guess the next work from four choices, or switch to free-build mode.</p></section>
-      <section class="concept-guide game-guide" aria-label="How Connection Chain works"><div class="concept-guide-heading"><span class="guide-icon">⌘</span><div><b>Your goal is simple</b><p>Start at one work and reach the target. Each step must have evidence: a shared theme from our catalogue, or a verified creator credit with a source link.</p></div></div><div class="guide-steps"><div><span>1</span><b>See your target</b><small>We choose two works with a supported route.</small></div><div><span>2</span><b>Find a valid link</b><small>Use a theme or a verified shared creator.</small></div><div><span>3</span><b>Reach the target</b><small>Shorter valid chains earn more points.</small></div></div><p class="guide-example"><strong>Honest connections:</strong> theme matches are interpretive; factual links cite a source. We never label a shared theme as proof of influence.</p></section>
+      <section class="page-intro game-intro"><div class="eyebrow">PLAY THE CONNECTIONS</div><h1>Can you build the <em>bridge?</em></h1><p class="intro-copy">We give you a start and a destination. Guess the next work from four choices, or switch to free-build mode.</p></section>
+      <section class="concept-guide game-guide" aria-label="How Connection Chain works"><div class="concept-guide-heading"><span class="guide-icon">⌁</span><div><b>Your goal is simple</b><p>Start at one work and reach the target. Each step must have evidence: a shared theme from our catalogue, or a verified creator credit with a source link.</p></div></div><div class="guide-steps"><div><span>1</span><b>See your target</b><small>We choose two works with a supported route.</small></div><div><span>2</span><b>Find a valid link</b><small>Use a theme or a verified shared creator.</small></div><div><span>3</span><b>Reach the target</b><small>Shorter valid chains earn more points.</small></div></div><p class="guide-example"><strong>Honest connections:</strong> theme matches are interpretive; factual links cite a source. We never label a shared theme as proof of influence.</p></section>
       <section class="game-board">
         <div class="game-toolbar"><div class="game-mode-tabs" aria-label="Game mode"><button class:game-mode-active={gameMode==='build'} onclick={() => setGameMode('build')}>⌁ Build your chain</button><button class:game-mode-active={gameMode==='quiz'} onclick={() => setGameMode('quiz')}>◇ Choose next link</button></div><div class="game-stats"><span><b>{gameScore}</b><small>POINTS</small></span><span><b>{gameRounds}</b><small>ROUNDS</small></span><span><b>{gameStreak}</b><small>STREAK</small></span></div></div>
-        <div class="game-filter-row"><span>HOW DO YOU WANT TO CONNECT?</span><div class="game-filter-tabs game-connection-types"><button class:filter-active={gameFilter==='both'} onclick={() => setGameFilter('both')}>Any valid link</button><button class:filter-active={gameFilter==='themes'} onclick={() => setGameFilter('themes')}>Shared themes</button><button class:filter-active={gameFilter==='mood'} onclick={() => setGameFilter('mood')}>Same mood / feeling</button><button class:filter-active={gameFilter==='actors'} onclick={() => setGameFilter('actors')}>Shared actor</button><button class:filter-active={gameFilter==='director'} onclick={() => setGameFilter('director')}>Same director</button><button class:filter-active={gameFilter==='genre'} onclick={() => setGameFilter('genre')}>Same genre</button><button class:filter-active={gameFilter==='facts'} onclick={() => setGameFilter('facts')}>Cast / creator credits</button></div><button class="quiet-btn game-new" onclick={startNewGame}>↻ New challenge</button><p class="game-filter-note">Choose the kind of link you want to discover. Actor, director, and genre matches use the curated metadata; sourced credits are separately identified. Theme links require at least two shared tags.</p></div>
+        <div class="game-filter-row"><span>HOW DO YOU WANT TO CONNECT?</span><div class="game-filter-tabs game-connection-types"><button class:filter-active={gameFilter==='both'} onclick={() => setGameFilter('both')}>Any valid link</button><button class:filter-active={gameFilter==='themes'} onclick={() => setGameFilter('themes')}>Shared themes</button><button class:filter-active={gameFilter==='mood'} onclick={() => setGameFilter('mood')}>Same mood / feeling</button><button class:filter-active={gameFilter==='actors'} onclick={() => setGameFilter('actors')}>Shared actor</button><button class:filter-active={gameFilter==='director'} onclick={() => setGameFilter('director')}>Same director</button><button class:filter-active={gameFilter==='genre'} onclick={() => setGameFilter('genre')}>Same genre</button><button class:filter-active={gameFilter==='facts'} onclick={() => setGameFilter('facts')}>Cast / creator credits</button></div><button class="quiet-btn game-new" onclick={startNewGame}>⟳ New challenge</button><p class="game-filter-note">Choose the kind of link you want to discover. Actor, director, and genre matches use the curated metadata; sourced credits are separately identified. Theme links require at least two shared tags.</p></div>
         <div class="game-endpoints"><div class="game-endpoint game-start"><span class="game-endpoint-label">START HERE</span><span class="game-endpoint-type">{gameWork(gameStartId)?.type}</span><h2>{gameWork(gameStartId)?.title}</h2><p>{gameWork(gameStartId)?.creator} · {gameWork(gameStartId)?.year}</p></div><div class="game-route-mark"><span>YOUR ROUTE</span><div>··········→</div><small>{Math.max(0,gamePathIds.length-1)} links made</small></div><div class="game-endpoint game-target"><span class="game-endpoint-label">YOUR TARGET</span><span class="game-endpoint-type">{gameWork(gameTargetId)?.type}</span><h2>{gameWork(gameTargetId)?.title}</h2><p>{gameWork(gameTargetId)?.creator} · {gameWork(gameTargetId)?.year}</p></div></div>
         <div class="game-path-section"><div class="game-section-head"><div><span class="step-label">YOUR CHAIN</span><h3>{gameComplete ? 'Bridge completed.' : gameMode==='build' ? 'Choose the next work.' : 'Which work gets you closer?'}</h3></div><span class="game-link-count">{gamePathIds.length} / {gamePathIds.length + (gameComplete ? 0 : Math.max(1, shortestGamePath(gamePathIds[gamePathIds.length-1],gameTargetId,gameFilter).length-1))} WORKS</span></div>
           <div class="game-chain">{#each gamePathIds as id,i}<div class="game-chain-node"><span class="game-chain-index">{i===0?'START':id===gameTargetId?'TARGET':String(i).padStart(2,'0')}</span><b>{gameWork(id)?.title}</b><small>{gameWork(id)?.type} · {gameWork(id)?.year}</small></div>{#if i<gamePathIds.length-1}{@const edge=gameEdge(id,gamePathIds[i+1],gameFilter)}<div class="game-chain-link"><span>↓</span><small>{edge?.kind==='mood' ? 'SAME MOOD' : edge?.kind==='fact' ? edge.fact?.label : edge?.kind==='both' ? 'FACT + THEME' : `THEME${edge?.themes.length===1?'':'S'}`}</small></div>{/if}{/each}{#if !gameComplete}<div class="game-chain-placeholder"><span>?</span><b>Next connection</b><small>{gameMode==='quiz' ? 'Choose one of the options below' : 'Find a supported link to continue'}</small></div>{/if}</div>
@@ -851,7 +987,7 @@
           {:else if gameMode==='build' && !gameComplete}<div class="game-builder-controls"><label for="game-search">Search the collection for your next link</label><input id="game-search" bind:value={gameSearch} placeholder="Try a title, creator, or theme…" autocomplete="off"/><div class="game-search-results">{#each gameSearchResults() as option}<button class:game-option-valid={gameEdge(gamePathIds[gamePathIds.length-1],option.id,gameFilter)!==null} onclick={() => addGameWork(option.id)}><span><b>{option.title}</b><small>{option.creator} · {option.type}</small></span><span>{#if gameEdge(gamePathIds[gamePathIds.length-1],option.id,gameFilter)}<i>VALID LINK</i> ↗{:else}<i class="not-yet">NO DIRECT LINK</i>{/if}</span></button>{/each}</div><div class="game-builder-footer"><p class="game-helper">Works with a visible “VALID LINK” have a supported connection to your current work. You can still try another work to learn why it doesn't connect.</p><button class="quiet-btn" disabled={gamePathIds.length<=1} onclick={undoGameStep}>↶ Undo last step</button></div></div>{:else if gameMode==='quiz' && !gameComplete}<div class="game-quiz-options"><p>Choose the next work that follows your selected connection rule. Each correct choice reveals why the link works.</p>{#each gameOptions as optionId,i}<button class="game-quiz-option" onclick={() => chooseQuizAnswer(optionId)}><span>{String.fromCharCode(65+i)}</span><b>{gameWork(optionId)?.title}</b><small>{gameWork(optionId)?.type} · {gameWork(optionId)?.year}</small></button>{/each}</div>{/if}
           {#if gameFeedback}<div class="game-feedback" class:feedback-success={gameFeedbackKind==='success'} class:feedback-error={gameFeedbackKind==='error'}><span>{gameFeedbackKind==='success'?'✓':gameFeedbackKind==='error'?'!':'ⓘ'}</span><p>{gameFeedback}</p></div>{/if}
           {#if gameLastEdge && gamePathIds.length>1}<div class="game-evidence"><div><span class="step-label">WHY THIS LINK COUNTS</span><h4>{gameLastEdge.kind==='mood' ? 'Same mood' : gameLastEdge.kind==='genre' ? 'Shared genre' : gameLastEdge.kind==='actor' ? 'Shared cast member' : gameLastEdge.kind==='director' ? 'Same director' : gameLastEdge.kind==='fact' ? gameLastEdge.fact?.label : gameLastEdge.kind==='both' ? 'A factual and thematic connection' : 'Shared themes'}</h4></div><p>{edgeExplanation(gameLastEdge,gamePathIds[gamePathIds.length-2],gamePathIds[gamePathIds.length-1])}</p>{#if gameLastEdge.fact}{#if gameLastEdge.fact.sourceUrl}<a href={gameLastEdge.fact.sourceUrl} target="_blank" rel="noreferrer">Source: {gameLastEdge.fact.sourceLabel} ↗</a>{#if gameLastEdge.fact.sourceUrlSecondary}<a href={gameLastEdge.fact.sourceUrlSecondary} target="_blank" rel="noreferrer">Second work reference ↗</a>{/if}{:else}<small>Relationship basis: {gameLastEdge.fact.sourceLabel}. Catalogue credits are curated, not exhaustive.</small>{/if}{:else if gameLastEdge.themes.length}<div class="evidence-tags">{#each gameLastEdge.themes as tag}<span>{tag}</span>{/each}</div>{/if}</div>{/if}
-          {#if gameComplete}<div class="game-win-actions"><button class="generate-btn" onclick={saveGameTrail}>＋ Add chain to Discovery Trails</button><button class="quiet-btn" onclick={startNewGame}>Play another round ↗</button></div>{/if}
+          {#if gameComplete}<div class="game-win-actions"><button class="generate-btn" onclick={saveGameTrail}>✳ Add chain to Discovery Trails</button><button class="quiet-btn" onclick={startNewGame}>Play another round ↗</button></div>{/if}
         </div>
       </section>
       <p class="game-method-note">Thematic links are calculated from recorded tags in the curated collection. Factual links are limited to the small, sourced relationship set included with this version; the app does not claim full cast-credit coverage.</p>
@@ -865,6 +1001,18 @@
         <div class="feature-copy"><span class="step-label">YOUR NEXT OBSESSION IS IN HERE SOMEWHERE</span><h2>Don't know where to start?</h2><p>Let curiosity choose a work, then follow its connections into another world.</p><button class="generate-btn" onclick={surpriseMe}>✳ Surprise me ↗</button></div>
         <div class="feature-orbit feature-orbit-one"></div><div class="feature-orbit feature-orbit-two"></div><div class="feature-symbol">✳</div>
         <div class="feature-stats"><span><b>{works.length}</b><small>CURATED WORKS</small></span><i></i><span><b>5</b><small>MEDIA TYPES</small></span><i></i><span><b>{allExploreTags.length-1}</b><small>SHARED THEMES</small></span></div>
+      </section>
+      <section class="live-discovery" aria-labelledby="live-discovery-title">
+        <div class="live-discovery-copy"><span class="step-label">OUTSIDE THE ARCHIVE / LIVE SOURCES</span><h2 id="live-discovery-title">Your next rabbit hole<br/><em>starts here.</em></h2><p>Search real book and music catalogues, or connect a TMDB key to unlock live film and TV discovery. Results stay clearly labelled by source.</p><div class="live-source-notes"><span>OPEN LIBRARY</span><span>APPLE MUSIC SEARCH</span><span>TMDB · OPTIONAL KEY</span></div></div>
+        <div class="live-search-panel">
+          <div class="live-kind-tabs" aria-label="Live search type"><button class:live-kind-active={liveKind==='movie'} onclick={() => {liveKind='movie';liveResults=[];liveError='';liveSearched=false;}}>Film & TV</button><button class:live-kind-active={liveKind==='book'} onclick={() => {liveKind='book';liveResults=[];liveError='';liveSearched=false;}}>Books</button><button class:live-kind-active={liveKind==='music'} onclick={() => {liveKind='music';liveResults=[];liveError='';liveSearched=false;}}>Music</button></div>
+          <form class="live-search-form" onsubmit={(event) => {event.preventDefault(); void searchLiveDiscovery();}}><input bind:value={liveQuery} placeholder={liveKind==='movie'?'Search a film, actor, or director…':liveKind==='book'?'Search a book or author…':'Search an artist, album, or song…'} aria-label="Search live catalogues"/><button type="submit" disabled={liveLoading}>{liveLoading?'Searching…':'Search ↗'}</button></form>
+          <div class="live-search-foot"><span><i></i> {liveLoading?'CONTACTING SOURCES':liveSearched?'SEARCH COMPLETE':'READY TO EXPLORE'}</span><span>NOT PART OF YOUR CURATED 274</span></div><p class="live-attribution">Film and TV metadata via TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+        </div>
+        {#if liveError}<div class="live-message" role="status">{liveError}</div>{/if}
+        {#if liveResults.length}<div class="live-results"><div class="live-results-heading"><b>Found in the wider world</b><span>{liveResults.length} RESULTS · {liveResults[0]?.source}</span></div><div class="live-results-grid">{#each liveResults as result (result.id)}<article class="live-result-card"><div class="live-result-art">{#if result.image}<img src={result.image} alt="" loading="lazy"/>{:else}<span>{result.kind==='book'?'BOOK':result.kind==='music'?'SOUND':'SCREEN'}</span>{/if}<small>{result.source}</small></div><div class="live-result-body"><span class="live-result-meta">{result.kind.toUpperCase()} · {result.year}</span><h3>{result.title}</h3><p>{result.creator}</p><p class="live-result-description">{result.description}</p><button class="live-add-button" onclick={() => addLiveResultToLibrary(result)}>{works.some(work => work.title.toLowerCase().replace(/[^a-z0-9]/g, '')===result.title.toLowerCase().replace(/[^a-z0-9]/g, '') && work.type === (result.kind==='movie'?'Film':result.kind==='book'?'Book':'Music'))?'Already in library ✓':'＋ Add to my library'}</button><a class="live-source-link" href={result.url} target="_blank" rel="noreferrer">View source ↗</a></div></article>{/each}</div></div>{/if}
+        {#if libraryNotice}<div class="library-notice" role="status">{libraryNotice}</div>{/if}
+        <div class="personal-library-tools"><span><b>{importedWorks.length}</b> works added to your personal library <small>saved in this browser</small></span><button class="quiet-btn" onclick={exportImportedWorks}>Export imported works ↗</button></div>
       </section>
       <section class="explore-tools explore-tools-expanded">
         <div class="explore-search-row"><div class="search-box"><span>⌕</span><input bind:value={query} oninput={() => page=0} placeholder="Search titles, creators, themes, descriptions..." aria-label="Search collection"/>{#if query}<button class="clear-search" onclick={() => query=''} aria-label="Clear search">×</button>{/if}</div><label class="sort-select"><span>SORT BY</span><select bind:value={sortBy} onchange={() => page=0}><option value="curated">Curated order</option><option value="title">Title A–Z</option><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></label><div class="view-toggle" aria-label="Collection layout"><button class:view-active={exploreView==='grid'} aria-label="Grid view" onclick={() => exploreView='grid'}>▦</button><button class:view-active={exploreView==='list'} aria-label="List view" onclick={() => exploreView='list'}>☷</button></div></div>
@@ -1035,7 +1183,11 @@
   .trail-item-info{min-width:0;flex:1}.trail-item-info>b{display:block;font-size:12px;margin-bottom:4px}.trail-item-info>small{display:block;color:#8f8b82;font-size:9px}
   .trail-item-info .related-tags{margin:8px 0 0;min-height:0}
   .trail-item-actions{display:flex;gap:5px}.trail-item-actions button,.trail-saved-card>button{border:1px solid #39352f;border-radius:4px;background:#211f1c;color:#c4a7ff;padding:7px 10px}.trail-item-actions button:disabled{opacity:.25;cursor:default}
-  .trail-connection{display:flex;align-items:center;gap:10px;padding:8px 16px 8px 52px;background:#121210;color:#8d887f;font-size:9px;border-bottom:1px solid #302d29}.trail-connection>span:first-child{color:#c4a7ff}.trail-connection button{margin-left:auto;background:transparent;border:1px solid #4b4055;border-radius:4px;color:#d6c4f8;padding:7px 10px;font-size:9px}
+  .trail-connection{display:flex;align-items:center;gap:12px;min-height:44px;padding:9px 16px 9px 76px;background:#171512;color:#aaa196;font-size:10px;border-bottom:1px solid #302d29}
+  .trail-connection>span:first-child{display:grid;place-items:center;width:20px;height:20px;flex:none;border:1px solid #514361;border-radius:50%;color:#c4a7ff;font-size:12px}
+  .trail-connection>span:nth-child(2){flex:1;min-width:0}
+  .trail-connection button{flex:none;margin-left:auto;background:transparent;border:1px solid #3b514b;border-radius:5px;color:#8edbd2;padding:8px 11px;font-size:10px;transition:background .2s ease,border-color .2s ease}
+  .trail-connection button:hover{background:#1d2b27;border-color:#8edbd2}
   .trail-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:15px 0}.trail-actions .muted-small{margin-right:auto}
   .trail-empty{padding:42px 20px;text-align:center;border:1px dashed #39352f;border-radius:9px;background:#151412}.trail-empty-symbol{font-size:32px;color:#c4a7ff}.trail-empty h3{font-size:17px;font-weight:500;margin:12px 0 7px}.trail-empty p{max-width:500px;margin:0 auto 18px;color:#9a958b;font-size:11px;line-height:1.8}
   .trail-saved-section{margin-bottom:28px}.trail-saved-card{display:flex;align-items:center;gap:12px;text-align:left;cursor:default}.trail-saved-card .saved-bridge-text{min-width:0;flex:1}.trail-saved-card .saved-bridge-text small{white-space:normal;overflow-wrap:anywhere}
@@ -1188,6 +1340,17 @@
   @media(max-width:650px){.game-toolbar{padding:13px}.game-mode-tabs{width:100%;display:grid;grid-template-columns:1fr 1fr}.game-mode-tabs button{padding:10px 7px;font-size:10px}.game-filter-row{padding:12px;gap:8px}.game-filter-row>span{width:100%}.game-filter-tabs{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.game-connection-types{flex:1}.game-filter-tabs button{padding:8px 5px;font-size:9px}.game-new{margin-left:0;width:100%}.game-endpoints{grid-template-columns:minmax(0,1fr);gap:7px;padding:12px}.game-route-mark{flex-direction:row;gap:10px;padding:1px}.game-route-mark div{margin:0}.game-route-mark small{display:none}.game-endpoint{padding:13px}.game-endpoint h2{font-size:20px}.game-path-section{padding:0 12px 13px}.game-section-head{align-items:flex-start;flex-direction:column;gap:6px}.game-section-head h3{font-size:19px}.game-chain-node,.game-chain-placeholder{flex-basis:138px;min-height:100px}.game-search-results,.game-quiz-options{grid-template-columns:minmax(0,1fr)}.game-builder-footer{align-items:flex-start;flex-direction:column;gap:8px}.game-quiz-options>p{grid-column:auto}.game-evidence{grid-template-columns:minmax(0,1fr);gap:8px;padding:12px}.game-evidence>a,.game-evidence .evidence-tags{grid-column:1}.game-win-actions{display:grid;grid-template-columns:1fr}.game-win-actions button{width:100%}}
 
 
+
+  /* Small, purposeful motion: responsive feedback without distracting from discovery. */
+  .game-quiz-option{position:relative;overflow:hidden;transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease;animation:choice-enter .28s both}
+  .game-quiz-option:nth-of-type(2){animation-delay:35ms}.game-quiz-option:nth-of-type(3){animation-delay:70ms}.game-quiz-option:nth-of-type(4){animation-delay:105ms}.game-quiz-option:nth-of-type(5){animation-delay:140ms}
+  .game-quiz-option:hover{transform:translateY(-2px);background:#242019;border-color:#c4a7ff;box-shadow:0 7px 18px #09080755}
+  .game-quiz-option:active{transform:scale(.985)}
+  .trail-item-art,.trail-poster{transition:transform .35s ease,filter .35s ease}
+  .trail-item:hover .trail-poster{transform:scale(1.05);filter:saturate(1.08)}
+  @keyframes choice-enter{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+  @media(prefers-reduced-motion:reduce){.game-quiz-option,.trail-item,.trail-item-art,.trail-poster{animation:none!important;transition:none!important}}
+
   /* Simplified one-start Taste Bridge */
   .bridge-builder-simple{padding:clamp(16px,2.5vw,25px)}
   .bridge-type-tabs{display:flex;gap:8px;margin:20px 0 14px}
@@ -1233,4 +1396,102 @@
   .bridge-story-discovery{padding:14px 16px;border:1px solid #3c3545;border-radius:7px;background:#28212f}
   .bridge-story-discovery p{color:#e1d7ec;font-size:12px}
   @media(max-width:760px){.bridge-story-arc{grid-template-columns:1fr}.bridge-story-kicker{font-size:8px}.bridge-story-lead{font-size:12px;line-height:1.8}.bridge-story-card{padding:18px}.bridge-story-card h3{font-size:25px}}
+
+  /* TASTE EVOLVING — editorial redesign: art-journal, not generic AI dashboard */
+  :global(:root){font-family:'DM Sans',sans-serif;color:#201f1b;background:#f3f0e8;font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;--paper:#f3f0e8;--paper-deep:#e9e5db;--ink:#201f1b;--muted:#77736a;--line:#d9d4c8;--signal:#f05a3d;--signal-soft:#f8d8ce;--mint:#b8d6c7;--display:'Playfair Display',Georgia,serif}
+  :global(html),:global(body){background:var(--paper);color:var(--ink)}
+  :global(body){background-image:radial-gradient(circle at 90% 0%,rgba(240,90,61,.07),transparent 28rem)}
+  :global(button),:global(input),:global(select){font-family:inherit}
+  :global(button:focus-visible),:global(input:focus-visible),:global(select:focus-visible){outline:2px solid var(--signal);outline-offset:3px}
+  .app-shell{max-width:1800px;min-height:100vh;margin:0 auto;grid-template-columns:252px minmax(0,1fr);background:transparent;color:var(--ink)}
+  .sidebar{position:sticky;top:0;height:100vh;padding:28px 18px 22px;background:#e9e5db;border-right:1px solid #d5d0c4;color:var(--ink)}
+  .brand{padding:5px 8px 34px;color:var(--ink);font-size:22px;font-weight:700;letter-spacing:-1.2px}.brand-mark{display:inline-grid;place-items:center;width:31px;height:31px;margin-right:9px;border-radius:50%;background:var(--signal);color:white;font-size:20px}.brand-light{color:#77736a;font-weight:400}
+  .side-label,.step-label,.eyebrow,.breadcrumb,.local-badge,.builder-count,.bridge-start-select>span,.bridge-story-kicker,.graph-topline,.graph-legend,.panel-title,.inspector-type,.inspector-label,.filter-label,.explore-count,.work-card-kicker,.work-card .art-type,.work-card .art-year,.art-mood,.work-card-actions button,.pagination>span,.game-endpoint-label,.game-stats small,.game-filter-row>span,.game-link-count,.game-chain-index,.game-chain-link small,.game-helper,.game-method-note,.live-source-notes,.live-search-foot,.live-result-meta,.live-results-heading span{letter-spacing:1.05px}
+  .side-label{color:#8a857b;font-size:9px;margin:0 0 12px 10px}
+  .nav-item{display:flex;align-items:center;gap:11px;width:100%;margin:3px 0;padding:12px 11px;border:1px solid transparent;border-radius:8px;background:transparent;color:#625f57;font-size:12px;text-align:left;transition:background .18s,color .18s,border-color .18s}
+  .nav-item:hover{background:#f5f2ea;color:var(--ink)}.nav-item.nav-active{background:#f8f5ee;border-color:#d8d1c5;color:var(--ink);box-shadow:0 4px 14px #2b211008}.nav-icon{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:6px;background:#ded9ce;color:#504b43;font-size:15px}.nav-active .nav-icon{background:var(--signal);color:white}.nav-arrow{margin-left:auto;color:var(--signal)}.count{margin-left:auto;background:#dcd6ca;color:#575148;border-radius:999px;padding:3px 7px;font-size:9px}
+  .sidebar-bottom{margin-top:auto}.mini-note{border:1px solid #d3cdc0;border-radius:10px;background:#f0ece3;padding:13px;color:var(--ink)}.mini-note .note-icon{color:var(--signal)}.mini-note b{font-size:11px}.mini-note p{color:#777168;font-size:10px;line-height:1.6}.about-link{color:#6f6a61}
+  .main{padding:0 clamp(22px,4.3vw,72px);min-width:0}.topbar{min-height:58px;border-bottom:1px solid #ded9ce;color:#898378}.breadcrumb{font-size:9px}.breadcrumb span{color:var(--signal)}.local-badge{color:#666157;font-size:8px}.local-badge i,.live-search-foot i{background:#3c9275}.avatar{display:grid;place-items:center;background:var(--ink);color:var(--paper);border-radius:50%;width:30px;height:30px;font-family:var(--display);font-size:15px}
+  .page-intro{padding:clamp(32px,5vw,70px) 0 27px}.eyebrow{color:#8d867b;font-size:9px}.eyebrow-line{background:var(--signal)}.page-intro h1{max-width:900px;color:var(--ink);font-family:var(--display);font-size:clamp(46px,7.2vw,92px);font-weight:500;line-height:.98;letter-spacing:-3.4px;margin:21px 0 17px}.page-intro h1 em,.related-heading h2 em,.explore-feature h2 em,.live-discovery h2 em{color:var(--signal);font-weight:500}.intro-copy{max-width:620px;color:#777168;font-size:14px;line-height:1.85}
+  .concept-guide{background:#eae6dc;border:1px solid #d8d2c6;border-radius:12px;color:var(--ink);box-shadow:none}.concept-guide-heading b{color:var(--ink);font-size:13px}.concept-guide-heading p,.guide-example{color:#6f6a61;font-size:11px;line-height:1.8}.guide-icon{background:var(--signal);color:#fff;border-radius:7px}.guide-steps>div{background:#f5f2ea;border:1px solid #d8d2c6;border-radius:8px}.guide-steps>div span{background:var(--ink);color:var(--paper)}
+  .bridge-builder,.game-board,.explore-tools,.graph-card,.path-panel,.inspector,.work-card,.related-card,.collection-section,.trail-card,.saved-bridge-card{background:#faf8f2;border-color:#ded8cc;color:var(--ink);box-shadow:0 8px 30px #28211505}.bridge-builder{border-radius:13px}.builder-top h2,.result-heading h2,.game-section-head h3,.collection-heading h2{color:var(--ink);font-family:var(--display);font-size:clamp(25px,3vw,36px);font-weight:500;letter-spacing:-.8px}.builder-count,.step-label{color:#928b80}.bridge-type-tabs button{background:#f2eee5;border-color:#d6d0c4;color:#6b665d;border-radius:7px}.bridge-type-tabs button.bridge-type-active{background:var(--ink);border-color:var(--ink);color:#fff}.bridge-start-select{color:#777168}.bridge-start-select select,.mode-select select,.sort-select select,.theme-filter select,.picker-search input,.game-search,.game-builder-controls input,.live-search-form input{background:#fffdf8;border:1px solid #d6d0c4;border-radius:7px;color:var(--ink)}.quiet-btn,.reset-filters,.pagination button{background:#f4f0e7;border:1px solid #d6d0c4;color:#4f4a42;border-radius:7px}.quiet-btn:hover,.reset-filters:hover,.pagination button:hover{border-color:var(--signal);color:var(--signal)}.generate-btn{background:var(--signal);border:1px solid var(--signal);border-radius:7px;color:#fff;box-shadow:0 5px 14px #f05a3d20}.generate-btn:hover{background:#d8482e;border-color:#d8482e;transform:translateY(-1px)}.save-btn{background:#f4f0e7;border:1px solid #d6d0c4;color:var(--ink);border-radius:7px}.bridge-auto-target{background:#e9efe8;border-color:#cdd9ce;border-radius:9px}.target-icon{background:var(--signal);color:#fff}.bridge-auto-target small{color:#527766}.bridge-auto-target b{color:var(--ink)}.bridge-auto-target>div span{color:#777168}
+  .bridge-story-card{border:1px solid #292720;border-radius:13px;background:#24241f;color:#f5f0e5;box-shadow:0 16px 38px #28211510}.bridge-story-kicker{color:#e9a08e}.bridge-story-card h3{font-family:var(--display);font-size:clamp(30px,4vw,48px);font-weight:500;line-height:1.08;letter-spacing:-1px}.bridge-story-lead{font-size:14px;color:#d5d0c5;line-height:1.9}.bridge-story-arc section{border:1px solid #4a4840;background:#2d2d27;border-radius:8px}.bridge-story-arc section span,.bridge-story-discovery>span{color:#b8d6c7}.bridge-story-arc section p,.bridge-story-why p,.bridge-story-discovery p{color:#d1cbbf;font-size:12px}.bridge-story-why{border-color:#4a4840}.bridge-story-why>b{color:#fff6e9}.bridge-story-discovery{background:#35362f;border-color:#5c5b4e;border-radius:8px}.bridge-story-discovery p{color:#f2ebdd}
+  .graph-card{border-radius:12px}.graph-topline{color:#7b756a}.live-dot{background:#3c9275}.bridge-svg{background:#f0ece2;border-radius:10px}.graph-edge{stroke:#c7c0b3}.graph-edge-glow{stroke:#f05a3d;stroke-opacity:.35}.edge-pill{fill:#faf8f2;stroke:#d9d2c6}.edge-pill-text{fill:#615a50}.node-halo{fill:#f05a3d;fill-opacity:.1}.node-circle{stroke:#faf8f2;stroke-width:2}.node-title{fill:#292720}.node-type{fill:#777168}.node-number{fill:#201f1b}.graph-legend{color:#777168}.legend-dot.start{background:#f05a3d}.legend-dot.middle{background:#b8d6c7}.legend-dot.end{background:#201f1b}.result-lower{gap:18px}.path-panel,.inspector{border:1px solid #ded8cc;border-radius:10px}.panel-title{color:#777168}.path-item{border-color:#e4dfd5;color:var(--ink)}.path-item:hover,.path-item.path-selected{background:#f1ede4;border-color:#e7a18f}.path-index{background:#e5e0d5;color:#686157}.path-selected .path-index{background:var(--signal);color:white}.path-work b{color:var(--ink)}.path-work small,.path-category{color:#817a6e}.connection-line{background:#ddd7cb}.connection-note>span:nth-child(2){color:#797266}.inspector-top{border-color:#e0dace}.inspector-type,.inspector-label{color:#777168}.inspector h3{color:var(--ink);font-family:var(--display);font-size:28px;font-weight:500}.inspector-creator,.inspector-desc{color:#777168}.inspector-divider{background:#e0dace}.tag{border:1px solid #ded8cc;background:#f1ede4;color:#514b42}.why-box{background:#efebe2;border-color:#ded8cc}.why-box b{color:var(--ink)}.why-box p{color:#696359}.inspector-save{background:var(--ink);border-color:var(--ink);color:white;border-radius:7px}.method-note{color:#777168}
+  .explore-feature{background:#25251f;border:0;border-radius:13px;color:#f7f2e7;min-height:250px;padding:clamp(24px,4vw,46px);box-shadow:0 15px 40px #29231912}.explore-feature .step-label{color:#b8d6c7}.explore-feature h2{font-family:var(--display);font-weight:500;font-size:clamp(30px,4vw,46px);letter-spacing:-1px;color:#fff7ea}.explore-feature p{color:#d0c9bc;max-width:390px;font-size:13px;line-height:1.8}.feature-symbol{background:var(--signal);color:white}.feature-orbit{border-color:#68685b}.feature-stats b{color:#fff7ea}.feature-stats small{color:#bcb5a7}.explore-tools{border-radius:11px}.search-box{background:#fffdf8;border:1px solid #d8d2c6;border-radius:8px}.search-box input{color:var(--ink)}.filter-label{color:#928b80}.category-row button,.mood-row button{background:#f4f0e7;border:1px solid #ded8cc;color:#70695e;border-radius:999px}.category-row button.category-active,.mood-row button.mood-active{background:var(--ink);border-color:var(--ink);color:#fff}.explore-count{color:#827b70}.explore-count b{color:var(--signal)}.work-grid{gap:19px}.work-card{border-radius:10px;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}.work-card:hover{transform:translateY(-5px);border-color:#e6a08e;box-shadow:0 18px 35px #29231912}.work-art{height:clamp(180px,22vw,300px);background:linear-gradient(145deg,color-mix(in srgb,var(--art-color) 28%,#eee9df),#d5cfc3 72%)}.work-poster,.related-poster{filter:saturate(.86);transition:transform .5s ease,filter .4s ease}.work-card:hover .work-poster{transform:scale(1.035);filter:saturate(1)}.art-type,.art-year{color:#fff9ee;text-shadow:0 1px 8px #0007}.art-mood{background:#f7f2e8e8;color:#39362f;border-radius:4px}.art-core{background:var(--signal);color:white}.heart-btn{background:#faf8f2e8;color:#25241f;border-color:#faf8f2;border-radius:50%;width:34px;height:34px}.work-card-body{padding:17px}.work-card-kicker{color:#8a8377}.work-card h3{font-family:var(--display);font-size:21px;line-height:1.18;font-weight:500;letter-spacing:-.3px;color:var(--ink);min-height:0}.work-card-body .work-creator{font-size:11px;color:#7b7469}.work-card-body .work-description{font-size:11px;line-height:1.75;color:#696359}.work-card .tag{font-size:9px;border-radius:999px}.work-card-actions{border-color:#e4ded3}.work-card-actions button{background:#f2eee5;border-color:#ded8cc;color:#4f493f;border-radius:5px}.work-card-actions button:first-child{background:var(--signal);border-color:var(--signal);color:white}.work-card-actions button:first-child:hover{background:#d8482e;color:white}.work-card-actions button:last-child{color:#4f6759;border-color:#cfd9ce}.related-trigger{color:#777168}.related-heading h2{font-family:var(--display);font-size:34px;font-weight:500}.related-card{border-radius:10px}.related-body h3{font-family:var(--display);font-size:21px;font-weight:500;color:var(--ink)}.related-body p{color:#777168}.related-body button{background:var(--ink);color:white;border-radius:6px}.pagination{border-color:#ddd7cb}.pagination button:disabled{opacity:.35}
+  .game-board{border-radius:12px}.game-toolbar{border-color:#ded8cc}.game-mode-tabs{background:#eee9df;border-radius:8px;padding:4px}.game-mode-tabs button{color:#6c665b;border-radius:6px}.game-mode-tabs button.game-mode-active{background:var(--ink);color:#fff}.game-stats span{border-left-color:#ded8cc}.game-stats b{color:var(--signal)}.game-stats small{color:#8a8378}.game-filter-row{border-color:#ded8cc}.game-filter-row>span{color:#8a8378}.game-filter-tabs button{background:#f2eee5;border-color:#ded8cc;color:#70695e;border-radius:6px}.game-filter-tabs button.filter-active{background:var(--ink);border-color:var(--ink);color:#fff}.game-filter-note{color:#777168}.game-endpoint{background:#f1ede4;border-color:#ded8cc;border-radius:9px}.game-start{background:#e9eee6;border-color:#cdd8cb}.game-target{background:#f8e6df;border-color:#e9c6bb}.game-endpoint-label{color:#8a8378}.game-endpoint h2{font-family:var(--display);font-size:clamp(23px,3vw,35px);font-weight:500;color:var(--ink)}.game-endpoint p{color:#777168}.game-route-mark{color:#817a6f}.game-path-section{border-color:#ded8cc}.game-section-head h3{font-family:var(--display)}.game-chain-node,.game-chain-placeholder{background:#f4f0e7;border-color:#ded8cc;border-radius:8px}.game-chain-node b{color:var(--ink)}.game-chain-node small,.game-chain-index{color:#777168}.game-chain-link{color:var(--signal)}.game-builder-controls input,.game-search-results>button,.game-quiz-option{background:#fffdf8;border-color:#ded8cc;color:var(--ink);border-radius:7px}.game-search-results>button.game-option-valid{background:#e8f0e7;border-color:#b9d1bc}.game-search-results b,.game-quiz-option b{color:var(--ink)}.game-search-results small,.game-quiz-option small{color:#777168}.game-quiz-option>span{background:#f8ded5;color:#ad402c}.game-feedback{background:#f0e9f4;color:#5c456c;border-radius:8px}.game-feedback.feedback-success{background:#e5efe5;color:#2f684d}.game-feedback.feedback-error{background:#f8e7e0;color:#8e3c2c}.game-evidence{background:#f1ede4;border-color:#ded8cc;border-radius:8px}.game-evidence h4{color:var(--ink)}.game-evidence>p{color:#696359}.game-evidence>a{color:#3b7565}.game-helper,.game-method-note{color:#777168}
+  .live-discovery{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:24px;margin:0 0 25px;padding:clamp(20px,3vw,32px);border:1px solid #d7d0c4;border-radius:13px;background:#e9e5db;position:relative;overflow:hidden}.live-discovery:after{content:'↗';position:absolute;right:20px;top:0;font:italic 150px/1 var(--display);color:#d8d1c5;pointer-events:none}.live-discovery-copy,.live-search-panel{position:relative;z-index:1}.live-discovery h2{margin:10px 0 12px;font:500 clamp(27px,3vw,39px)/1.04 var(--display);letter-spacing:-.8px;color:var(--ink)}.live-discovery-copy>p{max-width:410px;color:#716b61;font-size:11px;line-height:1.8}.live-source-notes{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}.live-source-notes span{padding:5px 7px;border:1px solid #d0c9bc;border-radius:4px;color:#777064;font:8px 'DM Mono',monospace}.live-search-panel{align-self:center;background:#f7f4ec;border:1px solid #d8d1c5;border-radius:10px;padding:15px;box-shadow:0 12px 24px #28211508}.live-kind-tabs{display:flex;gap:4px;margin-bottom:12px}.live-kind-tabs button{padding:8px 11px;border:1px solid transparent;border-radius:5px;background:transparent;color:#777064;font-size:10px}.live-kind-tabs button.live-kind-active{background:var(--ink);color:white}.live-search-form{display:flex;gap:7px}.live-search-form input{min-width:0;flex:1;padding:12px;font-size:11px}.live-search-form button{padding:0 15px;border:0;border-radius:6px;background:var(--signal);color:white;font-size:11px;white-space:nowrap}.live-search-form button:disabled{opacity:.55}.live-search-foot{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:11px;color:#8c8579;font:7px 'DM Mono',monospace}.live-search-foot span:first-child{display:flex;align-items:center;gap:6px}.live-search-foot i{width:6px;height:6px;border-radius:50%}.live-attribution{margin:10px 0 0;color:#8a8378;font-size:8px;line-height:1.6}.live-message{grid-column:1/-1;margin-top:-8px;padding:11px 13px;border:1px solid #e2b5a8;border-radius:7px;background:#f8e5df;color:#8f3d2b;font-size:11px;line-height:1.6}.live-results{grid-column:1/-1}.live-results-heading{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:8px 0 12px}.live-results-heading b{font:500 23px var(--display)}.live-results-heading span{color:#8a8378;font:8px 'DM Mono',monospace}.live-results-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.live-result-card{overflow:hidden;border:1px solid #d8d2c6;border-radius:8px;background:#faf8f2;min-width:0}.live-result-art{position:relative;height:170px;display:grid;place-items:center;overflow:hidden;background:#e2ddd2}.live-result-art img{width:100%;height:100%;object-fit:cover}.live-result-art>span{font:italic 25px var(--display);color:#81796e}.live-result-art small{position:absolute;left:8px;top:8px;background:#faf8f2e8;color:#524c43;border-radius:4px;padding:4px 6px;font-size:8px}.live-result-body{padding:12px}.live-result-meta{font:8px 'DM Mono',monospace;color:#928a7d}.live-result-body h3{margin:7px 0 4px;font:500 19px/1.15 var(--display);color:var(--ink);overflow-wrap:anywhere}.live-result-body>p{margin:0 0 7px;color:#6f685e;font-size:10px}.live-result-body .live-result-description{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:45px;line-height:1.6}.live-result-body button{width:100%;padding:9px;border:1px solid #d8d2c6;border-radius:5px;background:#f0ece3;color:#39352e;font-size:10px}.live-result-body button:hover{background:var(--ink);color:white}.live-result-body .live-add-button{background:var(--signal);border-color:var(--signal);color:#fff;margin-bottom:6px}.live-result-body .live-add-button:hover{filter:brightness(.94)}.live-source-link{display:block;text-align:center;color:#716b61;text-decoration:none;font-size:10px;padding:5px}.live-source-link:hover{color:var(--signal);text-decoration:underline}.library-notice{grid-column:1/-1;padding:10px 13px;border:1px solid #c7d9c9;border-radius:7px;background:#eaf1e7;color:#365741;font-size:11px;line-height:1.6}.personal-library-tools{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 14px;border:1px solid #d8d1c5;border-radius:8px;background:#f7f4ec;color:#514b42;font-size:11px}.personal-library-tools span{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}.personal-library-tools b{font:500 22px var(--display);color:var(--signal)}.personal-library-tools small{color:#8a8378;font-size:9px}
+  .collection-heading h2,.related-heading h2{color:var(--ink)}.saved-bridge-card{background:#faf8f2;border-color:#ded8cc}.saved-bridge-text b{color:var(--ink)}.saved-bridge-text small{color:#777168}.saved-bridge-icon{background:#f8ded5;color:#b84731}.saved-work-list,.saved-work-row{border-color:#ded8cc}.saved-work-info b{color:var(--ink)}.saved-work-info small{color:#777168}.saved-work-row button{background:#f4f0e7;border-color:#d8d2c6;color:#4f493f}.empty-state{border-color:#d4cec2;color:#777168}.empty-state h3{color:var(--ink)}.empty-state>span{color:var(--signal)}footer{border-color:#ded8cc;color:#8a8378}footer b{color:var(--signal)}.toast{background:var(--ink);border-color:#46443b;color:#f8f2e7;border-radius:8px}
+  @media(max-width:1050px){.app-shell{grid-template-columns:215px minmax(0,1fr)}.main{padding:0 24px}.live-results-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:760px){.app-shell{display:block}.sidebar{position:relative;height:auto;padding:14px 16px;border-right:0;border-bottom:1px solid #d5d0c4}.brand{padding-bottom:15px}.side-label,.sidebar-bottom{display:none}.nav-item{display:inline-flex;width:auto;margin:0 3px 4px 0;padding:8px;font-size:10px}.nav-icon{width:20px;height:20px}.main{padding:0 16px}.topbar{min-height:44px}.top-actions{display:none}.page-intro{padding:29px 0 19px}.page-intro h1{font-size:clamp(42px,12vw,67px);letter-spacing:-2px}.intro-copy{font-size:12px}.live-discovery{grid-template-columns:1fr;gap:14px;padding:18px}.live-discovery:after{font-size:100px}.live-results-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.live-result-art{height:145px}.bridge-story-arc{grid-template-columns:1fr}.bridge-story-card h3{font-size:30px}.work-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.work-art{height:clamp(135px,40vw,220px)}.work-card-body{padding:12px}.work-card h3{font-size:18px}.work-card-actions{flex-direction:column}.game-toolbar{padding:14px}.game-endpoints{grid-template-columns:1fr}.game-route-mark{flex-direction:row;justify-content:center}.result-heading{align-items:flex-start;flex-direction:column}.result-actions{flex-wrap:wrap}.saved-bridges{grid-template-columns:1fr}}
+  @media(max-width:420px){.nav-item{font-size:9px;padding:7px 6px;gap:5px}.nav-arrow{display:none}.work-grid{grid-template-columns:1fr 1fr}.work-card h3{font-size:16px}.work-card-body .work-description{font-size:10px}.live-search-form{flex-direction:column}.live-search-form button{padding:11px}.live-results-grid{gap:8px}.live-result-art{height:115px}.live-result-body{padding:9px}.live-result-body h3{font-size:16px}.live-results-heading{align-items:flex-start;flex-direction:column}}
+  @media(prefers-reduced-motion:reduce){.work-card,.work-poster,.generate-btn{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+  /* Final polish: consistent spacing, readable trail titles and animated quiz choices. */
+  .trail-list{overflow:hidden;border:1px solid #302d29;border-radius:12px;background:#151411}
+  .trail-item{gap:16px;padding:17px 16px;min-height:94px}
+  .trail-item-info>b{color:#f0e9df;font-size:13px;line-height:1.4;font-weight:600}
+  .trail-item-info>small{color:#aaa196;font-size:10px;line-height:1.5}
+  .trail-connection{min-height:45px;gap:12px;padding:9px 16px 9px 76px;background:#191715;border-bottom:1px solid #302d29}
+  .trail-connection>span:first-child{display:grid;place-items:center;width:20px;height:20px;flex:none;border:1px solid #514361;border-radius:50%;color:#c4a7ff;font-size:12px}
+  .trail-connection>span:nth-child(2){flex:1;min-width:0;color:#aaa196}
+  .trail-connection button{flex:none;margin-left:auto;border:0;background:transparent;color:#8edbd2;font-size:10px;white-space:nowrap}
+  .game-quiz-options{gap:10px}
+  .game-quiz-option{min-height:72px;animation:choice-enter .28s both;transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}
+  .game-quiz-option:nth-child(2){animation-delay:35ms}.game-quiz-option:nth-child(3){animation-delay:70ms}.game-quiz-option:nth-child(4){animation-delay:105ms}.game-quiz-option:nth-child(5){animation-delay:140ms}
+  .game-quiz-option:hover{transform:translateY(-2px);background:#242019;border-color:#c4a7ff;box-shadow:0 7px 18px #09080722}
+  @keyframes choice-enter{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+  @media(max-width:650px){.trail-item{gap:9px;padding:12px 9px}.trail-connection{padding:10px 12px;gap:8px}.trail-connection button{white-space:normal;text-align:right}}
+  @media(prefers-reduced-motion:reduce){.game-quiz-option,.trail-item,.trail-item-art,.trail-poster{animation:none!important;transition:none!important}}
+
+
+
+  /* TasteEvolving signature motion: calm, tactile, and reduced-motion aware. */
+  .game-intro .eyebrow-line{display:none}
+  .game-intro .eyebrow{gap:0}
+  .nav-icon{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:9px;background:linear-gradient(145deg,#292522,#1a1917);border:1px solid #3a3530;color:#e6c8a7;font-size:16px;transition:transform .22s ease,background .22s ease,border-color .22s ease}
+  .nav-item:hover .nav-icon{transform:rotate(-7deg) scale(1.06);background:#302923;border-color:#8d7560}
+  .nav-active .nav-icon{background:#f05a3d;border-color:#f05a3d;color:#fff}
+  .game-chain-node{animation:chain-arrive .38s cubic-bezier(.2,.8,.2,1) both}
+  .game-chain-node:nth-child(2n){animation-delay:45ms}
+  .game-chain-link{animation:link-draw .35s ease both}
+  .game-endpoint{transition:transform .25s ease,box-shadow .25s ease}
+  .game-start{animation:endpoint-arrive .5s ease both}
+  .game-target{animation:endpoint-arrive .65s ease both}
+  .bridge-story-card,.graph-card{animation:bridge-reveal .55s cubic-bezier(.2,.75,.25,1) both}
+  .game-feedback{animation:feedback-pop .24s ease both}
+  .game-quiz-option:focus-visible,.nav-item:focus-visible{outline:2px solid #c4a7ff;outline-offset:3px}
+  @keyframes chain-arrive{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+  @keyframes link-draw{from{opacity:0;transform:scaleY(.7);transform-origin:top}to{opacity:1;transform:scaleY(1)}}
+  @keyframes endpoint-arrive{from{opacity:.55;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes bridge-reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes feedback-pop{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+  @media(prefers-reduced-motion:reduce){.game-chain-node,.game-chain-link,.game-start,.game-target,.bridge-story-card,.graph-card,.game-feedback{animation:none!important}.nav-icon,.game-endpoint{transition:none!important}}
+
+  /* Final editorial cleanup requested from visual review. */
+  .eyebrow-line{display:none!important}
+  .eyebrow{gap:0!important}
+  .brand{gap:10px}
+  .brand-mark{position:relative;width:32px;height:32px;flex:none;margin-right:0;border:1px solid #d94d34;border-radius:10px 10px 10px 3px;background:#f05a3d;color:#fff;box-shadow:0 2px 0 #c7452f;transform:rotate(-3deg)}
+  .brand-mark>span{font:600 18px/1 'Playfair Display',Georgia,serif;letter-spacing:-1px;transform:rotate(3deg) translateY(-1px)}
+  .brand-mark>i{position:absolute;width:5px;height:5px;right:5px;top:5px;border:1.5px solid #fff;border-radius:50%;background:#f05a3d}
+  .concept-guide{background:#f8f5ee!important;border-color:#ded7ca!important;box-shadow:0 5px 20px #28211506!important}
+  .concept-guide-heading p{color:#625d54!important}
+  .guide-example{color:#514c43!important;font-size:11px!important;line-height:1.8!important}
+  .guide-example strong{color:#25231f!important;font-weight:700!important}
+  .bridge-guide .guide-example{margin-top:12px;padding:12px 14px;border-left:2px solid #f05a3d;border-radius:0 7px 7px 0;background:#f0ece3}
+  .trail-guide .guide-example{margin-top:12px;padding:12px 14px;border-left:2px solid #7eaa97;border-radius:0 7px 7px 0;background:#f0ece3}
+  .trail-list{overflow:hidden;border:1px solid #ded8cc!important;border-radius:12px;background:#faf8f2!important;box-shadow:0 8px 30px #28211505}
+  .trail-item{background:#faf8f2!important;border-color:#e3ddd2!important;color:#201f1b!important}
+  .trail-item-info>b{color:#25231f!important;font-size:13px;line-height:1.45}
+  .trail-item-info>small{color:#777168!important}
+  .trail-index{color:#777168!important}
+  .trail-connection{background:#f3efe6!important;border-color:#e0dace!important}
+  .trail-connection>span:first-child{background:#f8ded5!important;border-color:#edc2b6!important;color:#b84731!important}
+  .trail-connection>span:nth-child(2){color:#6b655b!important}
+  .trail-connection button{color:#277d70!important}
+  .trail-item-actions button{background:#f4f0e7!important;border-color:#d8d2c6!important;color:#4f493f!important}
+  .trail-item-actions button:disabled{opacity:.35}
+  .trail-actions .muted-small{color:#777168!important}
+  .saved-trail-card,.saved-trail,.trail-saved-card{color:#25231f}
+  .note-icon{font-size:20px!important}
+  @media(max-width:760px){.brand-mark{width:29px;height:29px}.trail-item{background:#faf8f2!important}}
 </style>
